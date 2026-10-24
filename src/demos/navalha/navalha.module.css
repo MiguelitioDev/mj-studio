@@ -101,7 +101,7 @@
 
 .heroGrid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2rem;
   align-items: center;
 }
@@ -182,7 +182,7 @@
 
 .quickMeta {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.75rem;
   padding-top: 1rem;
   border-top: 1px solid var(--nv-border-subtle);
@@ -353,7 +353,7 @@
 
 .teamGrid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.25rem;
 }
 
@@ -390,7 +390,7 @@
 
 .infoGrid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.25rem;
 }
 

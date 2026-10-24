@@ -112,7 +112,7 @@
 
 .heroGrid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2rem;
   align-items: center;
 }
@@ -257,7 +257,7 @@
 
 .questionsGrid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.5rem;
 }
 
@@ -437,7 +437,7 @@
 
 .servicesGrid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.5rem;
 }
 
@@ -563,7 +563,7 @@
 
 .worksGrid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.5rem;
 }
 
@@ -621,7 +621,7 @@
 
 .warrantyBanner {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2rem;
   align-items: start;
 }

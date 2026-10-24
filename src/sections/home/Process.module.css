@@ -1,0 +1,81 @@
+.section {
+  padding: var(--s-8) 0;
+  border-bottom: 1px solid var(--areia);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin-bottom: var(--s-6);
+}
+
+.title {
+  font-size: var(--fs-4);
+  color: var(--tinta);
+}
+
+.subtitle {
+  font-size: var(--fs-1);
+  color: var(--tinta);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-5);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-5);
+  border-radius: var(--r-md);
+  border: 1px solid var(--areia);
+  background-color: var(--branco);
+}
+
+.number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-sm);
+  background-color: var(--espuma);
+  color: var(--tinta);
+  font-family: var(--font-display);
+  font-size: var(--fs-2);
+  font-weight: 700;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.stepTitle {
+  font-size: var(--fs-2);
+  color: var(--tinta);
+}
+
+.stepDescription {
+  font-size: var(--fs-1);
+  color: var(--tinta);
+}
+
+@media (min-width: 720px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1040px) {
+  .list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

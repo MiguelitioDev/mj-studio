@@ -73,9 +73,7 @@
   background-color: var(--caption-bg);
   color: var(--caption-fg);
   border: 1px solid rgb(128 128 128 / 0.2);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 .round .caption {

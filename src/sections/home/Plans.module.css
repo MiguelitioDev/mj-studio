@@ -1,0 +1,190 @@
+.section {
+  padding: var(--s-8) 0;
+  border-bottom: 1px solid var(--areia);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin-bottom: var(--s-6);
+}
+
+.title {
+  font-size: var(--fs-4);
+  color: var(--tinta);
+}
+
+.subtitle {
+  font-size: var(--fs-1);
+  color: var(--tinta);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-5);
+  align-items: stretch;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  padding: var(--s-6);
+  border-radius: var(--r-md);
+  border: 1px solid var(--areia);
+  background-color: var(--branco);
+}
+
+.cardRecommended {
+  order: -1;
+  background-color: var(--espuma);
+  border-color: var(--mar);
+  box-shadow: var(--shadow-elevated);
+}
+
+.cardTop {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+}
+
+.planName {
+  font-size: var(--fs-3);
+  color: var(--tinta);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--r-sm);
+  background-color: var(--sol);
+  color: var(--tinta);
+  font-size: var(--fs-0);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.forWho {
+  font-size: var(--fs-1);
+  color: var(--tinta);
+}
+
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  padding: var(--s-4) 0;
+  border-top: 1px solid var(--areia);
+  border-bottom: 1px solid var(--areia);
+}
+
+.payment {
+  font-size: var(--fs-0);
+  color: var(--tinta);
+}
+
+.deadline {
+  font-size: var(--fs-0);
+  color: var(--tinta);
+}
+
+.includesList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.includeItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  font-size: var(--fs-1);
+  color: var(--tinta);
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  color: var(--mar);
+  margin-top: 0.2rem;
+}
+
+.cardFooter {
+  margin-top: auto;
+  padding-top: var(--s-2);
+}
+
+.extrasBlock {
+  margin-top: var(--s-7);
+  padding: var(--s-6);
+  border-radius: var(--r-md);
+  border: 1px solid var(--areia);
+  background-color: var(--branco);
+}
+
+.extrasTitle {
+  font-size: var(--fs-2);
+  color: var(--tinta);
+  margin-bottom: var(--s-4);
+}
+
+.extrasList {
+  display: flex;
+  flex-direction: column;
+}
+
+.extraRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  padding: var(--s-3) 0;
+  border-top: 1px solid var(--areia);
+}
+
+.extraRow:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.extraRow:last-child {
+  padding-bottom: 0;
+}
+
+.extraName {
+  font-weight: 700;
+  color: var(--tinta);
+}
+
+.extraPrice {
+  color: var(--tinta);
+}
+
+@media (min-width: 720px) {
+  .extraRow {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--s-4);
+  }
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cardRecommended {
+    order: 0;
+  }
+}

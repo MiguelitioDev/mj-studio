@@ -1,15 +1,27 @@
 import { site } from "../config/site";
-import { Container } from "../components/ui/Container";
+import { Commitments } from "../sections/home/Commitments";
+import { Faq } from "../sections/home/Faq";
+import { FinalCta } from "../sections/home/FinalCta";
+import { Hero } from "../sections/home/Hero";
+import { ModelsShowcase } from "../sections/home/ModelsShowcase";
+import { Plans } from "../sections/home/Plans";
+import { Process } from "../sections/home/Process";
 
 export default function HomePage() {
   return (
-    <Container>
-      <title>{`${site.name} — ${site.tagline}`}</title>
+    <>
+      <title>{`${site.name} — Sites para pequenos negócios em ${site.city}`}</title>
       <meta
         name="description"
-        content="Sites prontos para pequenos negócios em Fortaleza e região, ajustados com a sua marca. A partir de R$ 800."
+        content="Modelos prontos de sites para pequenos negócios em Fortaleza e região, ajustados com a sua marca e integrados ao WhatsApp. A partir de R$ 800."
       />
-      <h1>{site.name}</h1>
-    </Container>
+      <Hero />
+      <ModelsShowcase />
+      <Plans />
+      <Process />
+      <Commitments />
+      <Faq />
+      <FinalCta />
+    </>
   );
 }

@@ -1,0 +1,118 @@
+.page {
+  padding: var(--s-8) 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin-bottom: var(--s-6);
+}
+
+.title {
+  font-size: var(--fs-5);
+  color: var(--tinta);
+}
+
+.subtitle {
+  font-size: var(--fs-2);
+  color: var(--tinta);
+}
+
+.emptyState {
+  padding: var(--s-6);
+  border-radius: var(--r-md);
+  border: 1px solid var(--areia);
+  background-color: var(--branco);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  max-width: 680px;
+}
+
+.emptyText {
+  font-size: var(--fs-2);
+  color: var(--tinta);
+}
+
+.emptyActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-5);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--branco);
+  border: 1px solid var(--areia);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--s-3);
+  padding: var(--s-5);
+}
+
+.cardHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-2);
+}
+
+.projectName {
+  font-size: var(--fs-3);
+  color: var(--tinta);
+}
+
+.metaBadge {
+  display: inline-block;
+  padding: 2px var(--s-2);
+  border-radius: var(--r-sm);
+  background-color: var(--espuma);
+  color: var(--tinta);
+  font-size: var(--fs-0);
+  font-weight: 700;
+}
+
+.summary {
+  font-size: var(--fs-1);
+  color: var(--tinta);
+}
+
+.cardFooter {
+  margin-top: auto;
+  padding-top: var(--s-2);
+}
+
+.externalLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 700;
+  color: var(--mar);
+}
+
+@media (min-width: 720px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1040px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
