@@ -48,6 +48,7 @@ Toda a configuração do negócio e os textos comerciais foram separados em arqu
 | Catálogo de modelos (nomes, descrições, destaques e pacote indicado) | `src/data/models.ts` |
 | Abas de nichos/ramos de negócio | `src/data/niches.ts` |
 | Paleta de cores, fontes, tamanhos e espaçamentos do site da MJ Studios | `src/styles/tokens.css` |
+| Logo, ícones do navegador e imagem de prévia ao compartilhar o link (gerados a partir da pasta `Artes`) | `public/brand/` |
 
 > **Dica:** Enquanto a lista `projects` em `src/data/projects.ts` estiver vazia (`[]`), o link "Projetos" fica oculto no menu principal automaticamente e a página `/projetos` exibe uma mensagem honesta convidando o visitante a testar os modelos de demonstração. Assim que você cadastrar o primeiro projeto entregue, o item passa a aparecer no menu.
 
