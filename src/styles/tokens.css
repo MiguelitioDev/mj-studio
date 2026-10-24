@@ -1,0 +1,50 @@
+:root {
+  /* Cores */
+  --cal: #F6F7F3;
+  --tinta: #17302B;
+  --mar: #0F6B5C;
+  --mar-escuro: #0A5045;
+  --espuma: #DCEDE7;
+  --sol: #F2B33D;
+  --areia: #E8E2D6;
+  --branco: #FFFFFF;
+
+  /* Tipografia */
+  --font-display: "Familjen Grotesk", system-ui, -apple-system, sans-serif;
+  --font-body: "Atkinson Hyperlegible Next", system-ui, -apple-system, sans-serif;
+
+  /* Escala tipográfica (base 16px, razão ~1.25) */
+  --fs-0: 0.875rem;
+  --fs-1: 1rem;
+  --fs-2: 1.25rem;
+  --fs-3: 1.563rem;
+  --fs-4: 1.953rem;
+  --fs-5: 2.441rem;
+  --fs-6: clamp(2.441rem, 6vw, 3.815rem);
+
+  --lh-body: 1.55;
+  --lh-heading: 1.1;
+  --measure: 68ch;
+
+  /* Raios */
+  --r-sm: 6px;
+  --r-md: 14px;
+  --r-phone: 36px;
+
+  /* Sombras */
+  --shadow-elevated: 0 24px 48px -24px rgb(23 48 43 / 0.35);
+
+  /* Espaçamento (4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96px) */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+
+  /* Layout */
+  --container-max: 1160px;
+}

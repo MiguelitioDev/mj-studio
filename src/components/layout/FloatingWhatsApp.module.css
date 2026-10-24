@@ -1,0 +1,22 @@
+.floating {
+  position: fixed;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 90;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--mar);
+  color: var(--branco);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-elevated);
+  text-decoration: none;
+  transition: background-color 150ms ease;
+}
+
+.floating:hover {
+  background-color: var(--mar-escuro);
+  color: var(--branco);
+}

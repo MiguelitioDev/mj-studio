@@ -1,0 +1,50 @@
+.tabsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+
+.tabList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  border-bottom: 1px solid var(--areia);
+  padding-bottom: var(--s-3);
+}
+
+.tab {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--areia);
+  background-color: var(--branco);
+  color: var(--tinta);
+  font-family: var(--font-body);
+  font-size: var(--fs-1);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease;
+}
+
+.tab:hover {
+  background-color: var(--espuma);
+}
+
+.tabActive {
+  background-color: var(--mar);
+  border-color: var(--mar);
+  color: var(--branco);
+}
+
+.tabActive:hover {
+  background-color: var(--mar-escuro);
+  border-color: var(--mar-escuro);
+  color: var(--branco);
+}
+
+.tabPanel {
+  transition: opacity 150ms ease;
+}
