@@ -1,0 +1,148 @@
+.notice {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--tinta);
+  color: var(--cal);
+  border-bottom: 1px solid rgb(246 247 243 / 0.16);
+  font-family: var(--font-body);
+}
+
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--s-2) var(--s-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--s-2);
+  color: var(--cal);
+  font-size: var(--fs-0);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  border-radius: var(--r-sm);
+}
+
+.backLink:hover {
+  color: var(--espuma);
+}
+
+.badge {
+  display: none;
+  font-size: var(--fs-0);
+  color: var(--espuma);
+}
+
+.desktopField {
+  display: none;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.fieldLabel {
+  font-size: var(--fs-0);
+  color: var(--cal);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.input {
+  min-height: 40px;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--r-sm);
+  border: 1px solid rgb(246 247 243 / 0.35);
+  background-color: rgb(246 247 243 / 0.1);
+  color: var(--cal);
+  font-size: var(--fs-0);
+  width: 210px;
+}
+
+.input::placeholder {
+  color: rgb(246 247 243 / 0.65);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.mobileToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--r-sm);
+  border: 1px solid rgb(246 247 243 / 0.35);
+  background-color: transparent;
+  color: var(--cal);
+  font-size: var(--fs-0);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mobileToggle:hover {
+  background-color: rgb(246 247 243 / 0.1);
+}
+
+.ctaButton {
+  font-size: var(--fs-0);
+  padding: 0.5rem 0.875rem;
+}
+
+.mobileDrawer {
+  padding: var(--s-3) var(--s-4) var(--s-4);
+  border-top: 1px solid rgb(246 247 243 / 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.mobileDrawer .input {
+  width: 100%;
+  min-height: 44px;
+}
+
+.mobileBadge {
+  font-size: var(--fs-0);
+  color: var(--espuma);
+}
+
+@media (min-width: 900px) {
+  .inner {
+    padding: var(--s-2) var(--s-6);
+    flex-wrap: nowrap;
+  }
+
+  .badge {
+    display: inline;
+  }
+
+  .desktopField {
+    display: flex;
+  }
+
+  .mobileToggle {
+    display: none;
+  }
+
+  .mobileDrawer {
+    display: none;
+  }
+}

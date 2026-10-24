@@ -1,0 +1,95 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0.75rem;
+  border: 1px solid rgb(128 128 128 / 0.22);
+  isolation: isolate;
+}
+
+.round {
+  border-radius: 9999px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.light {
+  background-color: #f3f1ec;
+  color: #26292b;
+  --pattern-line: rgb(25 35 32 / 0.08);
+  --pattern-shape: rgb(25 35 32 / 0.13);
+  --caption-bg: rgb(255 255 255 / 0.88);
+  --caption-fg: #1d2422;
+}
+
+.dark {
+  background-color: #23211f;
+  color: #f2ece1;
+  --pattern-line: rgb(255 255 255 / 0.08);
+  --pattern-shape: rgb(200 155 60 / 0.22);
+  --caption-bg: rgb(20 18 16 / 0.86);
+  --caption-fg: #f4efe6;
+}
+
+.accent {
+  background-color: #e4ded2;
+  color: #1f2421;
+  --pattern-line: rgb(20 35 30 / 0.09);
+  --pattern-shape: rgb(184 50 42 / 0.18);
+  --caption-bg: rgb(255 255 255 / 0.9);
+  --caption-fg: #1f2421;
+}
+
+.pattern {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle at 78% 26%, var(--pattern-shape) 0, var(--pattern-shape) 26%, transparent 27%),
+    linear-gradient(135deg, transparent 42%, var(--pattern-shape) 42%, var(--pattern-shape) 58%, transparent 58%),
+    repeating-linear-gradient(
+      45deg,
+      var(--pattern-line) 0,
+      var(--pattern-line) 1px,
+      transparent 1px,
+      transparent 14px
+    );
+}
+
+.caption {
+  display: inline-block;
+  max-width: 100%;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  background-color: var(--caption-bg);
+  color: var(--caption-fg);
+  border: 1px solid rgb(128 128 128 / 0.2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.round .caption {
+  font-size: 0.7rem;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

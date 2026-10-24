@@ -1,0 +1,266 @@
+.cartao {
+  --ct-lilac: #5b3f8c;
+  --ct-lilac-dark: #452d6e;
+  --ct-rose: #f3d9dc;
+  --ct-rose-soft: #faf0f2;
+  --ct-white: #ffffff;
+  --ct-ink: #241934;
+  --ct-muted: #554869;
+  --ct-border: #e4d4e8;
+
+  background:
+    radial-gradient(circle at 50% 0%, var(--ct-rose) 0%, var(--ct-rose-soft) 55%, var(--ct-white) 100%);
+  color: var(--ct-ink);
+  font-family: "Atkinson Hyperlegible Next", system-ui, -apple-system, sans-serif;
+  line-height: 1.45;
+  min-height: 100vh;
+  padding: 1rem 0.75rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: hidden;
+}
+
+.cartao h1,
+.cartao h2 {
+  font-family: "Familjen Grotesk", system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  color: var(--ct-ink);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.cartao a:focus-visible {
+  outline: 3px solid var(--ct-lilac);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--ct-rose);
+}
+
+.cardShell {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--ct-white);
+  border: 1px solid var(--ct-border);
+  border-radius: 22px;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 18px 40px -24px rgb(91 63 140 / 0.3);
+}
+
+.profileHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.45rem;
+}
+
+.avatarWrap {
+  width: 84px;
+  height: 84px;
+  border-radius: 9999px;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--ct-lilac), var(--ct-rose));
+  margin-bottom: 0.2rem;
+}
+
+.profileName {
+  font-size: 1.375rem;
+}
+
+.profileRole {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--ct-lilac);
+  max-width: 38ch;
+}
+
+.profileBio {
+  font-size: 0.8125rem;
+  color: var(--ct-muted);
+  max-width: 40ch;
+}
+
+.linksSection {
+  width: 100%;
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 52px;
+  padding: 0.65rem 0.9rem;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.actionPrimary {
+  background-color: var(--ct-lilac);
+  color: var(--ct-white);
+  border: 1px solid var(--ct-lilac);
+}
+
+.actionPrimary:hover {
+  background-color: var(--ct-lilac-dark);
+  border-color: var(--ct-lilac-dark);
+  color: var(--ct-white);
+}
+
+.actionSecondary {
+  background-color: var(--ct-rose-soft);
+  color: var(--ct-ink);
+  border: 1px solid var(--ct-border);
+}
+
+.actionSecondary:hover {
+  background-color: var(--ct-rose);
+  border-color: var(--ct-lilac);
+  color: var(--ct-ink);
+}
+
+.actionIcon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255 255 255 / 0.16);
+}
+
+.actionSecondary .actionIcon {
+  background-color: var(--ct-white);
+  color: var(--ct-lilac);
+}
+
+.actionText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  text-align: left;
+}
+
+.actionLabel {
+  font-weight: 700;
+  font-size: 0.96875rem;
+}
+
+.actionSub {
+  font-size: 0.78125rem;
+  opacity: 0.9;
+}
+
+.actionSecondary .actionSub {
+  color: var(--ct-muted);
+}
+
+.portfolioSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.sectionTitleRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.sectionTitle {
+  font-size: 1.0625rem;
+}
+
+.sectionHint {
+  font-size: 0.78125rem;
+  color: var(--ct-muted);
+}
+
+.portfolioGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.portfolioSquare {
+  width: 100%;
+}
+
+.testimonialsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.testimonialList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+}
+
+.testimonialCard {
+  background-color: var(--ct-rose-soft);
+  border: 1px solid var(--ct-border);
+  border-radius: 12px;
+  padding: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  align-items: flex-start;
+}
+
+.exampleBadge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background-color: var(--ct-lilac);
+  color: var(--ct-white);
+}
+
+.quote {
+  font-size: 0.875rem;
+  color: var(--ct-ink);
+}
+
+.author {
+  font-size: 0.8125rem;
+  color: var(--ct-muted);
+}
+
+.footer {
+  border-top: 1px solid var(--ct-border);
+  padding-top: 0.875rem;
+  text-align: center;
+}
+
+.footerText {
+  font-size: 0.78125rem;
+  color: var(--ct-muted);
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .cartao {
+    padding: 2rem 1.5rem;
+  }
+
+  .cardShell {
+    padding: 1.75rem 1.5rem;
+  }
+}
