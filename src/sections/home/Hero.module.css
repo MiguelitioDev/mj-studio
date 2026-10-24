@@ -1,6 +1,6 @@
 .hero {
   padding: var(--s-7) 0 var(--s-8);
-  border-bottom: 1px solid var(--areia);
+  border-bottom: 1px solid var(--linha);
 }
 
 .grid {
@@ -19,13 +19,13 @@
 .title {
   font-size: var(--fs-6);
   line-height: 1.05;
-  color: var(--tinta);
+  color: var(--grafite);
   max-width: 18ch;
 }
 
 .subtitle {
   font-size: var(--fs-2);
-  color: var(--tinta);
+  color: var(--grafite);
   max-width: 48ch;
 }
 
@@ -45,7 +45,7 @@
 .fieldLabel {
   font-size: var(--fs-1);
   font-weight: 700;
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .chipList {
@@ -58,9 +58,9 @@
   min-height: 44px;
   padding: 0.5rem 0.9rem;
   border-radius: var(--r-sm);
-  border: 1px solid var(--areia);
+  border: 1px solid var(--linha);
   background-color: var(--branco);
-  color: var(--tinta);
+  color: var(--grafite);
   font-family: var(--font-body);
   font-size: var(--fs-1);
   font-weight: 700;
@@ -72,18 +72,18 @@
 }
 
 .chip:hover {
-  background-color: var(--espuma);
+  background-color: var(--lavanda);
 }
 
 .chipActive {
-  background-color: var(--mar);
-  border-color: var(--mar);
+  background-color: var(--violeta);
+  border-color: var(--violeta);
   color: var(--branco);
 }
 
 .chipActive:hover {
-  background-color: var(--mar-escuro);
-  border-color: var(--mar-escuro);
+  background-color: var(--violeta-escuro);
+  border-color: var(--violeta-escuro);
   color: var(--branco);
 }
 
@@ -93,14 +93,14 @@
   min-height: 44px;
   padding: 0.6rem 0.85rem;
   border-radius: var(--r-sm);
-  border: 1.5px solid var(--tinta);
+  border: 1.5px solid var(--grafite);
   background-color: var(--branco);
-  color: var(--tinta);
+  color: var(--grafite);
   font-size: var(--fs-1);
 }
 
 .input::placeholder {
-  color: var(--tinta);
+  color: var(--grafite);
   opacity: 0.6;
 }
 
@@ -116,7 +116,7 @@
   align-items: center;
   min-height: 44px;
   font-weight: 700;
-  color: var(--mar);
+  color: var(--violeta);
 }
 
 .previewCol {
@@ -146,7 +146,7 @@
 .demoFallback {
   width: 100%;
   height: 100%;
-  background-color: var(--cal);
+  background-color: var(--fundo);
 }
 
 .phoneCaption {
@@ -154,7 +154,7 @@
   flex-direction: column;
   gap: var(--s-1);
   font-size: var(--fs-0);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .captionLink {
@@ -162,7 +162,7 @@
   align-items: center;
   min-height: 44px;
   font-weight: 700;
-  color: var(--mar);
+  color: var(--violeta);
 }
 
 @media (min-width: 960px) {

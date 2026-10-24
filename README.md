@@ -1,6 +1,6 @@
-# MJ Studio — Site Oficial e Catálogo de Modelos
+# MJ Studios — Site Oficial e Catálogo de Modelos
 
-Este é o código-fonte do site da **MJ Studio**, estúdio especializado na criação de sites rápidos, acessíveis e focados em contato via WhatsApp para pequenos negócios de Fortaleza/CE e região.
+Este é o código-fonte do site da **MJ Studios**, estúdio especializado na criação de sites rápidos, acessíveis e focados em contato via WhatsApp para pequenos negócios de Fortaleza/CE e região.
 
 O site apresenta o catálogo interativo de 7 modelos de demonstração (por ramo de negócio), os pacotes com preços transparentes, o montador de orçamento em 4 etapas e a documentação legal completa (LGPD, CDC e Acessibilidade).
 
@@ -47,7 +47,7 @@ Toda a configuração do negócio e os textos comerciais foram separados em arqu
 | Adicionar ou editar projetos reais entregues a clientes | `src/data/projects.ts` |
 | Catálogo de modelos (nomes, descrições, destaques e pacote indicado) | `src/data/models.ts` |
 | Abas de nichos/ramos de negócio | `src/data/niches.ts` |
-| Paleta de cores, fontes, tamanhos e espaçamentos do site da MJ Studio | `src/styles/tokens.css` |
+| Paleta de cores, fontes, tamanhos e espaçamentos do site da MJ Studios | `src/styles/tokens.css` |
 
 > **Dica:** Enquanto a lista `projects` em `src/data/projects.ts` estiver vazia (`[]`), o link "Projetos" fica oculto no menu principal automaticamente e a página `/projetos` exibe uma mensagem honesta convidando o visitante a testar os modelos de demonstração. Assim que você cadastrar o primeiro projeto entregue, o item passa a aparecer no menu.
 
@@ -60,7 +60,7 @@ Se você quiser adicionar um 8º modelo ao catálogo, siga estes 4 passos:
 1. **Criar a pasta do modelo:** crie uma pasta em `src/demos/<slug-do-modelo>/` contendo `index.tsx` (exportando por padrão um componente que receba `DemoProps` de `../types`) e o arquivo de estilos `styles.module.css` com as variáveis visuais próprias daquele modelo.
 2. **Registrar o carregamento sob demanda:** abra `src/demos/registry.ts` e adicione o novo `slug` mapeando para `lazy(() => import("./<slug-do-modelo>"))`.
 3. **Cadastrar no catálogo:** abra `src/data/models.ts` e adicione os dados do modelo (`slug`, `name`, `niche`, `idealFor`, `summary`, `highlights` e `recommendedPlan`).
-4. **Incluir no mapa do site (SEO):** abra `public/sitemap.xml` e adicione um novo bloco `<url><loc>https://mjstudio.com.br/modelos/<slug-do-modelo></loc></url>`.
+4. **Incluir no mapa do site (SEO):** abra `public/sitemap.xml` e adicione um novo bloco `<url><loc>https://mjstudios.com.br/modelos/<slug-do-modelo></loc></url>`.
 
 ---
 
@@ -72,7 +72,7 @@ O projeto já inclui o arquivo `vercel.json` configurado com redirecionamento de
 2. Acesse [vercel.com](https://vercel.com), clique em **Add New → Project** e importe o repositório.
 3. Mantenha as configurações padrão detectadas para **Vite** (`Build Command: npm run build`, `Output Directory: dist`).
 4. Clique em **Deploy**.
-5. No painel do projeto na Vercel, vá em **Settings → Domains** e conecte o seu domínio próprio (ex.: `mjstudio.com.br`).
+5. No painel do projeto na Vercel, vá em **Settings → Domains** e conecte o seu domínio próprio (ex.: `mjstudios.com.br`).
 
 ---
 

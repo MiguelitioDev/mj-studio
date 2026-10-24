@@ -1,6 +1,6 @@
 .section {
   padding: var(--s-8) 0;
-  border-bottom: 1px solid var(--areia);
+  border-bottom: 1px solid var(--linha);
 }
 
 .header {
@@ -12,12 +12,12 @@
 
 .title {
   font-size: var(--fs-4);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .subtitle {
   font-size: var(--fs-1);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .list {
@@ -34,7 +34,7 @@
   gap: var(--s-3);
   padding: var(--s-5);
   border-radius: var(--r-md);
-  border: 1px solid var(--areia);
+  border: 1px solid var(--linha);
   background-color: var(--branco);
 }
 
@@ -45,8 +45,8 @@
   width: 36px;
   height: 36px;
   border-radius: var(--r-sm);
-  background-color: var(--espuma);
-  color: var(--tinta);
+  background-color: var(--lavanda);
+  color: var(--grafite);
   font-family: var(--font-display);
   font-size: var(--fs-2);
   font-weight: 700;
@@ -60,12 +60,12 @@
 
 .stepTitle {
   font-size: var(--fs-2);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .stepDescription {
   font-size: var(--fs-1);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 @media (min-width: 720px) {

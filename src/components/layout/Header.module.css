@@ -2,8 +2,8 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: var(--cal);
-  border-bottom: 1px solid var(--areia);
+  background-color: var(--fundo);
+  border-bottom: 1px solid var(--linha);
 }
 
 .inner {
@@ -19,7 +19,7 @@
   font-size: var(--fs-3);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--tinta);
+  color: var(--grafite);
   text-decoration: none;
   min-height: 44px;
   display: inline-flex;
@@ -27,7 +27,7 @@
 }
 
 .brand:hover {
-  color: var(--mar);
+  color: var(--violeta);
 }
 
 .menuToggle {
@@ -39,15 +39,15 @@
   min-height: 44px;
   padding: 0.5rem 0.75rem;
   border-radius: var(--r-sm);
-  border: 1px solid var(--areia);
+  border: 1px solid var(--linha);
   background-color: var(--branco);
-  color: var(--tinta);
+  color: var(--grafite);
   font-weight: 700;
   cursor: pointer;
 }
 
 .menuToggle:hover {
-  background-color: var(--espuma);
+  background-color: var(--lavanda);
 }
 
 .nav {
@@ -59,7 +59,7 @@
   flex-direction: column;
   gap: var(--s-2);
   padding-block: var(--s-4);
-  border-top: 1px solid var(--areia);
+  border-top: 1px solid var(--linha);
 }
 
 .navList {
@@ -77,18 +77,18 @@
   min-height: 44px;
   padding-inline: var(--s-3);
   border-radius: var(--r-sm);
-  color: var(--tinta);
+  color: var(--grafite);
   font-weight: 700;
   text-decoration: none;
 }
 
 .navLink:hover {
-  background-color: var(--espuma);
-  color: var(--tinta);
+  background-color: var(--lavanda);
+  color: var(--grafite);
 }
 
 .navLinkActive {
-  color: var(--mar);
+  color: var(--violeta);
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 0.25em;

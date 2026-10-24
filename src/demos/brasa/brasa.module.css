@@ -14,12 +14,12 @@
   --br-closed-fg: #7c2d12;
 
   /* Override Tabs variables inside this demo so it matches Brasa's palette */
-  --areia: var(--br-border);
+  --linha: var(--br-border);
   --branco: var(--br-white);
-  --tinta: var(--br-coffee);
-  --espuma: var(--br-mustard-soft);
-  --mar: var(--br-tomato);
-  --mar-escuro: var(--br-tomato-dark);
+  --grafite: var(--br-coffee);
+  --lavanda: var(--br-mustard-soft);
+  --violeta: var(--br-tomato);
+  --violeta-escuro: var(--br-tomato-dark);
 
   background-color: var(--br-white);
   color: var(--br-coffee);

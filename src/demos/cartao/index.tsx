@@ -198,7 +198,7 @@ export default function CartaoDemo({ businessName, compact = false }: DemoProps)
 
         <footer className={styles.footer}>
           <p className={styles.footerText}>
-            © 2026 {name} · Modelo de demonstração criado pela MJ Studio
+            © 2026 {name} · Modelo de demonstração criado pela MJ Studios
           </p>
         </footer>
       </div>

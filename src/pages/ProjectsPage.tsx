@@ -13,7 +13,7 @@ export default function ProjectsPage() {
       <title>{`Projetos entregues | ${site.name}`}</title>
       <meta
         name="description"
-        content="Conheça os projetos de sites criados pela MJ Studio para pequenos negócios."
+        content="Conheça os projetos de sites criados pela MJ Studios para pequenos negócios."
       />
 
       <Container>

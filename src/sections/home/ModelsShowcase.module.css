@@ -1,6 +1,6 @@
 .section {
   padding: var(--s-8) 0;
-  border-bottom: 1px solid var(--areia);
+  border-bottom: 1px solid var(--linha);
 }
 
 .header {
@@ -12,12 +12,12 @@
 
 .title {
   font-size: var(--fs-4);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .subtitle {
   font-size: var(--fs-1);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .grid {
@@ -36,7 +36,7 @@
   min-height: 44px;
   font-weight: 700;
   font-size: var(--fs-1);
-  color: var(--mar);
+  color: var(--violeta);
 }
 
 @media (min-width: 720px) {

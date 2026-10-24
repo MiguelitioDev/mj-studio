@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mjstudio.com.br/sitemap.xml
+Sitemap: https://mjstudios.com.br/sitemap.xml

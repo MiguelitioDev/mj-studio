@@ -6,7 +6,7 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background-color: var(--mar);
+  background-color: var(--violeta);
   color: var(--branco);
   display: inline-flex;
   align-items: center;
@@ -17,6 +17,6 @@
 }
 
 .floating:hover {
-  background-color: var(--mar-escuro);
+  background-color: var(--violeta-escuro);
   color: var(--branco);
 }

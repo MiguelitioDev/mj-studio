@@ -17,7 +17,7 @@
 
 .subtitle {
   font-size: var(--fs-1);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .progressBlock {
@@ -47,7 +47,7 @@
   border-radius: var(--r-sm);
   overflow: hidden;
   appearance: none;
-  border: 1px solid var(--areia);
+  border: 1px solid var(--linha);
   background-color: var(--branco);
 }
 
@@ -56,17 +56,17 @@
 }
 
 .progressBar::-webkit-progress-value {
-  background-color: var(--mar);
+  background-color: var(--violeta);
   transition: width 150ms ease;
 }
 
 .progressBar::-moz-progress-bar {
-  background-color: var(--mar);
+  background-color: var(--violeta);
 }
 
 .card {
   background-color: var(--branco);
-  border: 1px solid var(--areia);
+  border: 1px solid var(--linha);
   border-radius: var(--r-md);
   padding: var(--s-5);
 }
@@ -96,7 +96,7 @@
 .legend {
   font-size: var(--fs-1);
   margin-bottom: var(--s-4);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .radioGrid {
@@ -123,26 +123,26 @@
   gap: var(--s-3);
   min-height: 48px;
   padding: var(--s-4);
-  border: 1px solid var(--areia);
+  border: 1px solid var(--linha);
   border-radius: var(--r-sm);
-  background-color: var(--cal);
+  background-color: var(--fundo);
   cursor: pointer;
 }
 
 .radioCard:hover {
-  border-color: var(--mar);
+  border-color: var(--violeta);
 }
 
 .radioCardSelected {
-  background-color: var(--espuma);
-  border-color: var(--mar);
+  background-color: var(--lavanda);
+  border-color: var(--violeta);
 }
 
 .radioInput {
   margin-top: 0.25rem;
   width: 1.15rem;
   height: 1.15rem;
-  accent-color: var(--mar);
+  accent-color: var(--violeta);
   flex-shrink: 0;
 }
 
@@ -178,8 +178,8 @@
   display: inline-block;
   padding: 0.15rem 0.55rem;
   border-radius: var(--r-sm);
-  background-color: var(--sol);
-  color: var(--tinta);
+  background-color: var(--violeta-claro);
+  color: var(--grafite);
   font-size: var(--fs-0);
   font-weight: 700;
 }
@@ -188,8 +188,8 @@
   margin-top: var(--s-3);
   padding: var(--s-3);
   border-radius: var(--r-sm);
-  border: 1px solid var(--tinta);
-  background-color: var(--espuma);
+  border: 1px solid var(--grafite);
+  background-color: var(--lavanda);
   font-weight: 700;
 }
 
@@ -233,10 +233,10 @@
   width: 100%;
   min-height: 44px;
   padding: 0.65rem 0.85rem;
-  border: 1px solid var(--tinta);
+  border: 1px solid var(--grafite);
   border-radius: var(--r-sm);
   background-color: var(--branco);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .textarea {
@@ -255,20 +255,20 @@
   gap: var(--s-2);
   min-height: 44px;
   padding: 0.5rem 0.9rem;
-  border: 1px solid var(--areia);
+  border: 1px solid var(--linha);
   border-radius: var(--r-sm);
-  background-color: var(--cal);
+  background-color: var(--fundo);
   cursor: pointer;
   font-weight: 700;
 }
 
 .chipRadio:hover {
-  border-color: var(--mar);
+  border-color: var(--violeta);
 }
 
 .chipRadioSelected {
-  background-color: var(--espuma);
-  border-color: var(--mar);
+  background-color: var(--lavanda);
+  border-color: var(--violeta);
 }
 
 .chipRadio .radioInput {
@@ -278,7 +278,7 @@
 .previewSection {
   margin-top: var(--s-6);
   padding-top: var(--s-5);
-  border-top: 1px solid var(--areia);
+  border-top: 1px solid var(--linha);
 }
 
 .previewHeading {
@@ -287,8 +287,8 @@
 }
 
 .messageBubble {
-  background-color: var(--espuma);
-  border: 1px solid var(--areia);
+  background-color: var(--lavanda);
+  border: 1px solid var(--linha);
   border-radius: var(--r-md);
   padding: var(--s-4);
 }

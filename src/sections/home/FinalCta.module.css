@@ -10,18 +10,18 @@
   gap: var(--s-4);
   padding: var(--s-7) var(--s-5);
   border-radius: var(--r-md);
-  background-color: var(--tinta);
-  color: var(--cal);
+  background-color: var(--grafite);
+  color: var(--fundo);
 }
 
 .title {
   font-size: var(--fs-4);
-  color: var(--cal);
+  color: var(--fundo);
 }
 
 .subtitle {
   font-size: var(--fs-2);
-  color: var(--cal);
+  color: var(--fundo);
   max-width: 46ch;
 }
 
@@ -43,13 +43,13 @@
   align-items: center;
   min-height: 44px;
   padding: 0.5rem var(--s-3);
-  color: var(--cal);
+  color: var(--fundo);
   font-weight: 700;
   text-decoration: underline;
 }
 
 .quoteLink:hover {
-  color: var(--espuma);
+  color: var(--lavanda);
 }
 
 .quoteLink:focus-visible {

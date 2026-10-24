@@ -1,6 +1,6 @@
-# MJ Studio — Plano de implementação do site
+# MJ Studios — Plano de implementação do site
 
-Este documento é a especificação completa do site da MJ Studio. Qualquer pessoa (ou agente) que for
+Este documento é a especificação completa do site da MJ Studios. Qualquer pessoa (ou agente) que for
 implementar algo deve seguir este plano. As seções são numeradas porque são referenciadas pelas
 tarefas de implementação.
 
@@ -8,7 +8,7 @@ tarefas de implementação.
 
 ## 1. Objetivo, público e trabalho principal da página
 
-- **O que é:** site da MJ Studio, um estúdio que cria sites para pequenos negócios (R$ 800 a R$ 2.900).
+- **O que é:** site da MJ Studios, um estúdio que cria sites para pequenos negócios (R$ 800 a R$ 2.900).
 - **Público:** donos de pequenos negócios de Fortaleza/CE e região (barbearias, clínicas, restaurantes,
   lojas, prestadores de serviço, escritórios, autônomos). Chegam majoritariamente **pelo celular**,
   vindos de Instagram, Google ou indicação. Pouca paciência para texto técnico.
@@ -84,9 +84,9 @@ direto no JSX.
 
 ```ts
 export const site = {
-  name: "MJ Studio",
+  name: "MJ Studios",
   tagline: "Sites para pequenos negócios",
-  url: "https://mjstudio.com.br",            // TODO: trocar pelo domínio real
+  url: "https://mjstudios.com.br",            // TODO: trocar pelo domínio real
   city: "Fortaleza",
   state: "CE",
   whatsapp: {
@@ -114,28 +114,47 @@ Regras:
 - Em `import.meta.env.DEV`, se `legal.cnpj` ou `email` estiverem vazios, `console.warn` uma vez avisando
   o que falta (ajuda o dono a lembrar).
 
-## 5. Identidade visual da MJ Studio
+## 5. Identidade visual da MJ Studios
 
 ### 5.1 Conceito
-"Vitrine viva": a MJ Studio não descreve sites, ela **mostra** sites funcionando. O elemento memorável é o
+"Vitrine viva": a MJ Studios não descreve sites, ela **mostra** sites funcionando. O elemento memorável é o
 celular do hero que exibe um modelo real do ramo do visitante, com **o nome do negócio dele** escrito
-dentro, enquanto ele digita. Tudo em volta é calmo e disciplinado. Referência de lugar: Fortaleza — cal
-branca, mar verde, sol forte — sem clichê de praia (nada de coqueiro, onda ou jangada desenhada).
+dentro, enquanto ele digita. Tudo em volta é calmo e disciplinado.
+
+A identidade vem da logo oficial (pasta `Artes/`): **grafite, branco e um traço violeta** — o violeta
+aparece na logo só como um acento na curva do "J". O site repete essa proporção: claro para leitura,
+blocos grafite como "moldura" da marca (cabeçalho, hero, CTA final e rodapé) e violeta só onde há ação.
+
+### 5.1.1 Logo (arquivos em `public/brand/`, gerados a partir de `Artes/`)
+| Arquivo | Uso |
+|---|---|
+| `logo-branca.png` (977×374, fundo transparente) | logo completa sobre grafite (cabeçalho, rodapé) |
+| `logo-grafite.png` | logo completa sobre fundo claro |
+| `marca-branca.png` / `marca-grafite.png` (só o símbolo "MJ") | espaços pequenos, menu mobile |
+| `favicon-64.png`, `apple-touch-icon.png`, `icone-512.png` | ícones do navegador/celular |
+| `og-image.png` (1200×630) | imagem de prévia ao compartilhar o link (WhatsApp, Instagram) |
+
+Regras: logo sempre em `<img>` com `alt="MJ Studios"` (quando for link para o início:
+`alt="MJ Studios — página inicial"`), altura 36–40px no cabeçalho, nunca distorcida nem recolorida via CSS,
+área de respiro mínima igual à altura do "J".
 
 ### 5.2 Cores (`src/styles/tokens.css`)
 | Token | Hex | Uso | Por quê (psicologia) |
 |---|---|---|---|
-| `--cal` | `#F6F7F3` | fundo da página | branco frio de parede caiada: limpo, sem cara de "papel creme" |
-| `--tinta` | `#17302B` | texto principal | verde-mar muito escuro: mais humano que preto, contraste AAA |
-| `--mar` | `#0F6B5C` | botões de ação, links | verde-azulado = confiança + "pode seguir"; conversa com o verde do WhatsApp sem copiá-lo |
-| `--mar-escuro` | `#0A5045` | hover/pressed | |
-| `--espuma` | `#DCEDE7` | superfícies de destaque leve, fundo do pacote recomendado | |
-| `--sol` | `#F2B33D` | destaque raro: selo "Mais escolhido", anel de foco | amarelo = atenção e otimismo; usado no máximo 1 vez por tela |
-| `--areia` | `#E8E2D6` | bordas, divisores, fundos secundários | |
-| `--branco` | `#FFFFFF` | cartões sobre `--cal` | |
+| `--fundo` | `#F6F5F7` | fundo da página | branco levemente frio: limpo, leitura confortável |
+| `--grafite` | `#373435` | texto principal e blocos de marca (cabeçalho, hero, CTA final, rodapé) | cor da logo; grafite em vez de preto passa seriedade sem peso |
+| `--violeta` | `#6921F2` | botões de ação, links, foco | violeta da logo: criatividade + confiança; destaca a ação porque aparece pouco |
+| `--violeta-escuro` | `#5418C9` | hover/pressed | |
+| `--violeta-claro` | `#B79CFF` | violeta sobre fundo grafite (links, foco, selo "Recomendado" com texto grafite) | o violeta normal não tem contraste sobre grafite |
+| `--lavanda` | `#ECE6FD` | fundo do pacote recomendado, superfícies de destaque leve | |
+| `--linha` | `#E4E1E8` | bordas, divisores | |
+| `--branco` | `#FFFFFF` | cartões sobre `--fundo`, texto sobre grafite e violeta | |
 
-Regras de contraste: texto `--tinta` em `--cal`/`--branco`/`--espuma`; texto branco em `--mar`;
-texto `--tinta` em `--sol` (nunca branco em amarelo). Todos ≥ 4.5:1.
+Regras de contraste (todas ≥ 4.5:1): texto `--grafite` em `--fundo`/`--branco`/`--lavanda`/`--violeta-claro`;
+texto branco em `--grafite` e em `--violeta`; links sobre grafite em `--violeta-claro`.
+**Nunca** texto `--violeta` sobre `--grafite`. Botão principal sobre bloco grafite: fundo `--violeta`,
+texto branco. Foco visível: `outline: 3px solid var(--violeta)` em áreas claras e
+`var(--violeta-claro)` dentro dos blocos grafite.
 
 ### 5.3 Tipografia
 - **Familjen Grotesk** (500, 600, 700) — títulos. Tracking levemente negativo (`-0.02em`) nos grandes.
@@ -150,8 +169,8 @@ texto `--tinta` em `--sol` (nunca branco em amarelo). Todos ≥ 4.5:1.
 ### 5.4 Forma e espaço
 - Raio: `--r-sm: 6px` (inputs, chips), `--r-md: 14px` (cartões), `--r-phone: 36px` (moldura do celular).
   Hierarquia de raio é intencional — não usar o mesmo raio em tudo.
-- Sombras: só na moldura do celular e no pacote recomendado (`0 24px 48px -24px rgb(23 48 43 / .35)`).
-  Cartões comuns usam borda `1px solid var(--areia)`, sem sombra.
+- Sombras: só na moldura do celular e no pacote recomendado (`0 24px 48px -24px rgb(55 52 53 / .35)`).
+  Cartões comuns usam borda `1px solid var(--linha)`, sem sombra.
 - Espaço: `--s-1: .25rem` … `--s-8: 6rem` (escala 4/8/12/16/24/32/48/64/96px).
 - Container: `max-width: 1160px`, padding lateral `16px` no celular, `32px` ≥ 768px.
 - Alinhamento: texto alinhado à esquerda em todo o site (centralizado só no CTA final).
@@ -233,7 +252,7 @@ Layout desktop (≥ 960px): duas colunas. Celular: texto, depois celular.
 ### 7.3 Pacotes (`Plans.tsx`, `id="pacotes"`)
 - Três pacotes de `plans.ts`, lado a lado no desktop, empilhados no celular com o **recomendado primeiro**
   no celular e no **meio** no desktop.
-- Pacote recomendado: fundo `--espuma`, sombra, selo "Mais escolhido" em `--sol`.
+- Pacote recomendado: fundo `--lavanda`, sombra, selo "Recomendado" em `--violeta-claro` com texto `--grafite`.
   (Se o dono preferir não afirmar "mais escolhido" antes de ter vendas, o texto do selo vem de
   `plans.ts` — usar "Recomendado" por padrão. **Não afirmar números de vendas que não existem.**)
 - Cada cartão: nome, para quem é (1 linha), preço grande (`PriceTag`, formato "R$ 1.600"), forma de
@@ -268,11 +287,11 @@ como funciona o pagamento; meu site aparece no Google (resposta honesta: configu
 o Perfil da Empresa no Google; posição no Google não é garantida).
 
 ### 7.7 CTA final (`FinalCta.tsx`)
-Bloco centralizado em `--tinta` com texto `--cal`: "Me conta sobre o seu negócio." + botão WhatsApp
+Bloco centralizado em `--grafite` com texto `--fundo`: "Me conta sobre o seu negócio." + botão WhatsApp
 (`source: "generic"`) + link "Montar pedido passo a passo" → `/orcamento`.
 
 ### 7.8 Botão flutuante de WhatsApp (`FloatingWhatsApp.tsx`)
-- Canto inferior direito, 56×56px, `--mar` com ícone branco, `aria-label="Conversar no WhatsApp"`.
+- Canto inferior direito, 56×56px, `--violeta` com ícone branco, `aria-label="Conversar no WhatsApp"`.
 - Não aparece em `/orcamento` nem em `/modelos/:slug` (lá a barra de demonstração já tem o botão).
 - `bottom` respeita `env(safe-area-inset-bottom)`; não cobre o rodapé (adicionar `padding-bottom`
   no footer no celular).
@@ -302,7 +321,7 @@ export function buildWhatsAppUrl(message: string, number = site.whatsapp.number)
 
 Formato da mensagem (exemplo `source: "model"`):
 ```
-Olá, MJ Studio! Vim pelo site e quero ajuda para criar o site do meu negócio.
+Olá, MJ Studios! Vim pelo site e quero ajuda para criar o site do meu negócio.
 
 Tipo de negócio: Barbearia e salão
 Modelo que gostei: Navalha
@@ -318,9 +337,9 @@ Regras:
 - Primeira frase varia por `source`: `hero`/`model` → "quero ajuda para criar o site do meu negócio";
   `plan` → "tenho interesse no pacote X"; `generic` → "preciso de ajuda com um site para o meu negócio";
   `quote` → "montei meu pedido no site".
-- `source: "cart"` NÃO é usado pela MJ Studio — é para os modelos de demonstração simularem o pedido do
+- `source: "cart"` NÃO é usado pela MJ Studios — é para os modelos de demonstração simularem o pedido do
   cliente final; nesse caso a mensagem começa com "Olá! Quero fazer um pedido:" e o número usado é o da MJ
-  Studio com uma linha final "(Mensagem de teste enviada pelo modelo de demonstração da MJ Studio)".
+  Studio com uma linha final "(Mensagem de teste enviada pelo modelo de demonstração da MJ Studios)".
 - Sem emojis (alguns aparelhos antigos quebram a codificação).
 - `WhatsAppLink.tsx`: `<a href={url} target="_blank" rel="noopener noreferrer">` com ícone, texto
   visível e `aria-label` que termina com "(abre o WhatsApp)".
@@ -361,20 +380,20 @@ export interface DemoProps {
 
 Regras comuns a todos os modelos:
 - Todo o CSS do modelo fica escopado no seu `.module.css` com as próprias variáveis (não usar tokens da
-  MJ Studio dentro do modelo).
+  MJ Studios dentro do modelo).
 - Layout mobile-first, funcional de 320px a 1440px, sem rolagem horizontal.
 - Imagens: usar `<DemoImage label="Foto do ambiente" ratio="4/3" tone="..." />` — um bloco com padrão
   geométrico em CSS nas cores do modelo e uma legenda discreta ("Sua foto aqui: ambiente"). **Não usar
   fotos de banco de imagens nem links externos de imagem** (direitos autorais + privacidade). O componente
   aceita `src` e `alt` opcionais para quando o dono adicionar fotos licenciadas.
 - Botões de contato do negócio fictício chamam `buildWhatsAppUrl` com `source: "demo"` → mensagem para a
-  MJ Studio: "Olá, MJ Studio! Estou testando o modelo X e gostei do botão de agendamento." (assim o clique
+  MJ Studios: "Olá, MJ Studios! Estou testando o modelo X e gostei do botão de agendamento." (assim o clique
   nunca vai para um número inexistente e ainda gera contato).
-- Rodapé de cada modelo: "© 2026 [nome] · Modelo de demonstração criado pela MJ Studio".
+- Rodapé de cada modelo: "© 2026 [nome] · Modelo de demonstração criado pela MJ Studios".
 - Acessibilidade igual ao site principal (contraste AA, foco visível, headings em ordem, `lang` herdado).
 
 ### 10.1 Barra de demonstração (`demos/shared/DemoNotice.tsx`)
-Usada em `/modelos/:slug`. Barra fixa no topo, fundo `--tinta`, texto `--cal`:
+Usada em `/modelos/:slug`. Barra fixa no topo, fundo `--grafite`, texto `--fundo`:
 "Modelo de demonstração · negócio fictício" + link "Voltar aos modelos" + botão "Quero este modelo"
 (WhatsApp `source: "model"`) + campo pequeno "Testar com o nome do seu negócio" (atualiza `businessName`).
 No celular, a barra vira compacta (só "Voltar" e "Quero este modelo"; o campo de nome fica num botão
@@ -485,7 +504,7 @@ incluso (`extras.ts`).
 ### 11.4 Termos de Uso e Condições (`/termos`)
 1. Sobre o site e quem o mantém. 2. Natureza informativa: preços e prazos são referências; o valor final é o
 da **proposta por escrito** enviada antes de começar. 3. Modelos de demonstração: negócios fictícios; os
-modelos são obra da MJ Studio — não podem ser copiados (Lei 9.610/1998). 4. Contratação: proposta, entrada,
+modelos são obra da MJ Studios — não podem ser copiados (Lei 9.610/1998). 4. Contratação: proposta, entrada,
 rodadas de ajuste, o que conta como ajuste x novo escopo. 5. Propriedade: após quitação, o cliente recebe os
 arquivos do site; domínio registrado no nome do cliente; fotos e textos enviados pelo cliente são de
 responsabilidade dele (precisa ter direito de uso). 6. Direito de arrependimento: contratação feita a
@@ -499,7 +518,7 @@ VLibras), limitações conhecidas (miniaturas dos modelos são ilustrativas e oc
 descrição em texto ao lado) e como reportar problemas (WhatsApp/e-mail).
 
 ### 11.6 Direitos autorais
-Rodapé: "© {ano atual} MJ Studio. Todos os direitos reservados." Só conteúdo próprio: ícones do lucide
+Rodapé: "© {ano atual} MJ Studios. Todos os direitos reservados." Só conteúdo próprio: ícones do lucide
 (licença ISC), fontes com licença SIL OFL (Familjen Grotesk e Atkinson Hyperlegible Next), nenhuma imagem
 de terceiros. Nota no README sobre usar só fotos próprias, do cliente ou com licença (ex.: Unsplash/Pexels,
 guardando o link da licença).
@@ -517,18 +536,18 @@ com uma declaração global mínima. Posicionar para não colidir com o botão f
 **Acessibilidade (obrigatório em todo componente):**
 - `<html lang="pt-BR">`; `SkipLink` "Pular para o conteúdo" → `#conteudo` (o `<main id="conteudo" tabIndex={-1}>`).
 - Um `<h1>` por página, headings em ordem. Landmarks: `header`, `nav aria-label="Principal"`, `main`, `footer`.
-- Foco visível: `outline: 3px solid var(--sol); outline-offset: 2px` em `:focus-visible` (sobre fundos claros
-  adicionar `box-shadow: 0 0 0 5px var(--tinta)` para contraste do anel amarelo).
+- Foco visível: `outline: 3px solid var(--violeta-claro); outline-offset: 2px` em `:focus-visible` (sobre fundos claros
+  adicionar `box-shadow: 0 0 0 5px var(--grafite)` para contraste do anel amarelo).
 - Áreas de toque ≥ 44×44px. Nada de informação só por cor.
 - Links que abrem nova aba avisam no `aria-label`.
 - `@media (prefers-reduced-motion: reduce)` desliga transições/animações.
 
 **SEO (`index.html` + por página):**
 - `index.html`: `<meta name="description">`, Open Graph (`og:title`, `og:description`, `og:type=website`,
-  `og:locale=pt_BR`, `og:url`), `<meta name="theme-color" content="#0F6B5C">`, favicon SVG com as iniciais
-  "MJ" em `--mar` sobre `--cal`, JSON-LD `ProfessionalService` (nome, `areaServed: Fortaleza`, `priceRange:
+  `og:locale=pt_BR`, `og:url`), `<meta name="theme-color" content="#373435">`, favicon SVG com as iniciais
+  "MJ" em `--violeta` sobre `--fundo`, JSON-LD `ProfessionalService` (nome, `areaServed: Fortaleza`, `priceRange:
   "R$ 800 - R$ 2.900"`, telefone, url).
-- Cada página define `<title>` "… | MJ Studio" e `description` própria.
+- Cada página define `<title>` "… | MJ Studios" e `description` própria.
 - `public/robots.txt` (permitir tudo + `Sitemap:`) e `public/sitemap.xml` com as rotas públicas
   (inclusive cada `/modelos/:slug`), usando a URL de `site.url`.
 

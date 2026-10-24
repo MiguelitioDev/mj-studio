@@ -16,8 +16,8 @@ html {
 
 body {
   min-height: 100vh;
-  background-color: var(--cal);
-  color: var(--tinta);
+  background-color: var(--fundo);
+  color: var(--grafite);
   font-family: var(--font-body);
   font-size: var(--fs-1);
   line-height: var(--lh-body);
@@ -35,7 +35,7 @@ h6 {
   font-weight: 700;
   line-height: var(--lh-heading);
   letter-spacing: -0.02em;
-  color: var(--tinta);
+  color: var(--grafite);
   text-wrap: balance;
 }
 
@@ -62,19 +62,19 @@ select {
 }
 
 a {
-  color: var(--mar);
+  color: var(--violeta);
   text-decoration-thickness: 1.5px;
   text-underline-offset: 0.18em;
 }
 
 a:hover {
-  color: var(--mar-escuro);
+  color: var(--violeta-escuro);
 }
 
 :focus-visible {
-  outline: 3px solid var(--sol);
+  outline: 3px solid var(--violeta-claro);
   outline-offset: 2px;
-  box-shadow: 0 0 0 5px var(--tinta);
+  box-shadow: 0 0 0 5px var(--grafite);
 }
 
 main:focus {

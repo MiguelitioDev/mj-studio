@@ -20,38 +20,38 @@
 }
 
 .primary {
-  background-color: var(--mar);
+  background-color: var(--violeta);
   color: var(--branco);
-  border-color: var(--mar);
+  border-color: var(--violeta);
 }
 
 .primary:hover {
-  background-color: var(--mar-escuro);
-  border-color: var(--mar-escuro);
+  background-color: var(--violeta-escuro);
+  border-color: var(--violeta-escuro);
   color: var(--branco);
 }
 
 .secondary {
   background-color: transparent;
-  color: var(--tinta);
-  border-color: var(--tinta);
+  color: var(--grafite);
+  border-color: var(--grafite);
 }
 
 .secondary:hover {
-  background-color: var(--espuma);
-  color: var(--tinta);
+  background-color: var(--lavanda);
+  color: var(--grafite);
 }
 
 .ghost {
   background-color: transparent;
-  color: var(--mar);
+  color: var(--violeta);
   border-color: transparent;
   padding-inline: var(--s-3);
 }
 
 .ghost:hover {
-  background-color: var(--espuma);
-  color: var(--mar-escuro);
+  background-color: var(--lavanda);
+  color: var(--violeta-escuro);
 }
 
 .fullWidth {

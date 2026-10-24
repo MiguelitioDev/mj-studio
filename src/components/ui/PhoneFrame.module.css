@@ -9,11 +9,11 @@
 
 .phone {
   width: 100%;
-  background-color: var(--tinta);
+  background-color: var(--grafite);
   border-radius: var(--r-phone);
   padding: 12px 10px 14px;
   box-shadow: var(--shadow-elevated);
-  border: 2px solid var(--tinta);
+  border: 2px solid var(--grafite);
 }
 
 .speaker {
@@ -46,6 +46,6 @@
 .label {
   width: 100%;
   font-size: var(--fs-0);
-  color: var(--tinta);
+  color: var(--grafite);
   line-height: var(--lh-body);
 }

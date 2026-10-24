@@ -516,7 +516,7 @@ export default function PilarDemo({ businessName, compact = false }: DemoProps) 
       <footer className={styles.footer}>
         <div className={styles.container}>
           <p className={styles.footerText}>
-            © 2026 {name} · Modelo de demonstração criado pela MJ Studio
+            © 2026 {name} · Modelo de demonstração criado pela MJ Studios
           </p>
         </div>
       </footer>

@@ -1,7 +1,7 @@
 export const site = {
-  name: "MJ Studio",
+  name: "MJ Studios",
   tagline: "Sites para pequenos negócios",
-  url: "https://mjstudio.com.br",            // TODO: trocar pelo domínio real
+  url: "https://mjstudios.com.br",            // TODO: trocar pelo domínio real
   city: "Fortaleza",
   state: "CE",
   whatsapp: {
@@ -40,7 +40,7 @@ export function warnMissingSiteInfo(): void {
 
   if (missing.length > 0) {
     console.warn(
-      `[MJ Studio] Dados pendentes em src/config/site.ts antes de publicar: ${missing.join(", ")}.`,
+      `[MJ Studios] Dados pendentes em src/config/site.ts antes de publicar: ${missing.join(", ")}.`,
     );
   }
 }

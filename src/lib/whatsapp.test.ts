@@ -3,7 +3,7 @@ import { buildMessage, buildWhatsAppUrl } from "./whatsapp";
 
 describe("whatsapp message builder", () => {
   it("monta URL com número e texto codificado", () => {
-    const msg = "Olá, MJ Studio! Quero um site.";
+    const msg = "Olá, MJ Studios! Quero um site.";
     const url = buildWhatsAppUrl(msg, "558591722145");
     expect(url).toBe(
       `https://wa.me/558591722145?text=${encodeURIComponent(msg)}`,
@@ -23,7 +23,7 @@ describe("whatsapp message builder", () => {
 
     expect(message).toBe(
       [
-        "Olá, MJ Studio! Vim pelo site e quero ajuda para criar o site do meu negócio.",
+        "Olá, MJ Studios! Vim pelo site e quero ajuda para criar o site do meu negócio.",
         "",
         "Tipo de negócio: Barbearia e salão",
         "Modelo que gostei: Navalha",
@@ -55,25 +55,25 @@ describe("whatsapp message builder", () => {
 
   it("gera a frase inicial correta para cada source", () => {
     expect(buildMessage({ source: "hero" }).split("\n")[0]).toBe(
-      "Olá, MJ Studio! Vim pelo site e quero ajuda para criar o site do meu negócio.",
+      "Olá, MJ Studios! Vim pelo site e quero ajuda para criar o site do meu negócio.",
     );
 
     expect(buildMessage({ source: "model", modelName: "Clareza" }).split("\n")[0]).toBe(
-      "Olá, MJ Studio! Vim pelo site e quero ajuda para criar o site do meu negócio.",
+      "Olá, MJ Studios! Vim pelo site e quero ajuda para criar o site do meu negócio.",
     );
 
     expect(
       buildMessage({ source: "plan", planName: "Profissional", planPrice: 1600 }).split(
         "\n",
       )[0],
-    ).toBe("Olá, MJ Studio! Vim pelo site e tenho interesse no pacote Profissional.");
+    ).toBe("Olá, MJ Studios! Vim pelo site e tenho interesse no pacote Profissional.");
 
     expect(buildMessage({ source: "generic" }).split("\n")[0]).toBe(
-      "Olá, MJ Studio! Vim pelo site e preciso de ajuda com um site para o meu negócio.",
+      "Olá, MJ Studios! Vim pelo site e preciso de ajuda com um site para o meu negócio.",
     );
 
     expect(buildMessage({ source: "quote" }).split("\n")[0]).toBe(
-      "Olá, MJ Studio! Vim pelo site e montei meu pedido no site.",
+      "Olá, MJ Studios! Vim pelo site e montei meu pedido no site.",
     );
 
     expect(
@@ -83,11 +83,11 @@ describe("whatsapp message builder", () => {
         notes: "gostei do botão de agendamento",
       }).split("\n")[0],
     ).toBe(
-      "Olá, MJ Studio! Vim pelo site, estou testando o modelo Navalha e gostei do botão de agendamento.",
+      "Olá, MJ Studios! Vim pelo site, estou testando o modelo Navalha e gostei do botão de agendamento.",
     );
   });
 
-  it("monta mensagem de teste para source cart com aviso da MJ Studio", () => {
+  it("monta mensagem de teste para source cart com aviso da MJ Studios", () => {
     const message = buildMessage({
       source: "cart",
       cartLines: ["2x Hambúrguer da Casa - R$ 56", "1x Refrigerante - R$ 8"],
@@ -100,7 +100,7 @@ describe("whatsapp message builder", () => {
         "2x Hambúrguer da Casa - R$ 56",
         "1x Refrigerante - R$ 8",
         "",
-        "(Mensagem de teste enviada pelo modelo de demonstração da MJ Studio)",
+        "(Mensagem de teste enviada pelo modelo de demonstração da MJ Studios)",
       ].join("\n"),
     );
   });

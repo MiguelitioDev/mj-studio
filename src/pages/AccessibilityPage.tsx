@@ -21,7 +21,7 @@ export default function AccessibilityPage() {
         <title>{`Declaração de Acessibilidade | ${site.name}`}</title>
         <meta
           name="description"
-          content="Compromisso e recursos de acessibilidade digital do site da MJ Studio conforme WCAG 2.2 AA e eMAG."
+          content="Compromisso e recursos de acessibilidade digital do site da MJ Studios conforme WCAG 2.2 AA e eMAG."
         />
 
         <div className={styles.content}>

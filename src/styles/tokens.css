@@ -1,12 +1,12 @@
 :root {
   /* Cores */
-  --cal: #F6F7F3;
-  --tinta: #17302B;
-  --mar: #0F6B5C;
-  --mar-escuro: #0A5045;
-  --espuma: #DCEDE7;
-  --sol: #F2B33D;
-  --areia: #E8E2D6;
+  --fundo: #F6F5F7;
+  --grafite: #373435;
+  --violeta: #6921F2;
+  --violeta-escuro: #5418C9;
+  --lavanda: #ECE6FD;
+  --violeta-claro: #B79CFF;
+  --linha: #E4E1E8;
   --branco: #FFFFFF;
 
   /* Tipografia */
@@ -32,7 +32,7 @@
   --r-phone: 36px;
 
   /* Sombras */
-  --shadow-elevated: 0 24px 48px -24px rgb(23 48 43 / 0.35);
+  --shadow-elevated: 0 24px 48px -24px rgb(55 52 53 / 0.35);
 
   /* Espaçamento (4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96px) */
   --s-1: 0.25rem;

@@ -11,18 +11,18 @@
 
 .title {
   font-size: var(--fs-5);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .subtitle {
   font-size: var(--fs-2);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .emptyState {
   padding: var(--s-6);
   border-radius: var(--r-md);
-  border: 1px solid var(--areia);
+  border: 1px solid var(--linha);
   background-color: var(--branco);
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@
 
 .emptyText {
   font-size: var(--fs-2);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .emptyActions {
@@ -51,7 +51,7 @@
   display: flex;
   flex-direction: column;
   background-color: var(--branco);
-  border: 1px solid var(--areia);
+  border: 1px solid var(--linha);
   border-radius: var(--r-md);
   overflow: hidden;
 }
@@ -74,22 +74,22 @@
 
 .projectName {
   font-size: var(--fs-3);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .metaBadge {
   display: inline-block;
   padding: 2px var(--s-2);
   border-radius: var(--r-sm);
-  background-color: var(--espuma);
-  color: var(--tinta);
+  background-color: var(--lavanda);
+  color: var(--grafite);
   font-size: var(--fs-0);
   font-weight: 700;
 }
 
 .summary {
   font-size: var(--fs-1);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .cardFooter {
@@ -102,7 +102,7 @@
   align-items: center;
   min-height: 44px;
   font-weight: 700;
-  color: var(--mar);
+  color: var(--violeta);
 }
 
 @media (min-width: 720px) {

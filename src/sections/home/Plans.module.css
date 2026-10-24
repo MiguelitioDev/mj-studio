@@ -1,6 +1,6 @@
 .section {
   padding: var(--s-8) 0;
-  border-bottom: 1px solid var(--areia);
+  border-bottom: 1px solid var(--linha);
 }
 
 .header {
@@ -12,12 +12,12 @@
 
 .title {
   font-size: var(--fs-4);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .subtitle {
   font-size: var(--fs-1);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .grid {
@@ -33,14 +33,14 @@
   gap: var(--s-5);
   padding: var(--s-6);
   border-radius: var(--r-md);
-  border: 1px solid var(--areia);
+  border: 1px solid var(--linha);
   background-color: var(--branco);
 }
 
 .cardRecommended {
   order: -1;
-  background-color: var(--espuma);
-  border-color: var(--mar);
+  background-color: var(--lavanda);
+  border-color: var(--violeta);
   box-shadow: var(--shadow-elevated);
 }
 
@@ -60,15 +60,15 @@
 
 .planName {
   font-size: var(--fs-3);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .badge {
   display: inline-block;
   padding: 0.25rem 0.65rem;
   border-radius: var(--r-sm);
-  background-color: var(--sol);
-  color: var(--tinta);
+  background-color: var(--violeta-claro);
+  color: var(--grafite);
   font-size: var(--fs-0);
   font-weight: 700;
   line-height: 1.2;
@@ -76,7 +76,7 @@
 
 .forWho {
   font-size: var(--fs-1);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .priceBlock {
@@ -84,18 +84,18 @@
   flex-direction: column;
   gap: var(--s-1);
   padding: var(--s-4) 0;
-  border-top: 1px solid var(--areia);
-  border-bottom: 1px solid var(--areia);
+  border-top: 1px solid var(--linha);
+  border-bottom: 1px solid var(--linha);
 }
 
 .payment {
   font-size: var(--fs-0);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .deadline {
   font-size: var(--fs-0);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .includesList {
@@ -111,12 +111,12 @@
   align-items: flex-start;
   gap: var(--s-2);
   font-size: var(--fs-1);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .checkIcon {
   flex-shrink: 0;
-  color: var(--mar);
+  color: var(--violeta);
   margin-top: 0.2rem;
 }
 
@@ -129,13 +129,13 @@
   margin-top: var(--s-7);
   padding: var(--s-6);
   border-radius: var(--r-md);
-  border: 1px solid var(--areia);
+  border: 1px solid var(--linha);
   background-color: var(--branco);
 }
 
 .extrasTitle {
   font-size: var(--fs-2);
-  color: var(--tinta);
+  color: var(--grafite);
   margin-bottom: var(--s-4);
 }
 
@@ -149,7 +149,7 @@
   flex-direction: column;
   gap: var(--s-1);
   padding: var(--s-3) 0;
-  border-top: 1px solid var(--areia);
+  border-top: 1px solid var(--linha);
 }
 
 .extraRow:first-child {
@@ -163,11 +163,11 @@
 
 .extraName {
   font-weight: 700;
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .extraPrice {
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 @media (min-width: 720px) {

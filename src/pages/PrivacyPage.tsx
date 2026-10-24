@@ -23,7 +23,7 @@ export default function PrivacyPage() {
         <title>{`Política de Privacidade | ${site.name}`}</title>
         <meta
           name="description"
-          content="Como a MJ Studio trata dados pessoais de acordo com a Lei Geral de Proteção de Dados (LGPD)."
+          content="Como a MJ Studios trata dados pessoais de acordo com a Lei Geral de Proteção de Dados (LGPD)."
         />
 
         <div className={styles.content}>
@@ -273,7 +273,7 @@ export default function PrivacyPage() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="WhatsApp da MJ Studio (abre o WhatsApp)"
+                aria-label="WhatsApp da MJ Studios (abre o WhatsApp)"
               >
                 WhatsApp ({site.whatsapp.display})
               </a>

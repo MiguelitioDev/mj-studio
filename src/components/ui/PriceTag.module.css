@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: baseline;
   gap: var(--s-2);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .prefix {

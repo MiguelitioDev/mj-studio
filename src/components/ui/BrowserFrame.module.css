@@ -2,8 +2,8 @@
   width: 100%;
   border-radius: calc(var(--r-md) - 2px) calc(var(--r-md) - 2px) 0 0;
   overflow: hidden;
-  border-bottom: 1px solid var(--areia);
-  background-color: var(--cal);
+  border-bottom: 1px solid var(--linha);
+  background-color: var(--fundo);
 }
 
 .toolbar {
@@ -11,7 +11,7 @@
   align-items: center;
   gap: var(--s-3);
   padding: var(--s-2) var(--s-3);
-  background-color: var(--areia);
+  background-color: var(--linha);
 }
 
 .dots {
@@ -24,7 +24,7 @@
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background-color: rgb(23 48 43 / 0.35);
+  background-color: rgb(55 52 53 / 0.35);
 }
 
 .addressBar {
@@ -32,8 +32,8 @@
   min-width: 0;
   padding: 2px var(--s-2);
   border-radius: var(--r-sm);
-  background-color: var(--cal);
-  color: var(--tinta);
+  background-color: var(--fundo);
+  color: var(--grafite);
   font-size: 0.75rem;
   line-height: 1.3;
   white-space: nowrap;
@@ -63,5 +63,5 @@
 .placeholder {
   width: 100%;
   height: 100%;
-  background-color: var(--cal);
+  background-color: var(--fundo);
 }

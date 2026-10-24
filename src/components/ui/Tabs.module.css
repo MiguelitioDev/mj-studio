@@ -8,7 +8,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--s-2);
-  border-bottom: 1px solid var(--areia);
+  border-bottom: 1px solid var(--linha);
   padding-bottom: var(--s-3);
 }
 
@@ -16,9 +16,9 @@
   min-height: 44px;
   padding: 0.5rem 1rem;
   border-radius: var(--r-sm);
-  border: 1px solid var(--areia);
+  border: 1px solid var(--linha);
   background-color: var(--branco);
-  color: var(--tinta);
+  color: var(--grafite);
   font-family: var(--font-body);
   font-size: var(--fs-1);
   font-weight: 700;
@@ -30,18 +30,18 @@
 }
 
 .tab:hover {
-  background-color: var(--espuma);
+  background-color: var(--lavanda);
 }
 
 .tabActive {
-  background-color: var(--mar);
-  border-color: var(--mar);
+  background-color: var(--violeta);
+  border-color: var(--violeta);
   color: var(--branco);
 }
 
 .tabActive:hover {
-  background-color: var(--mar-escuro);
-  border-color: var(--mar-escuro);
+  background-color: var(--violeta-escuro);
+  border-color: var(--violeta-escuro);
   color: var(--branco);
 }
 

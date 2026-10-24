@@ -350,7 +350,7 @@ export default function ClarezaDemo({ businessName, compact = false }: DemoProps
               Tel.: (85) 90000-0000
             </p>
             <p className={styles.demoCredit}>
-              © 2026 {name} · Modelo de demonstração criado pela MJ Studio
+              © 2026 {name} · Modelo de demonstração criado pela MJ Studios
             </p>
           </div>
         </div>

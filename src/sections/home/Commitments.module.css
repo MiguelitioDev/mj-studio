@@ -1,6 +1,6 @@
 .section {
   padding: var(--s-8) 0;
-  border-bottom: 1px solid var(--areia);
+  border-bottom: 1px solid var(--linha);
 }
 
 .layout {
@@ -18,26 +18,26 @@
 
 .title {
   font-size: var(--fs-4);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .subtitle {
   font-size: var(--fs-1);
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 .list {
   list-style: none;
   padding: 0;
-  border-top: 1px solid var(--areia);
+  border-top: 1px solid var(--linha);
 }
 
 .item {
   padding: var(--s-4) 0;
-  border-bottom: 1px solid var(--areia);
+  border-bottom: 1px solid var(--linha);
   font-size: var(--fs-2);
   font-weight: 700;
-  color: var(--tinta);
+  color: var(--grafite);
 }
 
 @media (min-width: 960px) {

@@ -22,7 +22,7 @@ export default function TermsPage() {
         <title>{`Termos de Uso | ${site.name}`}</title>
         <meta
           name="description"
-          content="Termos de uso do site e condições gerais de contratação dos serviços da MJ Studio."
+          content="Termos de uso do site e condições gerais de contratação dos serviços da MJ Studios."
         />
 
         <div className={styles.content}>
