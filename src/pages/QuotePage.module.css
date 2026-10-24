@@ -1,0 +1,328 @@
+.section {
+  padding-block: var(--s-7) var(--s-8);
+}
+
+.wrapper {
+  max-width: 720px;
+}
+
+.header {
+  margin-bottom: var(--s-5);
+}
+
+.title {
+  font-size: var(--fs-5);
+  margin-bottom: var(--s-2);
+}
+
+.subtitle {
+  font-size: var(--fs-1);
+  color: var(--tinta);
+}
+
+.progressBlock {
+  margin-bottom: var(--s-5);
+}
+
+.progressMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-3);
+  margin-bottom: var(--s-2);
+}
+
+.stepIndicator {
+  font-weight: 700;
+  font-size: var(--fs-0);
+}
+
+.stepName {
+  font-size: var(--fs-0);
+}
+
+.progressBar {
+  width: 100%;
+  height: 10px;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  appearance: none;
+  border: 1px solid var(--areia);
+  background-color: var(--branco);
+}
+
+.progressBar::-webkit-progress-bar {
+  background-color: var(--branco);
+}
+
+.progressBar::-webkit-progress-value {
+  background-color: var(--mar);
+  transition: width 150ms ease;
+}
+
+.progressBar::-moz-progress-bar {
+  background-color: var(--mar);
+}
+
+.card {
+  background-color: var(--branco);
+  border: 1px solid var(--areia);
+  border-radius: var(--r-md);
+  padding: var(--s-5);
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: var(--s-6);
+  }
+}
+
+.stepTitle {
+  font-size: var(--fs-3);
+  margin-bottom: var(--s-3);
+}
+
+.stepTitle:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.legend {
+  font-size: var(--fs-1);
+  margin-bottom: var(--s-4);
+  color: var(--tinta);
+}
+
+.radioGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-3);
+}
+
+@media (min-width: 560px) {
+  .radioGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.radioStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.radioCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  min-height: 48px;
+  padding: var(--s-4);
+  border: 1px solid var(--areia);
+  border-radius: var(--r-sm);
+  background-color: var(--cal);
+  cursor: pointer;
+}
+
+.radioCard:hover {
+  border-color: var(--mar);
+}
+
+.radioCardSelected {
+  background-color: var(--espuma);
+  border-color: var(--mar);
+}
+
+.radioInput {
+  margin-top: 0.25rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--mar);
+  flex-shrink: 0;
+}
+
+.radioContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  flex: 1;
+}
+
+.radioLabelPrimary {
+  font-weight: 700;
+  font-size: var(--fs-1);
+}
+
+.radioDescription {
+  font-size: var(--fs-0);
+}
+
+.radioMeta {
+  font-size: var(--fs-0);
+  font-weight: 700;
+}
+
+.planHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--r-sm);
+  background-color: var(--sol);
+  color: var(--tinta);
+  font-size: var(--fs-0);
+  font-weight: 700;
+}
+
+.errorText {
+  margin-top: var(--s-3);
+  padding: var(--s-3);
+  border-radius: var(--r-sm);
+  border: 1px solid var(--tinta);
+  background-color: var(--espuma);
+  font-weight: 700;
+}
+
+.detailsForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  margin-top: var(--s-4);
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.fieldLabel {
+  font-weight: 700;
+  font-size: var(--fs-1);
+  margin-bottom: var(--s-2);
+}
+
+.fieldGroup .fieldLabel {
+  margin-bottom: 0;
+}
+
+.charCounter {
+  font-size: var(--fs-0);
+}
+
+.textInput,
+.textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--tinta);
+  border-radius: var(--r-sm);
+  background-color: var(--branco);
+  color: var(--tinta);
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.inlineRadios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+
+.chipRadio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 44px;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--areia);
+  border-radius: var(--r-sm);
+  background-color: var(--cal);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.chipRadio:hover {
+  border-color: var(--mar);
+}
+
+.chipRadioSelected {
+  background-color: var(--espuma);
+  border-color: var(--mar);
+}
+
+.chipRadio .radioInput {
+  margin-top: 0;
+}
+
+.previewSection {
+  margin-top: var(--s-6);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--areia);
+}
+
+.previewHeading {
+  font-size: var(--fs-2);
+  margin-bottom: var(--s-3);
+}
+
+.messageBubble {
+  background-color: var(--espuma);
+  border: 1px solid var(--areia);
+  border-radius: var(--r-md);
+  padding: var(--s-4);
+}
+
+.messageText {
+  font-family: var(--font-body);
+  font-size: var(--fs-0);
+  line-height: var(--lh-body);
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-5);
+}
+
+.actionsFinal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3);
+  margin-top: var(--s-5);
+}
+
+.whatsappButton {
+  flex: 1;
+  min-width: 220px;
+}
+
+.privacyNotice {
+  margin-top: var(--s-4);
+  font-size: var(--fs-0);
+}

@@ -4,6 +4,7 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { ScrollToTop } from "./ScrollToTop";
 import { SkipLink } from "./SkipLink";
+import { VLibras } from "./VLibras";
 
 export function Layout() {
   return (
@@ -16,6 +17,7 @@ export function Layout() {
       </main>
       <Footer />
       <FloatingWhatsApp />
+      <VLibras />
     </>
   );
 }

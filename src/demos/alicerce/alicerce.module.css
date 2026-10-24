@@ -1,0 +1,766 @@
+.alicerce {
+  --al-graphite: #2b2f33;
+  --al-graphite-dark: #1d2023;
+  --al-yellow: #f5c400;
+  --al-yellow-soft: #fff8db;
+  --al-concrete: #d9d9d6;
+  --al-concrete-light: #f2f2ef;
+  --al-white: #ffffff;
+  --al-muted: #4b5259;
+
+  background-color: var(--al-concrete-light);
+  color: var(--al-graphite);
+  font-family: "Atkinson Hyperlegible Next", system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+.alicerce h1,
+.alicerce h2,
+.alicerce h3 {
+  font-family: "Familjen Grotesk", system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  color: var(--al-graphite);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.alicerce a:focus-visible,
+.alicerce button:focus-visible,
+.alicerce input:focus-visible {
+  outline: 3px solid var(--al-yellow);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--al-graphite-dark);
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header {
+  background-color: var(--al-graphite-dark);
+  color: var(--al-white);
+  border-bottom: 4px solid var(--al-yellow);
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 68px;
+  padding: 0.75rem 0;
+  flex-wrap: wrap;
+}
+
+.brandBlock {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.brandBadge {
+  background-color: var(--al-yellow);
+  color: var(--al-graphite-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.brandName {
+  font-family: "Familjen Grotesk", system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--al-white);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.navLink {
+  color: var(--al-white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  padding: 0.5rem 0.75rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+}
+
+.navLink:hover {
+  background-color: rgb(255 255 255 / 0.12);
+  color: var(--al-yellow);
+}
+
+.hero {
+  background-color: var(--al-graphite);
+  color: var(--al-white);
+  padding: 2.5rem 0 3rem;
+  border-bottom: 1px solid var(--al-graphite-dark);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.heroTag {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: var(--al-yellow);
+  color: var(--al-graphite-dark);
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.hero .heroTitle {
+  color: var(--al-white);
+  font-size: clamp(2rem, 4.8vw, 3.1rem);
+  margin: 0;
+}
+
+.heroLead {
+  color: var(--al-concrete);
+  font-size: 1.0625rem;
+  max-width: 60ch;
+  margin: 0;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 0.25rem;
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.75rem 1.35rem;
+  border-radius: 6px;
+  background-color: var(--al-yellow);
+  color: var(--al-graphite-dark);
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--al-yellow);
+}
+
+.primaryCta:hover {
+  background-color: var(--al-white);
+  border-color: var(--al-white);
+  color: var(--al-graphite-dark);
+}
+
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  background-color: transparent;
+  color: var(--al-white);
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--al-concrete);
+}
+
+.secondaryCta:hover {
+  border-color: var(--al-yellow);
+  color: var(--al-yellow);
+}
+
+.trustHighlights {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9375rem;
+  color: var(--al-concrete-light);
+}
+
+.quoteSection {
+  padding: 3rem 0;
+  background-color: var(--al-concrete-light);
+}
+
+.quoteCard {
+  background-color: var(--al-white);
+  border: 2px solid var(--al-graphite);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.quoteHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.stepPill {
+  align-self: flex-start;
+  background-color: var(--al-yellow);
+  color: var(--al-graphite-dark);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+}
+
+.sectionHeader {
+  margin-bottom: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.5rem, 3.2vw, 2.15rem);
+  margin: 0;
+}
+
+.sectionSubtitle {
+  color: var(--al-muted);
+  margin: 0;
+  max-width: 65ch;
+}
+
+.questionsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.fieldset {
+  border: 1px solid var(--al-concrete);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0;
+  background-color: var(--al-concrete-light);
+}
+
+.legend {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--al-graphite);
+  padding: 0 0.35rem;
+}
+
+.radioList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.65rem;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 44px;
+  padding: 0.6rem 0.85rem;
+  border-radius: 6px;
+  border: 1px solid var(--al-concrete);
+  background-color: var(--al-white);
+  color: var(--al-graphite);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  cursor: pointer;
+}
+
+.radioLabel:hover {
+  border-color: var(--al-graphite);
+}
+
+.radioLabelActive {
+  background-color: var(--al-yellow-soft);
+  border-color: var(--al-graphite);
+  box-shadow: inset 0 0 0 1px var(--al-graphite);
+}
+
+.radioInput {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--al-graphite-dark);
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.middleColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.fieldGroup {
+  border: 1px solid var(--al-concrete);
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: var(--al-concrete-light);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fieldHint {
+  font-size: 0.875rem;
+  color: var(--al-muted);
+  margin: 0;
+}
+
+.textInput {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.6rem 0.85rem;
+  border-radius: 6px;
+  border: 2px solid var(--al-graphite);
+  background-color: var(--al-white);
+  color: var(--al-graphite);
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.quickNeighborhoods {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-top: 0.25rem;
+}
+
+.quickLabel {
+  font-size: 0.8125rem;
+  color: var(--al-muted);
+}
+
+.quickChip {
+  min-height: 36px;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  border: 1px solid var(--al-graphite);
+  background-color: var(--al-white);
+  color: var(--al-graphite);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.quickChip:hover {
+  background-color: var(--al-yellow);
+}
+
+.quoteSummaryBar {
+  background-color: var(--al-graphite-dark);
+  color: var(--al-white);
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.summaryPreview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.summaryTitle {
+  font-size: 0.8125rem;
+  color: var(--al-yellow);
+  font-weight: 700;
+}
+
+.summaryText {
+  font-size: 0.9375rem;
+  color: var(--al-white);
+  margin: 0;
+}
+
+.quoteSubmitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.75rem 1.35rem;
+  border-radius: 6px;
+  background-color: var(--al-yellow);
+  color: var(--al-graphite-dark);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+}
+
+.quoteSubmitBtn:hover {
+  background-color: var(--al-white);
+  color: var(--al-graphite-dark);
+}
+
+.servicesSection {
+  padding: 3rem 0;
+  background-color: var(--al-white);
+  border-top: 1px solid var(--al-concrete);
+  border-bottom: 1px solid var(--al-concrete);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.serviceCard {
+  background-color: var(--al-concrete-light);
+  border: 1px solid var(--al-concrete);
+  border-top: 4px solid var(--al-graphite);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.serviceTop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.serviceTitle {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.serviceSummary {
+  font-size: 0.9375rem;
+  color: var(--al-muted);
+  margin: 0;
+}
+
+.serviceItems {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.9375rem;
+  flex: 1;
+}
+
+.serviceFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--al-concrete);
+}
+
+.warrantyTag {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background-color: var(--al-yellow-soft);
+  border: 1px solid var(--al-yellow);
+  color: var(--al-graphite-dark);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+
+.serviceLink {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--al-graphite-dark);
+  text-decoration: underline;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.neighborhoodsSection {
+  padding: 3rem 0;
+  background-color: var(--al-concrete-light);
+}
+
+.neighborhoodsBox {
+  background-color: var(--al-white);
+  border: 1px solid var(--al-concrete);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.neighborhoodsHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.neighborhoodsGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+
+.neighborhoodItem {
+  background-color: var(--al-concrete-light);
+  border: 1px solid var(--al-concrete);
+  border-left: 4px solid var(--al-yellow);
+  border-radius: 6px;
+  padding: 0.6rem 0.85rem;
+  font-weight: 700;
+  font-size: 0.9375rem;
+}
+
+.neighborhoodNote {
+  font-size: 0.875rem;
+  color: var(--al-muted);
+  margin: 0;
+}
+
+.worksSection {
+  padding: 3rem 0;
+  background-color: var(--al-white);
+  border-top: 1px solid var(--al-concrete);
+}
+
+.worksGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.workCard {
+  background-color: var(--al-concrete-light);
+  border: 1px solid var(--al-concrete);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.workBody {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.workMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--al-muted);
+}
+
+.workDuration {
+  background-color: var(--al-yellow);
+  color: var(--al-graphite-dark);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.workTitle {
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.workCaption {
+  font-size: 0.9375rem;
+  color: var(--al-muted);
+  margin: 0;
+}
+
+.warrantySection {
+  padding: 3rem 0;
+  background-color: var(--al-graphite);
+  color: var(--al-white);
+}
+
+.warrantyBanner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.warrantyContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.warrantyBadge {
+  align-self: flex-start;
+  background-color: var(--al-yellow);
+  color: var(--al-graphite-dark);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+}
+
+.warrantySection .warrantyTitle {
+  color: var(--al-white);
+  font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+  margin: 0;
+}
+
+.warrantyDesc {
+  color: var(--al-concrete);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.warrantyList {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.9375rem;
+  color: var(--al-concrete-light);
+}
+
+.warrantyContactBox {
+  background-color: var(--al-graphite-dark);
+  border: 2px solid var(--al-yellow);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.warrantySection .contactBoxTitle {
+  color: var(--al-white);
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.contactBoxText {
+  color: var(--al-concrete);
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+.warrantyCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  background-color: var(--al-yellow);
+  color: var(--al-graphite-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.warrantyCta:hover {
+  background-color: var(--al-white);
+  color: var(--al-graphite-dark);
+}
+
+.contactAddress {
+  font-style: normal;
+  font-size: 0.8125rem;
+  color: var(--al-concrete);
+  border-top: 1px solid var(--al-graphite);
+  padding-top: 0.75rem;
+}
+
+.footer {
+  background-color: var(--al-graphite-dark);
+  color: var(--al-white);
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--al-graphite);
+}
+
+.footerText {
+  font-size: 0.875rem;
+  color: var(--al-concrete);
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .neighborhoodsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .worksGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .heroGrid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
+  }
+
+  .questionsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quoteSummaryBar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .warrantyBanner {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}
