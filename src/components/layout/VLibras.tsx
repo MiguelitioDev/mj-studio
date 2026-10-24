@@ -40,16 +40,6 @@ export function VLibras() {
     document.body.appendChild(script);
   }, []);
 
-  if (!site.vlibras) {
-    return null;
-  }
-
-  return (
-    <div vw="true" className="enabled">
-      <div vw-access-button="true" className="active" />
-      <div vw-plugin-wrapper="true">
-        <div className="vw-plugin-top-wrapper" />
-      </div>
-    </div>
-  );
+  // O VLibras v7 cria o próprio botão (em shadow DOM); não precisa de marcação aqui.
+  return null;
 }

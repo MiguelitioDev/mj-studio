@@ -1,7 +1,7 @@
 export const site = {
   name: "MJ Studios",
   tagline: "Sites para pequenos negócios",
-  url: "https://mjstudios.com.br",            // TODO: trocar pelo domínio real
+  url: "https://mj-studio-sandy.vercel.app",            // TODO: trocar pelo domínio real
   city: "Fortaleza",
   state: "CE",
   whatsapp: {

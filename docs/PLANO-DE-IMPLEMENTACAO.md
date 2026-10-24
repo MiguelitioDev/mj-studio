@@ -525,11 +525,12 @@ guardando o link da licença).
 
 ### 11.7 VLibras
 Se `site.vlibras` for `true`, componente `VLibras.tsx` (em `components/layout`) injeta uma vez o script
-oficial `https://vlibras.gov.br/app/vlibras-plugin.js` e o markup exigido
-(`<div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div>`),
-inicializando com `new window.VLibras.Widget('https://vlibras.gov.br/app')` no `onload`. Tipar `window.VLibras`
+oficial `https://vlibras.gov.br/app/vlibras-plugin.js` (o VLibras v7 cria o próprio botão em shadow DOM,
+sem marcação extra), inicializando com `new window.VLibras.Widget('https://vlibras.gov.br/app')` no `onload`. Tipar `window.VLibras`
 com uma declaração global mínima. Posicionar para não colidir com o botão flutuante de WhatsApp
-(VLibras à direita no meio da tela é o padrão dele — manter).
+(VLibras à direita no meio da tela é o padrão dele — manter). O script redireciona para
+`cdn.jsdelivr.net/gh/spbgovbr-vlibras/`, que precisa estar liberado no CSP (seção 12). O rastreamento
+PostHog embutido no VLibras fica bloqueado de propósito (o widget continua funcionando).
 
 ## 12. Acessibilidade, SEO, desempenho e segurança
 
@@ -556,7 +557,7 @@ com uma declaração global mínima. Posicionar para não colidir com o botão f
 - `headers` para `/(.*)`: `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`,
   `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`,
   `X-Frame-Options: DENY`, `Permissions-Policy: camera=(), microphone=(), geolocation=()`,
-  `Content-Security-Policy: default-src 'self'; script-src 'self' https://vlibras.gov.br; style-src 'self' 'unsafe-inline' https://vlibras.gov.br; img-src 'self' data: https://vlibras.gov.br; font-src 'self' data: https://vlibras.gov.br; connect-src 'self' https://vlibras.gov.br https://*.vlibras.gov.br; frame-src https://vlibras.gov.br; frame-ancestors 'none'; base-uri 'self'; form-action 'self'`.
+  `Content-Security-Policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval' https://vlibras.gov.br https://*.vlibras.gov.br https://cdn.jsdelivr.net/gh/spbgovbr-vlibras/; style-src 'self' 'unsafe-inline' https://vlibras.gov.br https://cdn.jsdelivr.net/gh/spbgovbr-vlibras/; img-src 'self' data: blob: https://vlibras.gov.br https://*.vlibras.gov.br https://cdn.jsdelivr.net/gh/spbgovbr-vlibras/; font-src 'self' data: https://vlibras.gov.br https://cdn.jsdelivr.net/gh/spbgovbr-vlibras/; connect-src 'self' https://vlibras.gov.br https://*.vlibras.gov.br https://cdn.jsdelivr.net/gh/spbgovbr-vlibras/; worker-src 'self' blob:; media-src 'self' blob:; frame-src https://vlibras.gov.br; frame-ancestors 'none'; base-uri 'self'; form-action 'self'`.
 - Nenhum segredo no código; nenhum `dangerouslySetInnerHTML`, exceto o JSON-LD estático no `index.html`.
 
 **Desempenho:** modelos e páginas legais em `React.lazy`; miniaturas só renderizam quando visíveis;

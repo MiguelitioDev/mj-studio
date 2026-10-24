@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mjstudios.com.br/sitemap.xml
+Sitemap: https://mj-studio-sandy.vercel.app/sitemap.xml

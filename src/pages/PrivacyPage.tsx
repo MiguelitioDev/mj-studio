@@ -211,8 +211,11 @@ export default function PrivacyPage() {
                   <strong>Widget VLibras (Governo Federal):</strong> carregamos o
                   recurso oficial de tradução automática para a Língua Brasileira de
                   Sinais a partir do domínio governamental{" "}
-                  <code>vlibras.gov.br</code>, para cumprir o dever de acessibilidade
-                  digital previsto na Lei Brasileira de Inclusão (Lei nº 13.146/2015).
+                  <code>vlibras.gov.br</code> e da rede de distribuição{" "}
+                  <code>cdn.jsdelivr.net</code> usada pelo próprio VLibras, para
+                  cumprir o dever de acessibilidade digital previsto na Lei Brasileira
+                  de Inclusão (Lei nº 13.146/2015). Esses servidores recebem
+                  tecnicamente o seu endereço IP ao carregar o recurso.
                 </li>
               )}
             </ul>
