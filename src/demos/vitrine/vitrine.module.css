@@ -671,7 +671,7 @@
   margin: 0;
 }
 
-@media (min-width: 640px) {
+@container demo (min-width: 640px) {
   .container {
     padding: 0 2rem;
   }
@@ -685,7 +685,7 @@
   }
 }
 
-@media (min-width: 960px) {
+@container demo (min-width: 960px) {
   .heroGrid {
     grid-template-columns: 1.1fr 0.9fr;
     gap: 3rem;

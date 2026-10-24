@@ -52,7 +52,7 @@ export default function ModelDemoPage() {
         businessName={businessName}
         onBusinessNameChange={setBusinessName}
       />
-      <main id="conteudo" tabIndex={-1}>
+      <main id="conteudo" tabIndex={-1} className="demo-container">
         <Suspense
           fallback={
             <Container>

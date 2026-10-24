@@ -1,8 +1,13 @@
 .footer {
-  background-color: var(--fundo);
-  border-top: 1px solid var(--linha);
+  background-color: var(--grafite);
+  color: rgb(255 255 255 / 0.78);
+  border-top: 1px solid rgb(255 255 255 / 0.08);
   padding-top: var(--s-8);
   padding-bottom: calc(var(--s-8) + 64px);
+}
+
+.footer :focus-visible {
+  outline-color: var(--violeta-claro);
 }
 
 @media (min-width: 768px) {
@@ -23,16 +28,15 @@
   }
 }
 
-.brandName {
-  font-family: var(--font-display);
-  font-size: var(--fs-3);
-  font-weight: 700;
-  color: var(--grafite);
-  margin-bottom: var(--s-2);
+.brandLogo {
+  height: 36px;
+  width: auto;
+  margin-bottom: var(--s-3);
 }
 
 .tagline {
   font-size: var(--fs-1);
+  color: rgb(255 255 255 / 0.78);
   margin-bottom: var(--s-3);
 }
 
@@ -44,12 +48,14 @@
   flex-direction: column;
   gap: var(--s-2);
   font-size: var(--fs-0);
+  color: rgb(255 255 255 / 0.78);
 }
 
 .sectionTitle {
   font-family: var(--font-display);
   font-size: var(--fs-2);
   font-weight: 600;
+  color: var(--branco);
   margin-bottom: var(--s-3);
 }
 
@@ -66,21 +72,22 @@
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  color: var(--grafite);
+  color: var(--branco);
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 
 .link:hover {
-  color: var(--violeta);
+  color: var(--violeta-claro);
 }
 
 .bottom {
   margin-top: var(--s-7);
   padding-top: var(--s-5);
-  border-top: 1px solid var(--linha);
+  border-top: 1px solid rgb(255 255 255 / 0.08);
   display: flex;
   flex-direction: column;
   gap: var(--s-2);
   font-size: var(--fs-0);
+  color: rgb(255 255 255 / 0.78);
 }

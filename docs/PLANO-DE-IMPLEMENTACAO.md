@@ -70,7 +70,7 @@ src/
     shared/ DemoNotice.tsx, useWhatsAppCart.ts
     navalha/ clareza/ brasa/ vitrine/ alicerce/ pilar/ cartao/   # um modelo por pasta (seção 10)
 public/
-  favicon.svg, robots.txt, sitemap.xml
+  brand/ (logo e ícones), robots.txt, sitemap.xml
 vercel.json                    # rewrites SPA + cabeçalhos de segurança (seção 12)
 README.md                      # guia em português de como editar (seção 14)
 ```
@@ -589,6 +589,6 @@ contador/advogado) · regras de imagens e direitos autorais.
 3. **Modelos (parte 2):** `vitrine`, `alicerce`, `pilar`.
 4. **Home e catálogo:** todas as seções da seção 7, `PhoneFrame`, `ModelsPage` com abas, `ProjectsPage`.
 5. **Orçamento + legal + publicação:** `QuotePage`, páginas legais, `NotFoundPage`, VLibras, `index.html`
-   (SEO/JSON-LD), `robots.txt`, `sitemap.xml`, `favicon.svg`, `vercel.json`, `README.md`.
+   (SEO/JSON-LD), `robots.txt`, `sitemap.xml`, `brand/` (ícones), `vercel.json`, `README.md`.
 
 Depois de cada tarefa: `npm run build`, `npm run lint`, `npm test` devem passar.

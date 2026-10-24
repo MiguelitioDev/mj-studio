@@ -5,7 +5,7 @@
   z-index: 1000;
   padding: 0.75rem 1.25rem;
   background-color: var(--grafite);
-  color: var(--fundo);
+  color: var(--branco);
   border-radius: var(--r-sm);
   font-weight: 700;
   text-decoration: none;
@@ -14,5 +14,7 @@
 .skipLink:focus,
 .skipLink:focus-visible {
   top: 16px;
-  color: var(--fundo);
+  color: var(--branco);
+  outline: 3px solid var(--violeta-claro);
+  outline-offset: 2px;
 }

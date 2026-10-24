@@ -86,7 +86,7 @@ export function BrowserFrame({
       <div ref={viewportRef} className={styles.viewport}>
         {isVisible ? (
           <div
-            className={styles.canvas}
+            className={`${styles.canvas} demo-container`}
             style={{
               width: `${INNER_WIDTH}px`,
               height: `${INNER_HEIGHT}px`,

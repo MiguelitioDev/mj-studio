@@ -11,17 +11,26 @@
   padding: var(--s-7) var(--s-5);
   border-radius: var(--r-md);
   background-color: var(--grafite);
-  color: var(--fundo);
+  color: var(--branco);
+}
+
+.box :focus-visible {
+  outline-color: var(--violeta-claro);
+}
+
+.mark {
+  height: 56px;
+  width: auto;
 }
 
 .title {
   font-size: var(--fs-4);
-  color: var(--fundo);
+  color: var(--branco);
 }
 
 .subtitle {
   font-size: var(--fs-2);
-  color: var(--fundo);
+  color: rgb(255 255 255 / 0.78);
   max-width: 46ch;
 }
 
@@ -34,26 +43,18 @@
   margin-top: var(--s-2);
 }
 
-.whatsappButton:focus-visible {
-  box-shadow: none;
-}
-
 .quoteLink {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
   padding: 0.5rem var(--s-3);
-  color: var(--fundo);
+  color: var(--violeta-claro);
   font-weight: 700;
   text-decoration: underline;
 }
 
 .quoteLink:hover {
-  color: var(--lavanda);
-}
-
-.quoteLink:focus-visible {
-  box-shadow: none;
+  color: var(--branco);
 }
 
 @media (min-width: 768px) {

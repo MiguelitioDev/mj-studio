@@ -9,18 +9,18 @@
 
 .phone {
   width: 100%;
-  background-color: var(--grafite);
+  background-color: #1E1C1D;
   border-radius: var(--r-phone);
   padding: 12px 10px 14px;
-  box-shadow: var(--shadow-elevated);
-  border: 2px solid var(--grafite);
+  box-shadow: 0 30px 60px -30px rgb(105 33 242 / 0.45);
+  border: 2px solid #1E1C1D;
 }
 
 .speaker {
   width: 56px;
   height: 5px;
   border-radius: 999px;
-  background-color: rgb(246 247 243 / 0.25);
+  background-color: rgb(255 255 255 / 0.25);
   margin: 0 auto 10px;
 }
 
@@ -46,6 +46,6 @@
 .label {
   width: 100%;
   font-size: var(--fs-0);
-  color: var(--grafite);
+  color: rgb(255 255 255 / 0.78);
   line-height: var(--lh-body);
 }

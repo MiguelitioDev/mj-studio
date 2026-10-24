@@ -10,11 +10,17 @@ export function Footer() {
   const cityState = [site.city, site.state].filter(Boolean).join("/");
 
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} on-dark`}>
       <Container>
         <div className={styles.grid}>
           <div>
-            <p className={styles.brandName}>{site.name}</p>
+            <img
+              src="/brand/logo-branca.png"
+              alt="MJ Studios"
+              width={94}
+              height={36}
+              className={styles.brandLogo}
+            />
             {site.tagline && <p className={styles.tagline}>{site.tagline}</p>}
 
             <ul className={styles.metaList}>

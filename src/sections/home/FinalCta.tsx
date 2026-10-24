@@ -7,7 +7,15 @@ export function FinalCta() {
   return (
     <section className={styles.section}>
       <Container>
-        <div className={styles.box}>
+        <div className={`${styles.box} on-dark`}>
+          <img
+            src="/brand/marca-branca.png"
+            alt=""
+            aria-hidden="true"
+            width={40}
+            height={56}
+            className={styles.mark}
+          />
           <h2 className={styles.title}>Me conta sobre o seu negócio.</h2>
           <p className={styles.subtitle}>
             Mande uma mensagem no WhatsApp ou monte seu pedido em menos de 2

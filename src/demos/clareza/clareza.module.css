@@ -429,7 +429,7 @@
   color: var(--cl-graphite);
 }
 
-@media (min-width: 640px) {
+@container demo (min-width: 640px) {
   .container {
     padding: 0 2rem;
   }
@@ -439,7 +439,7 @@
   }
 }
 
-@media (min-width: 900px) {
+@container demo (min-width: 900px) {
   .heroGrid {
     grid-template-columns: 1.15fr 0.85fr;
     gap: 3rem;

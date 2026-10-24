@@ -57,7 +57,7 @@ export function Hero() {
   };
 
   return (
-    <section className={styles.hero}>
+    <section className={`${styles.hero} on-dark`}>
       <Container>
         <div className={styles.grid}>
           <div className={styles.content}>

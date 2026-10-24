@@ -1,6 +1,11 @@
 .hero {
   padding: var(--s-7) 0 var(--s-8);
-  border-bottom: 1px solid var(--linha);
+  background-color: var(--grafite);
+  color: var(--branco);
+}
+
+.hero :focus-visible {
+  outline-color: var(--violeta-claro);
 }
 
 .grid {
@@ -19,13 +24,13 @@
 .title {
   font-size: var(--fs-6);
   line-height: 1.05;
-  color: var(--grafite);
+  color: var(--branco);
   max-width: 18ch;
 }
 
 .subtitle {
   font-size: var(--fs-2);
-  color: var(--grafite);
+  color: rgb(255 255 255 / 0.78);
   max-width: 48ch;
 }
 
@@ -45,7 +50,7 @@
 .fieldLabel {
   font-size: var(--fs-1);
   font-weight: 700;
-  color: var(--grafite);
+  color: var(--branco);
 }
 
 .chipList {
@@ -58,9 +63,9 @@
   min-height: 44px;
   padding: 0.5rem 0.9rem;
   border-radius: var(--r-sm);
-  border: 1px solid var(--linha);
-  background-color: var(--branco);
-  color: var(--grafite);
+  border: 1px solid rgb(255 255 255 / 0.25);
+  background-color: transparent;
+  color: var(--branco);
   font-family: var(--font-body);
   font-size: var(--fs-1);
   font-weight: 700;
@@ -72,19 +77,20 @@
 }
 
 .chip:hover {
-  background-color: var(--lavanda);
+  border-color: var(--violeta-claro);
+  color: var(--violeta-claro);
 }
 
 .chipActive {
-  background-color: var(--violeta);
-  border-color: var(--violeta);
-  color: var(--branco);
+  background-color: var(--violeta-claro);
+  border-color: var(--violeta-claro);
+  color: var(--grafite);
 }
 
 .chipActive:hover {
-  background-color: var(--violeta-escuro);
-  border-color: var(--violeta-escuro);
-  color: var(--branco);
+  background-color: var(--violeta-claro);
+  border-color: var(--violeta-claro);
+  color: var(--grafite);
 }
 
 .input {
@@ -93,7 +99,7 @@
   min-height: 44px;
   padding: 0.6rem 0.85rem;
   border-radius: var(--r-sm);
-  border: 1.5px solid var(--grafite);
+  border: 1.5px solid var(--branco);
   background-color: var(--branco);
   color: var(--grafite);
   font-size: var(--fs-1);
@@ -116,7 +122,11 @@
   align-items: center;
   min-height: 44px;
   font-weight: 700;
-  color: var(--violeta);
+  color: var(--violeta-claro);
+}
+
+.secondaryLink:hover {
+  color: var(--branco);
 }
 
 .previewCol {
@@ -154,7 +164,11 @@
   flex-direction: column;
   gap: var(--s-1);
   font-size: var(--fs-0);
-  color: var(--grafite);
+  color: rgb(255 255 255 / 0.78);
+}
+
+.phoneCaption strong {
+  color: var(--branco);
 }
 
 .captionLink {
@@ -162,7 +176,11 @@
   align-items: center;
   min-height: 44px;
   font-weight: 700;
-  color: var(--violeta);
+  color: var(--violeta-claro);
+}
+
+.captionLink:hover {
+  color: var(--branco);
 }
 
 @media (min-width: 960px) {

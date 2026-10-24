@@ -72,9 +72,12 @@ a:hover {
 }
 
 :focus-visible {
-  outline: 3px solid var(--violeta-claro);
+  outline: 3px solid var(--violeta);
   outline-offset: 2px;
-  box-shadow: 0 0 0 5px var(--grafite);
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--violeta-claro);
 }
 
 main:focus {
@@ -107,4 +110,9 @@ main:focus {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Modelos de demonstração reagem à largura do próprio espaço (página, celular ou miniatura) */
+.demo-container {
+  container: demo / inline-size;
 }

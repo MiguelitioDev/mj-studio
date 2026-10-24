@@ -255,7 +255,7 @@
   margin: 0 auto;
 }
 
-@media (min-width: 640px) {
+@container demo (min-width: 640px) {
   .cartao {
     padding: 2rem 1.5rem;
   }

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router";
 import { Menu, X } from "lucide-react";
-import { site } from "../../config/site";
 import { projects } from "../../data/projects";
 import { Button } from "../ui/Button";
 import { Container } from "../ui/Container";
@@ -31,11 +30,17 @@ export function Header() {
   const showProjects = projects.length > 0;
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} on-dark`}>
       <Container>
         <div className={styles.inner}>
           <Link to="/" className={styles.brand}>
-            {site.name}
+            <img
+              src="/brand/logo-branca.png"
+              alt="MJ Studios — página inicial"
+              width={125}
+              height={48}
+              className={styles.brandLogo}
+            />
           </Link>
 
           <button

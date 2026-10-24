@@ -61,7 +61,7 @@ export function PhoneFrame({
           inert={true}
         >
           <div
-            className={styles.canvas}
+            className={`${styles.canvas} demo-container`}
             style={{
               width: `${INNER_WIDTH}px`,
               height: `${innerHeight}px`,
