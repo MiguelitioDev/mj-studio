@@ -1,6 +1,7 @@
-import { Suspense, useId, useRef, useState, type KeyboardEvent } from "react";
+import { Fragment, Suspense, useId, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
 import { Link } from "react-router";
 import { Container } from "../../components/ui/Container";
+import { GlassLens } from "../../components/ui/GlassLens";
 import { PhoneFrame } from "../../components/ui/PhoneFrame";
 import { WhatsAppLink } from "../../components/ui/WhatsAppLink";
 import { models } from "../../data/models";
@@ -59,18 +60,28 @@ export function Hero() {
   return (
     <section className={`${styles.hero} on-dark`}>
       <Container>
+        <div className={styles.headline}>
+          <h1 className={styles.title}>
+            {["Um", "site", "que", "chama", "no", "WhatsApp."].map((word, index) => (
+              <Fragment key={word}>
+                <span
+                  className={`${styles.word} abre`}
+                  style={{ "--i": index } as CSSProperties}
+                >
+                  {word}
+                </span>{" "}
+              </Fragment>
+            ))}
+          </h1>
+          <p className={`${styles.subtitle} abre`} style={{ "--i": 6 } as CSSProperties}>
+            Modelos prontos para o ramo do seu negócio, com a sua marca,
+            hospedagem e suporte inclusos. A partir de R$ 97 por mês, sem taxa de entrada.
+          </p>
+        </div>
+
         <div className={styles.grid}>
           <div className={styles.content}>
-            <h1 className={styles.title}>
-              Seu negócio com um site que chama no WhatsApp.
-            </h1>
-
-            <p className={styles.subtitle}>
-              Modelos prontos para o seu ramo, ajustados com a sua marca. A
-              partir de R$ 800.
-            </p>
-
-            <div className={styles.controls}>
+            <div className={`${styles.controls} glass abre`} style={{ "--i": 7 } as CSSProperties}>
               <div className={styles.fieldGroup}>
                 <span id={groupLabelId} className={styles.fieldLabel}>
                   Qual é o seu negócio?
@@ -118,7 +129,8 @@ export function Hero() {
                   maxLength={40}
                   value={businessName}
                   onChange={(e) => setBusinessName(e.target.value)}
-                  placeholder="Ex.: Barbearia do Zé"
+                  name="nome-do-negocio"
+                  placeholder="Ex.: Barbearia do Zé…"
                   className={styles.input}
                   autoComplete="organization"
                 />
@@ -143,7 +155,11 @@ export function Hero() {
             </div>
           </div>
 
-          <div className={styles.previewCol}>
+          <div className={`${styles.previewCol} abre`} style={{ "--i": 8 } as CSSProperties}>
+            <div className={styles.stage}>
+              <GlassLens size={132} className={styles.lens} />
+              <span className={`${styles.chipA} glass`}>Hospedagem inclusa</span>
+              <span className={`${styles.chipB} glass`}>Pronto em até 7 dias úteis</span>
             <PhoneFrame
               innerHeight={620}
               className={styles.phoneFrame}
@@ -177,6 +193,7 @@ export function Hero() {
                 )}
               </div>
             </PhoneFrame>
+            </div>
           </div>
         </div>
       </Container>

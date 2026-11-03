@@ -7,7 +7,7 @@ export function Faq() {
   return (
     <section id="perguntas" className={styles.section}>
       <Container>
-        <div className={styles.header}>
+        <div className={styles.header} data-reveal>
           <h2 className={styles.title}>Perguntas frequentes</h2>
           <p className={styles.subtitle}>
             Respostas diretas sobre prazos, domínio, hospedagem e pagamento.
@@ -15,8 +15,13 @@ export function Faq() {
         </div>
 
         <div className={styles.list}>
-          {faq.map((item) => (
-            <details key={item.question} className={styles.details}>
+          {faq.map((item, index) => (
+            <details
+              key={item.question}
+              className={`${styles.details} glass`}
+              data-reveal=""
+              data-rv-i={index % 4}
+            >
               <summary className={styles.summary}>
                 <span>{item.question}</span>
                 <ChevronDown

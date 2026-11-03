@@ -17,7 +17,7 @@
 
 .subtitle {
   font-size: var(--fs-1);
-  color: var(--grafite);
+  color: var(--texto);
 }
 
 .progressBlock {
@@ -47,12 +47,12 @@
   border-radius: var(--r-sm);
   overflow: hidden;
   appearance: none;
-  border: 1px solid var(--linha);
-  background-color: var(--branco);
+  border: 1px solid var(--vidro-borda);
+  background-color: var(--vidro);
 }
 
 .progressBar::-webkit-progress-bar {
-  background-color: var(--branco);
+  background-color: var(--vidro);
 }
 
 .progressBar::-webkit-progress-value {
@@ -65,8 +65,8 @@
 }
 
 .card {
-  background-color: var(--branco);
-  border: 1px solid var(--linha);
+  background-color: var(--vidro);
+  border: 1px solid var(--vidro-borda);
   border-radius: var(--r-md);
   padding: var(--s-5);
 }
@@ -96,7 +96,7 @@
 .legend {
   font-size: var(--fs-1);
   margin-bottom: var(--s-4);
-  color: var(--grafite);
+  color: var(--texto);
 }
 
 .radioGrid {
@@ -123,9 +123,9 @@
   gap: var(--s-3);
   min-height: 48px;
   padding: var(--s-4);
-  border: 1px solid var(--linha);
+  border: 1px solid var(--vidro-borda);
   border-radius: var(--r-sm);
-  background-color: var(--fundo);
+  background-color: var(--noite);
   cursor: pointer;
 }
 
@@ -179,7 +179,7 @@
   padding: 0.15rem 0.55rem;
   border-radius: var(--r-sm);
   background-color: var(--violeta-claro);
-  color: var(--grafite);
+  color: var(--texto);
   font-size: var(--fs-0);
   font-weight: 700;
 }
@@ -188,7 +188,7 @@
   margin-top: var(--s-3);
   padding: var(--s-3);
   border-radius: var(--r-sm);
-  border: 1px solid var(--grafite);
+  border: 1px solid var(--texto);
   background-color: var(--lavanda);
   font-weight: 700;
 }
@@ -233,10 +233,10 @@
   width: 100%;
   min-height: 44px;
   padding: 0.65rem 0.85rem;
-  border: 1px solid var(--grafite);
+  border: 1px solid var(--texto);
   border-radius: var(--r-sm);
-  background-color: var(--branco);
-  color: var(--grafite);
+  background-color: var(--vidro);
+  color: var(--texto);
 }
 
 .textarea {
@@ -255,9 +255,9 @@
   gap: var(--s-2);
   min-height: 44px;
   padding: 0.5rem 0.9rem;
-  border: 1px solid var(--linha);
+  border: 1px solid var(--vidro-borda);
   border-radius: var(--r-sm);
-  background-color: var(--fundo);
+  background-color: var(--noite);
   cursor: pointer;
   font-weight: 700;
 }
@@ -278,7 +278,7 @@
 .previewSection {
   margin-top: var(--s-6);
   padding-top: var(--s-5);
-  border-top: 1px solid var(--linha);
+  border-top: 1px solid var(--vidro-borda);
 }
 
 .previewHeading {
@@ -288,7 +288,7 @@
 
 .messageBubble {
   background-color: var(--lavanda);
-  border: 1px solid var(--linha);
+  border: 1px solid var(--vidro-borda);
   border-radius: var(--r-md);
   padding: var(--s-4);
 }
@@ -325,4 +325,8 @@
 .privacyNotice {
   margin-top: var(--s-4);
   font-size: var(--fs-0);
+}
+
+.billingToggle {
+  margin-bottom: var(--s-4);
 }

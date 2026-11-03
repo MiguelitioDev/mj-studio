@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DemoImage } from "../../components/ui/DemoImage";
+import "@fontsource-variable/archivo/wdth.css";
 import { WhatsAppIcon } from "../../components/ui/WhatsAppIcon";
 import { buildMessage, buildWhatsAppUrl } from "../../lib/whatsapp";
 import type { DemoProps } from "../types";
@@ -19,7 +19,6 @@ interface CompletedWork {
   neighborhood: string;
   duration: string;
   caption: string;
-  photoLabel: string;
 }
 
 const SERVICE_OPTIONS: readonly { id: string; label: string }[] = [
@@ -109,6 +108,25 @@ const NEIGHBORHOODS: readonly string[] = [
   "Cambeba",
 ];
 
+const WORK_PHOTOS: Record<string, { src: string; alt: string }> = {
+  "quadro-aldeota": {
+    src: "/img/alicerce/painel.jpg",
+    alt: "Mãos com luvas medindo com ponteira um quadro de distribuição elétrica com cabos coloridos",
+  },
+  "pintura-coco": {
+    src: "/img/alicerce/massa.jpg",
+    alt: "Mão aplicando massa em uma parede com uma espátula larga",
+  },
+  "hidraulica-fatima": {
+    src: "/img/alicerce/cozinha.jpg",
+    alt: "Cozinha clara com ilha de madeira, três banquetas e luminárias pendentes",
+  },
+  "reparos-meireles": {
+    src: "/img/alicerce/serra.jpg",
+    alt: "Profissional cortando madeira em uma serra de esquadria dentro de um apartamento",
+  },
+};
+
 const COMPLETED_WORKS: readonly CompletedWork[] = [
   {
     id: "quadro-aldeota",
@@ -117,7 +135,6 @@ const COMPLETED_WORKS: readonly CompletedWork[] = [
     duration: "Concluído em 1 dia",
     caption:
       "Substituição de disjuntores antigos padrão NEMA por trilho DIN com DR de proteção contra choques e identificação de todos os circuitos.",
-    photoLabel: "Quadro de distribuição elétrica organizado e identificado",
   },
   {
     id: "pintura-coco",
@@ -126,30 +143,29 @@ const COMPLETED_WORKS: readonly CompletedWork[] = [
     duration: "Concluído em 3 dias",
     caption:
       "Raspagem de reboco esfarelando próximo ao rodapé, aplicação de impermeabilizante bloqueador de umidade, emassamento e duas demãos de acrílico fosco.",
-    photoLabel: "Sala recém-pintada em tom areia com rodapé branco protegido",
   },
   {
     id: "hidraulica-fatima",
-    title: "Revisão hidráulica de banheiro e troca de louças",
-    neighborhood: "Fátima · Consultório comercial",
-    duration: "Concluído em 1 turno",
+    title: "Cozinha com ilha nova e pontos hidráulicos refeitos",
+    neighborhood: "Fátima · Apartamento 95 m²",
+    duration: "Concluído em 4 dias",
     caption:
-      "Eliminação de vazamento no registro geral, instalação de vaso com caixa acoplada de duplo acionamento e cuba de apoio com torneira metálica.",
-    photoLabel: "Bancada de banheiro com cuba e metais recém-instalados",
+      "Montagem da bancada com ilha, pontos de água e esgoto refeitos para a pia, iluminação pendente instalada e rejunte final conferido com a moradora.",
   },
   {
     id: "reparos-meireles",
-    title: "Pacote de instalações em apartamento novo",
+    title: "Rodapés, batentes e ajustes em apartamento novo",
     neighborhood: "Meireles · Entrega de chaves",
-    duration: "Concluído em 1 dia",
+    duration: "Concluído em 2 dias",
     caption:
-      "Instalação de 6 luminárias de sobrepor, 2 suportes articulados de TV, varal de teto individual, olho mágico e barras de apoio no box.",
-    photoLabel: "Luminárias de teto e suporte de TV alinhados na sala",
+      "Corte e instalação de rodapés e batentes, ajuste de portas e fechaduras, e fixação de suportes de TV na entrega das chaves.",
   },
 ];
 
 export default function AlicerceDemo({ businessName, compact = false }: DemoProps) {
   const name = businessName?.trim() || "Alicerce — Reformas & Reparos";
+  const [displayName, ...tagParts] = name.split(" — ");
+  const tagline = tagParts.join(" — ") || "Reformas e reparos";
   const [selectedService, setSelectedService] = useState<string>(SERVICE_OPTIONS[0].id);
   const [neighborhoodInput, setNeighborhoodInput] = useState<string>("");
   const [selectedUrgency, setSelectedUrgency] = useState<string>(URGENCY_OPTIONS[1].id);
@@ -188,8 +204,7 @@ export default function AlicerceDemo({ businessName, compact = false }: DemoProp
         <div className={styles.container}>
           <div className={styles.headerInner}>
             <div className={styles.brandBlock}>
-              <span className={styles.brandBadge}>CREA/CFT Ativo</span>
-              <span className={styles.brandName}>{name}</span>
+              <span className={styles.brandName}>{displayName}</span>
             </div>
 
             <nav aria-label="Navegação da página" className={styles.nav}>
@@ -216,15 +231,12 @@ export default function AlicerceDemo({ businessName, compact = false }: DemoProp
         <div className={styles.container}>
           <div className={styles.heroGrid}>
             <div className={styles.heroContent}>
-              <p className={styles.heroTag}>
-                Atendimento em Fortaleza · Hora marcada e orçamento sem taxa de visita
-              </p>
-              <h1 className={styles.heroTitle}>{name}</h1>
+              <h1 className={styles.heroTitle}>{displayName}</h1>
+              <p className={styles.heroTagline}>{tagline} em Fortaleza</p>
               <p className={styles.heroLead}>
                 Elétrica, hidráulica, pintura e pequenos reparos para casas,
                 apartamentos e pontos comerciais. Equipe uniformizada, preço
-                combinado antes de começar o serviço e nota de garantia de 90
-                dias por escrito.
+                combinado antes de começar e garantia de 90 dias por escrito.
               </p>
 
               <div className={styles.heroActions}>
@@ -244,19 +256,20 @@ export default function AlicerceDemo({ businessName, compact = false }: DemoProp
               </div>
 
               <ul className={styles.trustHighlights}>
-                <li>Orçamento fechado por serviço (não cobramos por hora enrolada)</li>
-                <li>Emitimos Nota Fiscal de Serviço (NFS-e) para condomínios e empresas</li>
-                <li>Pagamento em Pix, dinheiro ou cartão em até 4x sem juros</li>
+                <li>Orçamento fechado por serviço, sem cobrar por hora</li>
+                <li>Nota Fiscal de Serviço (NFS-e) para condomínios e empresas</li>
+                <li>Pix, dinheiro ou cartão em até 4x sem juros</li>
               </ul>
             </div>
 
-            <div className={styles.heroImage}>
-              <DemoImage
-                label="Profissional uniformizado revisando instalação elétrica com multímetro"
-                ratio="4/3"
-                tone="dark"
+            <figure className={styles.heroImage}>
+              <img
+                src="/img/alicerce/obra.jpg"
+                alt="Obra em andamento: parede com tijolos aparentes, vigas de madeira e escoramento em um apartamento em reforma"
+                width={1100}
+                height={733}
               />
-            </div>
+            </figure>
           </div>
         </div>
       </section>
@@ -265,9 +278,8 @@ export default function AlicerceDemo({ businessName, compact = false }: DemoProp
         <div className={styles.container}>
           <div className={styles.quoteCard}>
             <div className={styles.quoteHeader}>
-              <span className={styles.stepPill}>Orçamento rápido em 30 segundos</span>
               <h2 className={styles.sectionTitle}>
-                Adiante seu atendimento em 3 perguntas
+                Orçamento em 3 perguntas
               </h2>
               <p className={styles.sectionSubtitle}>
                 Marque o que você precisa abaixo. O site monta a mensagem pronta
@@ -320,11 +332,13 @@ export default function AlicerceDemo({ businessName, compact = false }: DemoProp
                   </p>
                   <input
                     id="alicerce-bairro-input"
+                    name="bairro"
                     type="text"
+                    autoComplete="off"
                     maxLength={50}
                     value={neighborhoodInput}
                     onChange={(e) => setNeighborhoodInput(e.target.value)}
-                    placeholder="Ex.: Aldeota, Messejana, Parangaba..."
+                    placeholder="Ex.: Aldeota, Messejana, Parangaba…"
                     className={styles.textInput}
                   />
                   <div className={styles.quickNeighborhoods}>
@@ -503,10 +517,13 @@ export default function AlicerceDemo({ businessName, compact = false }: DemoProp
               <div className={styles.worksGrid}>
                 {COMPLETED_WORKS.map((work) => (
                   <article key={work.id} className={styles.workCard}>
-                    <DemoImage
-                      label={work.photoLabel}
-                      ratio="16/10"
-                      tone="dark"
+                    <img
+                      src={WORK_PHOTOS[work.id]?.src}
+                      alt={WORK_PHOTOS[work.id]?.alt ?? work.title}
+                      className={styles.workPhoto}
+                      loading="lazy"
+                      width={1100}
+                      height={733}
                     />
                     <div className={styles.workBody}>
                       <div className={styles.workMeta}>
@@ -524,13 +541,19 @@ export default function AlicerceDemo({ businessName, compact = false }: DemoProp
             </div>
           </section>
 
+          <img
+            src="/img/alicerce/projeto.jpg"
+            alt="Profissional de camisa azul olhando uma planta baixa contra a luz de uma janela"
+            className={styles.planBand}
+            loading="lazy"
+            width={1100}
+            height={733}
+          />
+
           <section id="alicerce-garantia" className={styles.warrantySection}>
             <div className={styles.container}>
               <div className={styles.warrantyBanner}>
                 <div className={styles.warrantyContent}>
-                  <span className={styles.warrantyBadge}>
-                    Compromisso por escrito
-                  </span>
                   <h2 className={styles.warrantyTitle}>
                     Garantia de 90 dias e respeito à sua casa
                   </h2>
@@ -560,7 +583,7 @@ export default function AlicerceDemo({ businessName, compact = false }: DemoProp
 
                 <div className={styles.warrantyContactBox}>
                   <h3 className={styles.contactBoxTitle}>
-                    Fale direto com o técnico responsável
+                    Fale direto com o técnico
                   </h3>
                   <p className={styles.contactBoxText}>
                     Mande uma foto ou vídeo curto de onde está o defeito. Na
@@ -591,8 +614,12 @@ export default function AlicerceDemo({ businessName, compact = false }: DemoProp
 
       <footer className={styles.footer}>
         <div className={styles.container}>
+          <p className={styles.footerName} aria-hidden="true">
+            {displayName}
+          </p>
           <p className={styles.footerText}>
-            © 2026 {name} · Modelo de demonstração criado pela MJ Studios
+            © 2026 {displayName}. CREA/CFT ativo. Modelo de demonstração criado
+            pela MJ Studios. Fotos: Unsplash.
           </p>
         </div>
       </footer>

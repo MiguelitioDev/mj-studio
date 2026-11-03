@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DemoImage } from "../../components/ui/DemoImage";
+import "@fontsource-variable/bricolage-grotesque";
 import { Tabs, type TabOption } from "../../components/ui/Tabs";
 import { WhatsAppIcon } from "../../components/ui/WhatsAppIcon";
 import { formatBRL } from "../../lib/format";
@@ -14,7 +14,6 @@ interface MenuItem {
   name: string;
   description: string;
   price: number;
-  photoLabel: string;
 }
 
 interface DeliveryZone {
@@ -31,6 +30,26 @@ const CATEGORIES: readonly TabOption[] = [
   { id: "bebidas", label: "Bebidas e Sobremesas" },
 ];
 
+interface CategoryBanner {
+  src: string;
+  alt: string;
+}
+
+const CATEGORY_BANNERS: Record<string, CategoryBanner | undefined> = {
+  burgers: {
+    src: "/img/brasa/duplo.jpg",
+    alt: "Hambúrguer duplo com cheddar derretido e picles sobre uma superfície escura",
+  },
+  porcoes: {
+    src: "/img/brasa/batata.jpg",
+    alt: "Hambúrguer com batatas fritas em uma bandeja de madeira",
+  },
+  combos: {
+    src: "/img/brasa/casa.jpg",
+    alt: "Dois hambúrgueres espetados com palito em uma tábua, ao lado de garrafas de refrigerante",
+  },
+};
+
 const MENU_ITEMS: readonly MenuItem[] = [
   // Hambúrgueres na Brasa (4 itens)
   {
@@ -40,7 +59,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     description:
       "Blend bovino na grelha, queijo prato derretido, alface crocante, tomate e maionese defumada no pão brioche.",
     price: 32,
-    photoLabel: "Hambúrguer clássico na grelha com queijo derretido",
   },
   {
     id: "sertao-burger",
@@ -49,7 +67,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     description:
       "Hambúrguer 180g, queijo coalho selado no melaço de cana, cebola roxa caramelizada e carne de sol desfiada.",
     price: 38,
-    photoLabel: "Hambúrguer artesanal com queijo coalho dourado",
   },
   {
     id: "duplo-cheddar",
@@ -58,7 +75,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     description:
       "Dois blends de 140g na brasa, dobro de cheddar cremoso, fatias de bacon crocante e picles da casa.",
     price: 44,
-    photoLabel: "Hambúrguer duplo com cheddar e tiras de bacon",
   },
   {
     id: "frango-crocante",
@@ -67,7 +83,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     description:
       "Sobrecoxa marinada na brasa, queijo muçarela, salada de repolho cremosa e molho mostarda e mel.",
     price: 30,
-    photoLabel: "Sanduíche de frango grelhado no pão brioche",
   },
 
   // Porções e Entradas (4 itens)
@@ -78,7 +93,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     description:
       "Porção de 350g de batatas cortadas na casa, finalizadas com páprica, alecrim e maionese de alho assado.",
     price: 22,
-    photoLabel: "Porção de batatas rústicas com maionese verde",
   },
   {
     id: "macaxeira-coalho",
@@ -87,7 +101,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     description:
       "8 unidades crocantes por fora e macias por dentro, servidas com geleia de pimenta leve.",
     price: 26,
-    photoLabel: "Dadinhos dourados com molho de pimenta",
   },
   {
     id: "costelinha-bbq",
@@ -96,7 +109,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     description:
       "Tiras de costelinha suína assadas lentamente e glaceadas no molho barbecue de rapadura.",
     price: 42,
-    photoLabel: "Costelinha suína ao molho barbecue na tábua",
   },
   {
     id: "aneis-cebola",
@@ -105,7 +117,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     description:
       "Porção crocante acompanhada de molho barbecue defumado da casa.",
     price: 20,
-    photoLabel: "Anéis de cebola crocantes com molho",
   },
 
   // Combos da Casa (4 itens)
@@ -116,7 +127,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     description:
       "1 Brasa Clássico 180g + porção individual de batata rústica + 1 refrigerante lata ou suco 300ml.",
     price: 48,
-    photoLabel: "Combo com hambúrguer, batata e bebida",
   },
   {
     id: "combo-sertao",
@@ -125,7 +135,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     description:
       "1 Sertão na Brasa + 4 dadinhos de macaxeira + 1 bebida lata à escolha.",
     price: 54,
-    photoLabel: "Combo Sertão com dadinhos e refrigerante",
   },
   {
     id: "combo-casal",
@@ -134,7 +143,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     description:
       "2 hambúrgueres (Clássico ou Sertão) + 1 porção grande de batata rústica + 2 bebidas lata.",
     price: 94,
-    photoLabel: "Dois hambúrgueres artesanais e batata grande",
   },
   {
     id: "combo-familia",
@@ -143,7 +151,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     description:
       "4 hambúrgueres Clássicos + 2 porções de acompanhamento + 1 refrigerante de 2 litros.",
     price: 168,
-    photoLabel: "Mesa completa com quatro hambúrgueres e porções",
   },
 
   // Bebidas e Sobremesas (4 itens)
@@ -153,7 +160,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     name: "Cajuína São Geraldo (Lata 350ml)",
     description: "Bem gelada, perfeita para acompanhar carnes na brasa.",
     price: 8,
-    photoLabel: "Lata de refrigerante de caju gelada",
   },
   {
     id: "suco-cajua",
@@ -162,7 +168,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     description:
       "Sabores do dia: cajá, acerola, maracujá ou limão com hortelã. Feito na hora.",
     price: 11,
-    photoLabel: "Copo de suco natural com gelo",
   },
   {
     id: "brownie-castanha",
@@ -171,7 +176,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     description:
       "Fatia morna de brownie artesanal com castanha-de-caju tostada e calda de chocolate meio amargo.",
     price: 16,
-    photoLabel: "Fatia de brownie com castanha de caju",
   },
   {
     id: "pudim-leite",
@@ -180,7 +184,6 @@ const MENU_ITEMS: readonly MenuItem[] = [
     description:
       "Porção individual cremosa, sem furinhos, com calda de caramelo tradicional.",
     price: 14,
-    photoLabel: "Pudim individual com calda de caramelo",
   },
 ];
 
@@ -214,7 +217,10 @@ function checkIsOpenNow(): { isOpen: boolean; currentHour: number } {
 
 export default function BrasaDemo({ businessName, compact = false }: DemoProps) {
   const name = businessName?.trim() || "Brasa do Benfica — Burger & Grelha";
+  const [displayName, ...tagParts] = name.split(" — ");
+  const tagline = tagParts.join(" — ") || "Hambúrguer artesanal na brasa";
   const [activeCategory, setActiveCategory] = useState<string>("burgers");
+  const banner = CATEGORY_BANNERS[activeCategory];
   const cart = useWhatsAppCart();
   const { isOpen } = checkIsOpenNow();
 
@@ -243,7 +249,7 @@ export default function BrasaDemo({ businessName, compact = false }: DemoProps) 
         <div className={styles.container}>
           <div className={styles.headerInner}>
             <div className={styles.brandGroup}>
-              <span className={styles.brandName}>{name}</span>
+              <span className={styles.brandName}>{displayName}</span>
               <span
                 className={[
                   styles.statusBadge,
@@ -278,15 +284,14 @@ export default function BrasaDemo({ businessName, compact = false }: DemoProps) 
         <div className={styles.container}>
           <div className={styles.heroGrid}>
             <div className={styles.heroContent}>
-              <p className={styles.heroTag}>
-                Delivery próprio e retirada no balcão · Todos os dias, 18h às 23h
-              </p>
-              <h1 className={styles.heroTitle}>{name}</h1>
+              <h1 className={styles.heroTitle}>
+                {displayName}{" "}
+                <span className={styles.heroTitleTag}>{tagline}</span>
+              </h1>
               <p className={styles.heroDesc}>
                 Carne fresca grelhada no fogo de verdade, pão brioche selado na
-                manteiga da terra e molhos feitos na casa. Monte seu pedido
-                abaixo e envie direto para o nosso WhatsApp sem taxa de
-                aplicativo.
+                manteiga da terra e molhos feitos na casa. Monte o pedido e
+                envie direto para o nosso WhatsApp, sem taxa de aplicativo.
               </p>
               <div className={styles.heroActions}>
                 <a href="#cardapio" className={styles.primaryButton}>
@@ -303,15 +308,19 @@ export default function BrasaDemo({ businessName, compact = false }: DemoProps) 
                   <span>Falar com o atendimento</span>
                 </a>
               </div>
+              <p className={styles.heroHours}>
+                Delivery próprio e retirada no balcão, todos os dias das 18h às 23h.
+              </p>
             </div>
 
-            <div className={styles.heroImage}>
-              <DemoImage
-                label="Hambúrguer artesanal na brasa com batatas rústicas"
-                ratio="4/3"
-                tone="accent"
+            <figure className={styles.heroImage}>
+              <img
+                src="/img/brasa/smash.jpg"
+                alt="Hambúrguer artesanal com cheddar, picles e molho sobre uma tábua de madeira, em fundo escuro"
+                width={1100}
+                height={733}
               />
-            </div>
+            </figure>
           </div>
         </div>
       </section>
@@ -335,16 +344,21 @@ export default function BrasaDemo({ businessName, compact = false }: DemoProps) 
                   idPrefix="brasa-menu"
                   ariaLabel="Categorias do cardápio"
                 >
-                  <div className={styles.itemsGrid}>
+                  {banner && (
+                    <img
+                      src={banner.src}
+                      alt={banner.alt}
+                      className={styles.categoryBanner}
+                      loading="lazy"
+                      width={1100}
+                      height={733}
+                    />
+                  )}
+                  <ul className={styles.itemsGrid}>
                     {categoryItems.map((item) => {
                       const qty = cart.getItemQty(item.id);
                       return (
-                        <article key={item.id} className={styles.itemCard}>
-                          <DemoImage
-                            label={item.photoLabel}
-                            ratio="16/10"
-                            tone="accent"
-                          />
+                        <li key={item.id} className={styles.itemCard}>
                           <div className={styles.itemBody}>
                             <div className={styles.itemHeader}>
                               <h3 className={styles.itemName}>{item.name}</h3>
@@ -404,10 +418,10 @@ export default function BrasaDemo({ businessName, compact = false }: DemoProps) 
                               )}
                             </div>
                           </div>
-                        </article>
+                        </li>
                       );
                     })}
-                  </div>
+                  </ul>
                 </Tabs>
               </div>
             </div>
@@ -509,6 +523,52 @@ export default function BrasaDemo({ businessName, compact = false }: DemoProps) 
       </section>
 
       {!compact && (
+        <section className={styles.kitchen}>
+          <img
+            src="/img/brasa/chapa.jpg"
+            alt="Hambúrgueres com queijo derretido sobre a chapa, ao lado de uma garrafa de ketchup"
+            className={styles.kitchenPhoto}
+            loading="lazy"
+            width={1100}
+            height={733}
+          />
+          <div className={styles.container}>
+            <div className={styles.kitchenText}>
+              <h2 className={styles.kitchenTitle}>Feito na hora, na brasa</h2>
+              <p>
+                Nada de hambúrguer pronto esperando no balcão. A carne vai para
+                a grelha quando o seu pedido chega, e sai direto para o motoboy
+                ou para a sua mão.
+              </p>
+            </div>
+            <div className={styles.kitchenRow}>
+              <img
+                src="/img/brasa/cozinha.jpg"
+                alt="Cozinheiro com luvas pretas apertando molho sobre pães brioche tostados na chapa"
+                loading="lazy"
+                width={1100}
+                height={733}
+              />
+              <img
+                src="/img/brasa/classico.jpg"
+                alt="Hambúrguer clássico com queijo, alface e tomate sobre tábua de madeira"
+                loading="lazy"
+                width={1100}
+                height={733}
+              />
+              <img
+                src="/img/brasa/casa.jpg"
+                alt="Dois hambúrgueres espetados em palitos sobre tábua, ao lado de garrafas de refrigerante"
+                loading="lazy"
+                width={1100}
+                height={733}
+              />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {!compact && (
         <section id="entrega" className={styles.infoSection}>
           <div className={styles.container}>
             <div className={styles.infoGrid}>
@@ -574,10 +634,32 @@ export default function BrasaDemo({ businessName, compact = false }: DemoProps) 
         </section>
       )}
 
+      {!compact && cart.items.length > 0 && (
+        <div className={styles.stickyBag}>
+          <span className={styles.stickyBagInfo}>
+            {cart.totalItems} {cart.totalItems === 1 ? "item" : "itens"} ·{" "}
+            <strong>{formatBRL(cart.total)}</strong>
+          </span>
+          <a href="#sacola" className={styles.stickyBagLink}>
+            Ver pedido
+          </a>
+        </div>
+      )}
+
+      <span className="sr-only" role="status" aria-live="polite">
+        {cart.totalItems === 0
+          ? "Pedido vazio"
+          : `${cart.totalItems} itens no pedido, total ${formatBRL(cart.total)}`}
+      </span>
+
       <footer className={styles.footer}>
         <div className={styles.container}>
+          <p className={styles.footerName} aria-hidden="true">
+            {displayName}
+          </p>
           <p className={styles.footerText}>
-            © 2026 {name} · Modelo de demonstração criado pela MJ Studios
+            © 2026 {displayName}. Modelo de demonstração criado pela MJ Studios.
+            Fotos: Unsplash.
           </p>
         </div>
       </footer>

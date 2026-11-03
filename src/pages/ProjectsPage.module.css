@@ -11,19 +11,19 @@
 
 .title {
   font-size: var(--fs-5);
-  color: var(--grafite);
+  color: var(--texto);
 }
 
 .subtitle {
   font-size: var(--fs-2);
-  color: var(--grafite);
+  color: var(--texto);
 }
 
 .emptyState {
   padding: var(--s-6);
   border-radius: var(--r-md);
-  border: 1px solid var(--linha);
-  background-color: var(--branco);
+  border: 1px solid var(--vidro-borda);
+  background-color: var(--vidro);
   display: flex;
   flex-direction: column;
   gap: var(--s-5);
@@ -32,7 +32,7 @@
 
 .emptyText {
   font-size: var(--fs-2);
-  color: var(--grafite);
+  color: var(--texto);
 }
 
 .emptyActions {
@@ -50,8 +50,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  background-color: var(--branco);
-  border: 1px solid var(--linha);
+  background-color: var(--vidro);
+  border: 1px solid var(--vidro-borda);
   border-radius: var(--r-md);
   overflow: hidden;
 }
@@ -74,7 +74,7 @@
 
 .projectName {
   font-size: var(--fs-3);
-  color: var(--grafite);
+  color: var(--texto);
 }
 
 .metaBadge {
@@ -82,14 +82,14 @@
   padding: 2px var(--s-2);
   border-radius: var(--r-sm);
   background-color: var(--lavanda);
-  color: var(--grafite);
+  color: var(--texto);
   font-size: var(--fs-0);
   font-weight: 700;
 }
 
 .summary {
   font-size: var(--fs-1);
-  color: var(--grafite);
+  color: var(--texto);
 }
 
 .cardFooter {
@@ -102,7 +102,7 @@
   align-items: center;
   min-height: 44px;
   font-weight: 700;
-  color: var(--violeta);
+  color: var(--violeta-texto);
 }
 
 @media (min-width: 720px) {

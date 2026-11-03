@@ -9,7 +9,7 @@
 .header {
   margin-bottom: var(--s-5);
   padding-bottom: var(--s-5);
-  border-bottom: 1px solid var(--linha);
+  border-bottom: 1px solid var(--vidro-borda);
 }
 
 .title {
@@ -19,14 +19,14 @@
 
 .updatedAt {
   font-size: var(--fs-0);
-  color: var(--grafite);
+  color: var(--texto);
 }
 
 .toc {
   margin-bottom: var(--s-6);
   padding: var(--s-4) var(--s-5);
-  background-color: var(--branco);
-  border: 1px solid var(--linha);
+  background-color: var(--vidro);
+  border: 1px solid var(--vidro-borda);
   border-radius: var(--r-md);
 }
 
@@ -70,7 +70,7 @@
 .callout {
   padding: var(--s-4);
   background-color: var(--lavanda);
-  border: 1px solid var(--linha);
+  border: 1px solid var(--vidro-borda);
   border-radius: var(--r-sm);
   margin-block: var(--s-4);
 }

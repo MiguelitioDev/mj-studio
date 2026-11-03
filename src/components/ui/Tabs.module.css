@@ -8,41 +8,33 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--s-2);
-  border-bottom: 1px solid var(--linha);
-  padding-bottom: var(--s-3);
 }
 
 .tab {
   min-height: 44px;
-  padding: 0.5rem 1rem;
-  border-radius: var(--r-sm);
-  border: 1px solid var(--linha);
-  background-color: var(--branco);
-  color: var(--grafite);
+  padding: 0.5rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid var(--vidro-borda);
+  background-color: var(--vidro);
+  color: var(--texto);
   font-family: var(--font-body);
   font-size: var(--fs-1);
   font-weight: 700;
   cursor: pointer;
   transition:
-    background-color 150ms ease,
-    border-color 150ms ease,
-    color 150ms ease;
+    background-color 200ms var(--ease-out),
+    border-color 200ms var(--ease-out);
 }
 
 .tab:hover {
-  background-color: var(--lavanda);
+  background-color: var(--vidro-forte);
 }
 
-.tabActive {
-  background-color: var(--violeta);
-  border-color: var(--violeta);
-  color: var(--branco);
-}
-
+.tabActive,
 .tabActive:hover {
-  background-color: var(--violeta-escuro);
-  border-color: var(--violeta-escuro);
-  color: var(--branco);
+  background-color: var(--violeta);
+  border-color: rgb(255 255 255 / 0.3);
+  color: #ffffff;
 }
 
 .tabPanel {

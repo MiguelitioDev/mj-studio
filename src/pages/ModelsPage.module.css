@@ -11,12 +11,12 @@
 
 .title {
   font-size: var(--fs-5);
-  color: var(--grafite);
+  color: var(--texto);
 }
 
 .subtitle {
   font-size: var(--fs-2);
-  color: var(--grafite);
+  color: var(--texto);
 }
 
 .grid {
@@ -29,8 +29,8 @@
   margin-top: var(--s-8);
   padding: var(--s-6);
   border-radius: var(--r-md);
-  border: 1px solid var(--linha);
-  background-color: var(--branco);
+  border: 1px solid var(--vidro-borda);
+  background-color: var(--vidro);
   display: flex;
   flex-direction: column;
   gap: var(--s-5);
@@ -44,12 +44,12 @@
 
 .bottomTitle {
   font-size: var(--fs-3);
-  color: var(--grafite);
+  color: var(--texto);
 }
 
 .bottomDescription {
   font-size: var(--fs-1);
-  color: var(--grafite);
+  color: var(--texto);
 }
 
 .bottomActions {

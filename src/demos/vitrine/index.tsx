@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { DemoImage } from "../../components/ui/DemoImage";
+import "@fontsource-variable/syne";
 import { WhatsAppIcon } from "../../components/ui/WhatsAppIcon";
 import { formatBRL } from "../../lib/format";
 import { buildMessage, buildWhatsAppUrl } from "../../lib/whatsapp";
@@ -19,7 +19,6 @@ interface Product {
   sizes: readonly SizeCode[];
   material: string;
   description: string;
-  photoLabel: string;
   badge?: string;
 }
 
@@ -39,6 +38,43 @@ const SIZE_FILTERS: readonly { id: "todos" | SizeCode; label: string }[] = [
   { id: "Único", label: "Tamanho Único" },
 ];
 
+const SWATCHES: Record<string, string> = {
+  "camisa-linho-maresia": "#e6dcc6",
+  "vestido-midi-mucuripe": "#c4663d",
+  "calca-pantalona-duna": "#d9c3a0",
+  "conjunto-cropped-saia-sol": "#e9b94f",
+  "short-alfaiataria-aldeota": "#f0a58b",
+  "rasteira-couro-iracema": "#b87a42",
+  "sandalia-bloco-meireles": "#d8b79a",
+  "mule-trancado-varjota": "#c9b08a",
+  "bolsa-palha-carnauba": "#cfae72",
+  "lenço-acetinado-caju": "#e8745a",
+  "cinto-couro-fivela-dourada": "#6b4428",
+  "colar-resina-tartaruga": "#b9733a",
+};
+
+function swatchFor(id: string): string {
+  return SWATCHES[id] ?? "#e6dcc6";
+}
+
+function relativeLuminance(hex: string): number {
+  const n = Number.parseInt(hex.slice(1), 16);
+  const channel = (v: number) => {
+    const c = v / 255;
+    return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  };
+  return 0.2126 * channel(n >> 16) + 0.7152 * channel((n >> 8) & 255) + 0.0722 * channel(n & 255);
+}
+
+function inkOn(hex: string): string {
+  const bg = relativeLuminance(hex);
+  const contrastWith = (ink: string) => {
+    const l = relativeLuminance(ink);
+    return (Math.max(bg, l) + 0.05) / (Math.min(bg, l) + 0.05);
+  };
+  return contrastWith("#1c2230") >= contrastWith("#ffffff") ? "#1c2230" : "#ffffff";
+}
+
 const PRODUCTS: readonly Product[] = [
   // Roupas (5 itens)
   {
@@ -52,7 +88,6 @@ const PRODUCTS: readonly Product[] = [
     material: "55% linho, 45% viscose — fresca e pré-lavada",
     description:
       "Modelagem solta ideal para o calor de Fortaleza. Botões em madrepérola natural, gola tradicional e manga longa com presilha para dobrar na altura do cotovelo.",
-    photoLabel: "Camisa de linho cru pendurada em cabide de madeira",
     badge: "Mais pedida",
   },
   {
@@ -66,7 +101,6 @@ const PRODUCTS: readonly Product[] = [
     material: "100% viscose sarjada com forro leve",
     description:
       "Vestido midi com alças reguláveis, decote reto e fenda lateral discreta. Não marca e acompanha faixa do próprio tecido para acinturar se preferir.",
-    photoLabel: "Vestido midi terracota fluido em fundo claro",
     badge: "Nova coleção",
   },
   {
@@ -80,7 +114,6 @@ const PRODUCTS: readonly Product[] = [
     material: "Linho misto encorpado sem transparência",
     description:
       "Cintura alta com cós liso na frente e elástico embutido atrás para ajustar no corpo com conforto. Bolsos faca laterais profundos.",
-    photoLabel: "Calça pantalona areia de cintura alta",
   },
   {
     id: "conjunto-cropped-saia-sol",
@@ -93,7 +126,6 @@ const PRODUCTS: readonly Product[] = [
     material: "Algodão maquinetado texturizado",
     description:
       "Conjunto versátil com blusa de manga curta estruturada e saia midi envelope. As duas peças também funcionam separadas no dia a dia.",
-    photoLabel: "Conjunto feminino em algodão texturizado",
   },
   {
     id: "short-alfaiataria-aldeota",
@@ -106,7 +138,6 @@ const PRODUCTS: readonly Product[] = [
     material: "Sarja leve 100% algodão com toque macio",
     description:
       "Corte de alfaiataria com pregas frontais, barra italiana dobrada e fechamento por botão forrado. Comprimento confortável que não sobe ao caminhar.",
-    photoLabel: "Short de alfaiataria coral claro com cinto",
   },
 
   // Calçados (3 itens)
@@ -121,7 +152,6 @@ const PRODUCTS: readonly Product[] = [
     material: "Couro legítimo macio · P (34/35), M (36/37), G (38/39)",
     description:
       "Feita à mão por artesãos cearenses. Tiras largas trançadas que abraçam o pé sem apertar e palmilha acolchoada com solado antiderrapante.",
-    photoLabel: "Sandália rasteira de couro caramelo trançado",
     badge: "Feito no CE",
   },
   {
@@ -135,7 +165,6 @@ const PRODUCTS: readonly Product[] = [
     material: "Pelica sintética premium · Salto 5 cm · P (34/35), M (36/37), G (38/39)",
     description:
       "Salto bloco de 5 cm estável para trabalhar ou sair à noite. Fecho com fivela lateral e tira fina no peito do pé.",
-    photoLabel: "Sandália de salto bloco baixo em tom amêndoa",
   },
   {
     id: "mule-trancado-varjota",
@@ -148,7 +177,6 @@ const PRODUCTS: readonly Product[] = [
     material: "Corda de algodão e palmilha forrada · M (36/37), G (38/39)",
     description:
       "Prático de calçar, bico quadrado moderno e acabamento em trama de algodão cru. Combina com jeans, pantalonas e vestidos.",
-    photoLabel: "Calçado estilo mule com trama natural",
   },
 
   // Acessórios (4 itens)
@@ -163,7 +191,6 @@ const PRODUCTS: readonly Product[] = [
     material: "Palha de carnaúba trançada e alça em couro (24 x 18 cm)",
     description:
       "Estrutura firme trançada à mão com forro interno em algodão, bolso com zíper para celular e fecho magnético sob a tampa de couro.",
-    photoLabel: "Bolsa tiracolo de palha trançada com alça de couro",
     badge: "Artesanal",
   },
   {
@@ -177,7 +204,6 @@ const PRODUCTS: readonly Product[] = [
     material: "Toque de seda acetinado (100% poliéster fino)",
     description:
       "Estampa autoral exclusiva inspirada nos cajueiros do litoral. Pode ser usado no pescoço, no cabelo, como faixa de cintura ou amarrado na bolsa.",
-    photoLabel: "Lenço estampado em tons de coral e azul-marinho",
   },
   {
     id: "cinto-couro-fivela-dourada",
@@ -190,7 +216,6 @@ const PRODUCTS: readonly Product[] = [
     material: "Tira em couro bovino 2,5 cm e fivela em metal com banho dourado",
     description:
       "Acabamento fosco elegante e fivela de desenho orgânico. Sete furos de ajuste para usar tanto na cintura alta quanto no quadril.",
-    photoLabel: "Cinto de couro marrom com fivela dourada",
   },
   {
     id: "colar-resina-tartaruga",
@@ -203,12 +228,13 @@ const PRODUCTS: readonly Product[] = [
     material: "Elos leves em resina polida e extensor hipoalergênico",
     description:
       "Peça de presença que não pesa no pescoço e não escurece com a maresia. Comprimento de 45 cm mais 7 cm de corrente extensora.",
-    photoLabel: "Colar de elos em resina âmbar sobre tecido claro",
   },
 ];
 
 export default function VitrineDemo({ businessName, compact = false }: DemoProps) {
   const name = businessName?.trim() || "Maresia — Moda & Acessórios";
+  const [displayName, ...tagParts] = name.split(" — ");
+  const tagline = tagParts.join(" — ") || "Moda e acessórios";
   const [selectedCategory, setSelectedCategory] = useState<CategoryId>("todas");
   const [selectedSizeFilter, setSelectedSizeFilter] = useState<"todos" | SizeCode>("todos");
   const [activeProduct, setActiveProduct] = useState<Product | null>(null);
@@ -291,7 +317,7 @@ export default function VitrineDemo({ businessName, compact = false }: DemoProps
       <header className={styles.header}>
         <div className={styles.container}>
           <div className={styles.headerInner}>
-            <span className={styles.brandName}>{name}</span>
+            <span className={styles.brandName}>{displayName}</span>
 
             <nav aria-label="Navegação da loja" className={styles.nav}>
               <a href="#vitrine-catalogo" className={styles.navLink}>
@@ -322,17 +348,20 @@ export default function VitrineDemo({ businessName, compact = false }: DemoProps
           <div className={styles.heroGrid}>
             <div className={styles.heroContent}>
               <p className={styles.heroCollection}>
-                Coleção Vento Leste · Linho, algodão e couro artesanal
+                Coleção Vento Leste: linho, algodão e couro artesanal
               </p>
-              <h1 className={styles.heroTitle}>{name}</h1>
+              <h1 className={styles.heroTitle}>
+                {displayName}{" "}
+                <span className={styles.heroTitleTag}>{tagline}</span>
+              </h1>
               <p className={styles.heroLead}>
                 Peças leves pensadas para o clima do Ceará. Filtre pelo seu
-                tamanho no catálogo abaixo, veja os detalhes de caimento e peça
-                direto no WhatsApp para receber em casa ou retirar na loja.
+                tamanho, veja o caimento de cada peça e peça direto no WhatsApp
+                para receber em casa ou retirar na loja.
               </p>
               <div className={styles.heroActions}>
                 <a href="#vitrine-catalogo" className={styles.primaryBtn}>
-                  Explorar coleção (12 peças)
+                  Explorar a coleção (12 peças)
                 </a>
                 <a
                   href={generalWhatsAppUrl}
@@ -347,13 +376,14 @@ export default function VitrineDemo({ businessName, compact = false }: DemoProps
               </div>
             </div>
 
-            <div className={styles.heroVisual}>
-              <DemoImage
-                label="Editorial de moda em linho natural sob luz solar"
-                ratio="4/3"
-                tone="accent"
+            <figure className={styles.heroVisual}>
+              <img
+                src="/img/vitrine/arara.jpg"
+                alt="Arara com blusas de tricô e linho em tons de bege, ao lado de hastes de capim seco"
+                width={1100}
+                height={1375}
               />
-            </div>
+            </figure>
           </div>
         </div>
       </section>
@@ -453,34 +483,23 @@ export default function VitrineDemo({ businessName, compact = false }: DemoProps
           ) : (
             <div className={styles.productGrid}>
               {filteredProducts.map((product) => {
-                const defaultSize =
-                  selectedSizeFilter !== "todos" &&
-                  product.sizes.includes(selectedSizeFilter)
-                    ? selectedSizeFilter
-                    : product.sizes[0];
-
-                const quickOrderUrl = buildWhatsAppUrl(
-                  buildMessage({
-                    source: "demo",
-                    modelName: "Vitrine",
-                    businessName: name,
-                    notes: `gostei do pedido pelo WhatsApp (${product.name}, tamanho ${defaultSize}, ${formatBRL(product.price)})`,
-                  }),
-                );
-
                 return (
                   <article key={product.id} className={styles.productCard}>
-                    <div className={styles.imageBox}>
+                    <div
+                      className={styles.swatch}
+                      style={{
+                        backgroundColor: swatchFor(product.id),
+                        color: inkOn(swatchFor(product.id)),
+                      }}
+                    >
                       {product.badge && (
                         <span className={styles.productBadge}>
                           {product.badge}
                         </span>
                       )}
-                      <DemoImage
-                        label={product.photoLabel}
-                        ratio="4/3"
-                        tone="light"
-                      />
+                      <strong className={styles.swatchPrice}>
+                        {formatBRL(product.price)}
+                      </strong>
                     </div>
 
                     <div className={styles.cardBody}>
@@ -493,9 +512,6 @@ export default function VitrineDemo({ businessName, compact = false }: DemoProps
                       </p>
 
                       <div className={styles.priceBlock}>
-                        <strong className={styles.productPrice}>
-                          {formatBRL(product.price)}
-                        </strong>
                         <span className={styles.productInstallments}>
                           ou {product.installments}
                         </span>
@@ -526,16 +542,6 @@ export default function VitrineDemo({ businessName, compact = false }: DemoProps
                         >
                           Escolher tamanho e detalhes
                         </button>
-                        <a
-                          href={quickOrderUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`Pedir ${product.name} tamanho ${defaultSize} no WhatsApp (abre o WhatsApp)`}
-                          className={styles.quickWhatsappLink}
-                        >
-                          <WhatsAppIcon />
-                          <span>Pedir ({defaultSize})</span>
-                        </a>
                       </div>
                     </div>
                   </article>
@@ -573,12 +579,16 @@ export default function VitrineDemo({ businessName, compact = false }: DemoProps
             </div>
 
             <div className={styles.dialogGrid}>
-              <div className={styles.dialogImage}>
-                <DemoImage
-                  label={activeProduct.photoLabel}
-                  ratio="4/3"
-                  tone="accent"
-                />
+              <div
+                className={styles.dialogImage}
+                style={{
+                  backgroundColor: swatchFor(activeProduct.id),
+                  color: inkOn(swatchFor(activeProduct.id)),
+                }}
+              >
+                <span className={styles.dialogSwatchLabel}>
+                  {activeProduct.categoryLabel}
+                </span>
               </div>
 
               <div className={styles.dialogDetails}>
@@ -654,11 +664,43 @@ export default function VitrineDemo({ businessName, compact = false }: DemoProps
       </dialog>
 
       {!compact && (
+        <section className={styles.lookbook}>
+          <div className={styles.container}>
+            <h2 className={styles.sectionTitle}>A loja por dentro</h2>
+            <div className={styles.lookbookGrid}>
+              <img
+                src="/img/vitrine/loja.jpg"
+                alt="Interior da loja com araras de roupas penduradas e luminárias de cúpula"
+                loading="lazy"
+                width={1100}
+                height={733}
+                className={styles.lookWide}
+              />
+              <img
+                src="/img/vitrine/cores.jpg"
+                alt="Camisas e vestidos coloridos pendurados em uma arara, em frente a uma parede verde"
+                loading="lazy"
+                width={1100}
+                height={733}
+              />
+              <img
+                src="/img/vitrine/jardim.jpg"
+                alt="Ambiente da loja com plantas, manequim e araras sob luz quente"
+                loading="lazy"
+                width={1100}
+                height={733}
+              />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {!compact && (
         <section id="vitrine-trocas" className={styles.policySection}>
           <div className={styles.container}>
             <div className={styles.policyHeader}>
               <h2 className={styles.sectionTitle}>
-                Envio em Fortaleza, retirada e trocas fáceis
+                Envio, retirada e trocas fáceis
               </h2>
               <p className={styles.sectionSubtitle}>
                 Sem complicação para receber em casa ou trocar se o tamanho não
@@ -733,8 +775,12 @@ export default function VitrineDemo({ businessName, compact = false }: DemoProps
 
       <footer className={styles.footer}>
         <div className={styles.container}>
+          <p className={styles.footerName} aria-hidden="true">
+            {displayName}
+          </p>
           <p className={styles.footerText}>
-            © 2026 {name} · Modelo de demonstração criado pela MJ Studios
+            © 2026 {displayName}. Modelo de demonstração criado pela MJ Studios.
+            Fotos: Unsplash.
           </p>
         </div>
       </footer>

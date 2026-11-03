@@ -40,7 +40,7 @@ Toda a configuração do negócio e os textos comerciais foram separados em arqu
 | O que você quer alterar | Arquivo onde editar |
 | --- | --- |
 | Nome do estúdio, número do WhatsApp, CNPJ, razão social, endereço, e-mail, Instagram, horário e forma de pagamento | `src/config/site.ts` |
-| Pacotes, preços (`R$ 800`, `R$ 1.600`, `R$ 2.900`), prazos e itens inclusos | `src/data/plans.ts` |
+| Pacotes, preços (mensalidade R$ 97, R$ 147, R$ 247 e projeto avulso R$ 590, R$ 1.190, R$ 1.990), prazos e itens inclusos | `src/data/plans.ts` |
 | Serviços avulsos e custos à parte (domínio, hospedagem, manutenção, página extra, logo) | `src/data/extras.ts` |
 | Perguntas frequentes (FAQ) da página inicial | `src/data/faq.ts` |
 | Etapas do "Como funciona" e lista de compromissos | `src/data/process.ts` |
@@ -93,6 +93,6 @@ Antes de divulgar o site comercialmente, confira os itens abaixo para atender ao
 ## Regras de imagens e direitos autorais
 
 - **Sem fotos sem licença:** nunca copie fotos do Google Imagens, Pinterest ou de outros sites.
-- **Nos modelos de demonstração:** utilize o componente `<DemoImage />`, que gera ilustrações geométricas leves em CSS sem depender de bancos externos.
+- **Nos modelos de demonstração:** as fotos ficam em `public/img/<modelo>/` e vêm do Unsplash (licença livre para uso comercial, sem exigir crédito). A lista com o ID de cada foto está em `docs/creditos-imagens.md`. Nos sites de clientes, troque pelas fotos reais do negócio. Os produtos do modelo Vitrine usam amostras de cor (não há foto individual de cada peça).
 - **Quando usar fotos reais** (no portfólio de projetos entregues ou nos sites de clientes): use apenas fotos tiradas por você, enviadas pelo próprio cliente com autorização de uso, ou baixadas de bancos com licença comercial explícita (como Unsplash ou Pexels — guardando sempre o link e o comprovante da licença).
-- **Fontes e ícones deste projeto:** as fontes *Familjen Grotesk* e *Atkinson Hyperlegible Next* possuem licença aberta SIL Open Font License (OFL) e estão auto-hospedadas via `@fontsource`. Os ícones da biblioteca `lucide-react` possuem licença aberta ISC.
+- **Fontes e ícones deste projeto:** as fontes *Familjen Grotesk*, *Atkinson Hyperlegible Next* (site) e *Barlow Condensed*, *Young Serif*, *Bricolage Grotesque*, *Syne*, *Archivo* e *Cormorant Garamond* (um estilo para cada modelo) possuem licença aberta SIL Open Font License (OFL) e estão auto-hospedadas via `@fontsource`. Os ícones da biblioteca `lucide-react` possuem licença aberta ISC.

@@ -1,44 +1,56 @@
 .hero {
+  position: relative;
   padding: var(--s-7) 0 var(--s-8);
-  background-color: var(--grafite);
-  color: var(--branco);
+  color: var(--texto);
 }
 
 .hero :focus-visible {
   outline-color: var(--violeta-claro);
 }
 
+.headline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  margin-bottom: var(--s-7);
+}
+
+.title {
+  font-size: clamp(2.5rem, 7.4vw, 6.25rem);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  color: var(--texto);
+  text-wrap: balance;
+}
+
+.word {
+  display: inline-block;
+}
+
+.subtitle {
+  font-size: var(--fs-2);
+  color: var(--texto-suave);
+  max-width: 54ch;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--s-7);
-  align-items: start;
+  align-items: center;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  gap: var(--s-5);
-}
-
-.title {
-  font-size: var(--fs-6);
-  line-height: 1.05;
-  color: var(--branco);
-  max-width: 18ch;
-}
-
-.subtitle {
-  font-size: var(--fs-2);
-  color: rgb(255 255 255 / 0.78);
-  max-width: 48ch;
 }
 
 .controls {
   display: flex;
   flex-direction: column;
   gap: var(--s-5);
-  margin-top: var(--s-2);
+  padding: var(--s-6) var(--s-5);
+  border-radius: var(--r-lg);
 }
 
 .fieldGroup {
@@ -50,7 +62,7 @@
 .fieldLabel {
   font-size: var(--fs-1);
   font-weight: 700;
-  color: var(--branco);
+  color: var(--texto);
 }
 
 .chipList {
@@ -61,53 +73,60 @@
 
 .chip {
   min-height: 44px;
-  padding: 0.5rem 0.9rem;
-  border-radius: var(--r-sm);
-  border: 1px solid rgb(255 255 255 / 0.25);
-  background-color: transparent;
-  color: var(--branco);
+  padding: 0.5rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid var(--vidro-borda);
+  background-color: var(--vidro);
+  color: var(--texto);
   font-family: var(--font-body);
   font-size: var(--fs-1);
   font-weight: 700;
   cursor: pointer;
   transition:
-    background-color 150ms ease,
-    border-color 150ms ease,
-    color 150ms ease;
+    transform 160ms var(--ease-out),
+    background-color 200ms var(--ease-out),
+    border-color 200ms var(--ease-out);
 }
 
 .chip:hover {
-  border-color: var(--violeta-claro);
-  color: var(--violeta-claro);
+  background-color: var(--vidro-forte);
 }
 
-.chipActive {
-  background-color: var(--violeta-claro);
-  border-color: var(--violeta-claro);
-  color: var(--grafite);
+.chip:active {
+  transform: scale(0.96);
 }
 
+.chipActive,
 .chipActive:hover {
-  background-color: var(--violeta-claro);
-  border-color: var(--violeta-claro);
-  color: var(--grafite);
+  background-color: var(--violeta);
+  border-color: rgb(255 255 255 / 0.32);
+  color: #ffffff;
+  box-shadow: 0 8px 24px -8px rgb(105 33 242 / 0.9);
 }
 
 .input {
   width: 100%;
-  max-width: 420px;
-  min-height: 44px;
-  padding: 0.6rem 0.85rem;
-  border-radius: var(--r-sm);
-  border: 1.5px solid var(--branco);
-  background-color: var(--branco);
-  color: var(--grafite);
+  max-width: 440px;
+  min-height: 48px;
+  padding: 0.6rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--vidro-borda);
+  background-color: rgb(255 255 255 / 0.08);
+  color: var(--texto);
   font-size: var(--fs-1);
+  transition:
+    border-color 200ms var(--ease-out),
+    background-color 200ms var(--ease-out);
 }
 
 .input::placeholder {
-  color: var(--grafite);
-  opacity: 0.6;
+  color: var(--texto-suave);
+  opacity: 0.7;
+}
+
+.input:focus {
+  border-color: var(--violeta-claro);
+  background-color: rgb(255 255 255 / 0.12);
 }
 
 .ctaGroup {
@@ -122,26 +141,68 @@
   align-items: center;
   min-height: 44px;
   font-weight: 700;
-  color: var(--violeta-claro);
+  color: var(--violeta-texto);
 }
 
 .secondaryLink:hover {
-  color: var(--branco);
+  color: var(--texto);
 }
 
+/* Palco do celular: vidro e lente flutuando ao redor */
 .previewCol {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+}
+
+.stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 420px;
+  padding: var(--s-6) var(--s-5);
+}
+
+.lens {
+  position: absolute;
+  z-index: 3;
+  left: -2%;
+  top: 22%;
+}
+
+.chipA,
+.chipB {
+  position: absolute;
+  z-index: 3;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  font-size: var(--fs-0);
+  font-weight: 700;
+  color: var(--texto);
+  white-space: nowrap;
+  max-width: none;
+}
+
+.chipA {
+  right: -2%;
+  top: 10%;
+}
+
+.chipB {
+  right: 0;
+  bottom: 26%;
 }
 
 .phoneFrame {
-  max-width: 260px;
+  position: relative;
+  z-index: 2;
+  max-width: 290px;
 }
 
 .crossfade {
   width: 100%;
   height: 100%;
-  animation: heroCrossfade 200ms ease;
+  animation: heroCrossfade 260ms var(--ease-out);
 }
 
 @keyframes heroCrossfade {
@@ -156,7 +217,7 @@
 .demoFallback {
   width: 100%;
   height: 100%;
-  background-color: var(--fundo);
+  background-color: var(--noite-2);
 }
 
 .phoneCaption {
@@ -164,11 +225,11 @@
   flex-direction: column;
   gap: var(--s-1);
   font-size: var(--fs-0);
-  color: rgb(255 255 255 / 0.78);
+  color: var(--texto-suave);
 }
 
 .phoneCaption strong {
-  color: var(--branco);
+  color: var(--texto);
 }
 
 .captionLink {
@@ -176,11 +237,36 @@
   align-items: center;
   min-height: 44px;
   font-weight: 700;
-  color: var(--violeta-claro);
+  color: var(--violeta-texto);
 }
 
 .captionLink:hover {
-  color: var(--branco);
+  color: var(--texto);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .chipA {
+    animation:
+      abre 900ms var(--ease-out) both,
+      flutua 6s ease-in-out 1.2s infinite alternate;
+    animation-delay: calc(var(--i, 8) * 90ms + 300ms), 1.4s;
+  }
+
+  .chipB {
+    animation:
+      abre 900ms var(--ease-out) both,
+      flutua 7.5s ease-in-out 1.2s infinite alternate-reverse;
+    animation-delay: calc(var(--i, 8) * 90ms + 500ms), 1.6s;
+  }
+}
+
+@keyframes flutua {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -12px, 0);
+  }
 }
 
 @media (min-width: 960px) {
@@ -189,13 +275,32 @@
   }
 
   .grid {
-    grid-template-columns: minmax(0, 1fr) 320px;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
     gap: var(--s-8);
-    align-items: center;
+  }
+
+  .controls {
+    padding: var(--s-7) var(--s-6);
+  }
+
+  .stage {
+    max-width: 480px;
   }
 
   .phoneFrame {
-    max-width: 300px;
+    max-width: 310px;
+  }
+}
+
+@media (max-width: 520px) {
+  .lens {
+    transform: scale(0.72);
+    transform-origin: left center;
+    left: -4%;
+  }
+
+  .chipA {
+    right: -4%;
   }
 }
 

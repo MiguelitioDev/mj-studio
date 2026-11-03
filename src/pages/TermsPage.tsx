@@ -112,7 +112,7 @@ export default function TermsPage() {
           <section id="natureza-informativa" className={styles.section}>
             <h2>2. Natureza informativa de preços e prazos</h2>
             <p>
-              Os valores dos pacotes (Essencial, Profissional e Completo), os prazos
+              Os valores dos pacotes (Essencial, Profissional e Completo), nas versões mensalidade e projeto avulso, os prazos
               estimados em dias úteis e os valores dos serviços extras exibidos neste
               site servem como referência clara e transparente para você conhecer a
               nossa tabela de trabalho.
@@ -158,9 +158,8 @@ export default function TermsPage() {
               </li>
               <li>
                 <strong>Forma de pagamento padrão:</strong>{" "}
-                {site.payment ||
-                  "50% na aprovação da proposta para iniciar a construção e 50% na entrega, antes da publicação definitiva"}
-                .
+                na mensalidade, {site.payment.mensal.toLowerCase()} No projeto avulso,{" "}
+                {site.payment.projeto.toLowerCase()}
               </li>
               <li>
                 <strong>Prévia para acompanhamento:</strong> durante a criação, você

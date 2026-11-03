@@ -1,4 +1,4 @@
-import { DemoImage } from "../../components/ui/DemoImage";
+import "@fontsource/young-serif/400.css";
 import { WhatsAppIcon } from "../../components/ui/WhatsAppIcon";
 import { buildMessage, buildWhatsAppUrl } from "../../lib/whatsapp";
 import type { DemoProps } from "../types";
@@ -85,6 +85,8 @@ const FAQS: readonly FaqItem[] = [
 
 export default function ClarezaDemo({ businessName, compact = false }: DemoProps) {
   const name = businessName?.trim() || "Helena Vasconcelos — Psicologia Clínica";
+  const [displayName, ...roleParts] = name.split(" — ");
+  const role = roleParts.join(" — ") || "Psicoterapia para jovens e adultos";
 
   const heroWhatsAppUrl = buildWhatsAppUrl(
     buildMessage({
@@ -109,10 +111,7 @@ export default function ClarezaDemo({ businessName, compact = false }: DemoProps
       <header className={styles.header}>
         <div className={styles.container}>
           <div className={styles.headerInner}>
-            <div className={styles.brandBlock}>
-              <span className={styles.brandName}>{name}</span>
-              <span className={styles.crpBadge}>CRP 00/00000</span>
-            </div>
+            <span className={styles.brandName}>{displayName}</span>
             <nav aria-label="Navegação do consultório" className={styles.nav}>
               <a href="#sobre" className={styles.navLink}>
                 Sobre
@@ -139,14 +138,15 @@ export default function ClarezaDemo({ businessName, compact = false }: DemoProps
         <div className={styles.container}>
           <div className={styles.heroGrid}>
             <div className={styles.heroContent}>
-              <p className={styles.credentials}>
-                Psicoterapia para jovens e adultos · CRP 00/00000
-              </p>
-              <h1 className={styles.heroTitle}>{name}</h1>
+              <h1 className={styles.heroTitle}>
+                {displayName}{" "}
+                <span className={styles.heroTitleRole}>{role}</span>
+              </h1>
+              <p className={styles.heroCrp}>CRP 00/00000 · Fortaleza/CE</p>
               <p className={styles.heroLead}>
                 Um espaço de escuta ética, acolhedora e sem julgamentos para
-                compreender suas questões no seu tempo. Atendimento presencial
-                no bairro Fátima, em Fortaleza/CE, e online por videochamada.
+                compreender suas questões no seu tempo. Presencial no bairro
+                Fátima, em Fortaleza, e online por videochamada.
               </p>
               <div className={styles.heroActions}>
                 <a
@@ -165,13 +165,14 @@ export default function ClarezaDemo({ businessName, compact = false }: DemoProps
               </div>
             </div>
 
-            <div className={styles.heroVisual}>
-              <DemoImage
-                label="Consultório iluminado com poltronas confortáveis"
-                ratio="4/3"
-                tone="light"
+            <figure className={styles.heroVisual}>
+              <img
+                src="/img/clareza/sessao.jpg"
+                alt="Duas mulheres conversando sentadas em um sofá azul-claro, em uma sala branca com plantas"
+                width={1100}
+                height={733}
               />
-            </div>
+            </figure>
           </div>
         </div>
       </section>
@@ -179,22 +180,24 @@ export default function ClarezaDemo({ businessName, compact = false }: DemoProps
       <section id="sobre" className={styles.section}>
         <div className={styles.container}>
           <div className={styles.aboutGrid}>
-            <div className={styles.aboutPhoto}>
-              <DemoImage
-                label="Retrato profissional da psicóloga"
-                ratio="4/3"
-                tone="light"
+            <figure className={styles.aboutPhoto}>
+              <img
+                src="/img/clareza/sala.jpg"
+                alt="Sala de estar clara com sofá cinza, almofadas, plantas e quadros na parede"
+                loading="lazy"
+                width={1100}
+                height={733}
               />
-            </div>
+            </figure>
             <div className={styles.aboutContent}>
               <h2 className={styles.sectionTitle}>Sobre a profissional</h2>
               <p>
                 Sou psicóloga clínica graduada pela Universidade Federal do
                 Ceará (UFC), com especialização em Terapia Cognitivo-Comportamental
-                e formação em terapias contextuais (CRP 00/00000).
+                e formação em terapias contextuais.
               </p>
               <p>
-                Atuo na clínica acompanhando adultos que buscam lidar melhor com
+                Atuo na clínica acompanhando jovens e adultos que buscam lidar melhor com
                 a ansiedade, transições profissionais, relações interpessoais e
                 organização da própria rotina. Acredito em uma psicologia baseada
                 no diálogo claro, no sigilo profissional e no respeito à
@@ -210,11 +213,13 @@ export default function ClarezaDemo({ businessName, compact = false }: DemoProps
         </div>
       </section>
 
-      <section className={styles.sectionSoft}>
+      <section className={styles.approach}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Demandas acompanhadas e abordagem</h2>
-            <p className={styles.sectionIntro}>
+            <h2 className={styles.sectionTitleLight}>
+              Demandas acompanhadas e abordagem
+            </h2>
+            <p className={styles.sectionIntroLight}>
               O trabalho clínico utiliza a Terapia Cognitivo-Comportamental (TCC),
               integrando escuta ativa e ferramentas práticas para o cotidiano.
             </p>
@@ -223,15 +228,23 @@ export default function ClarezaDemo({ businessName, compact = false }: DemoProps
           <div className={styles.approachGrid}>
             {APPROACHES.map((item) => (
               <article key={item.title} className={styles.approachCard}>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardText}>{item.description}</p>
+                <h3 className={styles.cardTitleLight}>{item.title}</h3>
+                <p className={styles.cardTextLight}>{item.description}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="primeira-consulta" className={styles.section}>
+      <section id="primeira-consulta" className={styles.firstSession}>
+        <img
+          src="/img/clareza/maos.jpg"
+          alt="Duas pessoas de mãos dadas sobre uma mesa clara, em um gesto de apoio"
+          className={styles.sessionBand}
+          loading="lazy"
+          width={1100}
+          height={733}
+        />
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Como é a primeira consulta</h2>
@@ -263,6 +276,14 @@ export default function ClarezaDemo({ businessName, compact = false }: DemoProps
             <div className={styles.container}>
               <div className={styles.modalitiesGrid}>
                 <article className={styles.modalityCard}>
+                  <img
+                    src="/img/clareza/consultorio.jpg"
+                    alt="Sala de atendimento com poltronas, estante com livros e plantas, iluminada por uma janela"
+                    className={styles.modalityPhoto}
+                    loading="lazy"
+                    width={1100}
+                    height={733}
+                  />
                   <h2 className={styles.modalityTitle}>Atendimento presencial</h2>
                   <p className={styles.cardText}>
                     Realizado em sala climatizada, com isolamento acústico e
@@ -288,10 +309,10 @@ export default function ClarezaDemo({ businessName, compact = false }: DemoProps
                 </article>
 
                 <article className={styles.modalityCardHighlight}>
-                  <h2 className={styles.modalityTitle}>
+                  <h2 className={styles.modalityTitleLight}>
                     Valores, recibos e convênios
                   </h2>
-                  <p className={styles.cardText}>
+                  <p className={styles.cardTextLight}>
                     Os valores das sessões são informados diretamente pelo
                     WhatsApp (sob consulta). Emitimos recibo para reembolso em
                     planos de saúde e declaração de comparecimento quando
@@ -302,7 +323,7 @@ export default function ClarezaDemo({ businessName, compact = false }: DemoProps
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Consultar horários e valores pelo WhatsApp (abre o WhatsApp)"
-                    className={styles.primaryButton}
+                    className={styles.lightButton}
                   >
                     <WhatsAppIcon />
                     <span>Consultar horários e valores</span>
@@ -314,22 +335,32 @@ export default function ClarezaDemo({ businessName, compact = false }: DemoProps
 
           <section id="duvidas" className={styles.section}>
             <div className={styles.container}>
-              <div className={styles.sectionHeader}>
-                <h2 className={styles.sectionTitle}>Perguntas frequentes</h2>
-                <p className={styles.sectionIntro}>
-                  Respostas diretas para as dúvidas mais comuns antes de agendar.
-                </p>
-              </div>
+              <div className={styles.faqLayout}>
+                <div className={styles.sectionHeader}>
+                  <h2 className={styles.sectionTitle}>Perguntas frequentes</h2>
+                  <p className={styles.sectionIntro}>
+                    Respostas diretas para as dúvidas mais comuns antes de agendar.
+                  </p>
+                  <img
+                    src="/img/clareza/anotacoes.jpg"
+                    alt="Mão escrevendo com caneta em um caderno sobre a mesa, ao lado de uma xícara"
+                    className={styles.faqPhoto}
+                    loading="lazy"
+                    width={1100}
+                    height={733}
+                  />
+                </div>
 
-              <div className={styles.faqList}>
-                {FAQS.map((faq) => (
-                  <details key={faq.question} className={styles.faqItem}>
-                    <summary className={styles.faqQuestion}>
-                      {faq.question}
-                    </summary>
-                    <p className={styles.faqAnswer}>{faq.answer}</p>
-                  </details>
-                ))}
+                <div className={styles.faqList}>
+                  {FAQS.map((faq) => (
+                    <details key={faq.question} className={styles.faqItem}>
+                      <summary className={styles.faqQuestion}>
+                        {faq.question}
+                      </summary>
+                      <p className={styles.faqAnswer}>{faq.answer}</p>
+                    </details>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -346,11 +377,12 @@ export default function ClarezaDemo({ businessName, compact = false }: DemoProps
           </div>
           <div className={styles.footerMeta}>
             <p>
-              {name} · CRP 00/00000 · Rua Exemplo, 123, Fátima — Fortaleza/CE ·
-              Tel.: (85) 90000-0000
+              {displayName} · CRP 00/00000 · Rua Exemplo, 123, Fátima —
+              Fortaleza/CE · Tel.: (85) 90000-0000
             </p>
             <p className={styles.demoCredit}>
-              © 2026 {name} · Modelo de demonstração criado pela MJ Studios
+              © 2026 {displayName}. Modelo de demonstração criado pela MJ Studios.
+              Fotos: Unsplash.
             </p>
           </div>
         </div>

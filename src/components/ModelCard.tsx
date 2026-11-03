@@ -17,7 +17,7 @@ export function ModelCard({ model }: ModelCardProps) {
   const niche = niches.find((item) => item.slug === model.niche);
   const plan = plans.find((item) => item.slug === model.recommendedPlan);
   const DemoComponent = getDemo(model.slug);
-  const price = plan ? plan.price : 800;
+  const price = plan ? plan.monthly : 97;
 
   return (
     <article className={styles.card}>
@@ -45,7 +45,7 @@ export function ModelCard({ model }: ModelCardProps) {
 
         <div className={styles.footer}>
           <div className={styles.priceRow}>
-            <PriceTag value={price} prefix="a partir de" size="md" />
+            <PriceTag value={price} prefix="a partir de" suffix="/mês" size="md" />
             {plan && <span className={styles.planHint}>no pacote {plan.name}</span>}
           </div>
 
@@ -64,7 +64,8 @@ export function ModelCard({ model }: ModelCardProps) {
                 nicheLabel: niche?.label,
                 modelName: model.name,
                 planName: plan?.name,
-                planPrice: plan?.price,
+                planPrice: plan?.monthly,
+                planBilling: "mensal",
               }}
               aria-label={`Quero o modelo ${model.name} (abre o WhatsApp)`}
             >

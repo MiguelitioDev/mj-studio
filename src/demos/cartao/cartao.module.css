@@ -1,90 +1,138 @@
 .cartao {
   --ct-lilac: #5b3f8c;
-  --ct-lilac-dark: #452d6e;
+  --ct-lilac-dark: #3f2a66;
   --ct-rose: #f3d9dc;
   --ct-rose-soft: #faf0f2;
   --ct-white: #ffffff;
   --ct-ink: #241934;
-  --ct-muted: #554869;
-  --ct-border: #e4d4e8;
+  --ct-muted: #4f4263;
 
-  background:
-    radial-gradient(circle at 50% 0%, var(--ct-rose) 0%, var(--ct-rose-soft) 55%, var(--ct-white) 100%);
+  background-color: var(--ct-rose-soft);
   color: var(--ct-ink);
   font-family: "Atkinson Hyperlegible Next", system-ui, -apple-system, sans-serif;
-  line-height: 1.45;
-  min-height: 100vh;
-  padding: 1rem 0.75rem 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  overflow-x: hidden;
+  font-size: 1rem;
+  line-height: 1.55;
+  min-height: 100%;
+  overflow-x: clip;
 }
 
 .cartao h1,
 .cartao h2 {
-  font-family: "Familjen Grotesk", system-ui, -apple-system, sans-serif;
+  font-family: "Familjen Grotesk", system-ui, sans-serif;
   font-weight: 700;
   color: var(--ct-ink);
-  line-height: 1.15;
-  letter-spacing: -0.015em;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
 }
 
 .cartao a:focus-visible {
   outline: 3px solid var(--ct-lilac);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 5px var(--ct-rose);
+  outline-offset: 3px;
 }
 
-.cardShell {
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* ---------- Perfil ---------- */
+.profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.portrait {
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  max-height: 34rem;
+  overflow: hidden;
+  background-color: var(--ct-rose);
+}
+
+.portrait img {
+  display: block;
   width: 100%;
-  max-width: 480px;
-  background-color: var(--ct-white);
-  border: 1px solid var(--ct-border);
-  border-radius: 22px;
-  padding: 1.25rem 1rem;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+
+.profileText {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  box-shadow: 0 18px 40px -24px rgb(91 63 140 / 0.3);
+  gap: 0.75rem;
+  padding: 1.75rem 1.25rem 0.5rem;
 }
 
-.profileHeader {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.45rem;
-}
-
-.avatarWrap {
-  width: 84px;
-  height: 84px;
-  border-radius: 9999px;
-  padding: 3px;
-  background: linear-gradient(135deg, var(--ct-lilac), var(--ct-rose));
-  margin-bottom: 0.2rem;
-}
-
-.profileName {
-  font-size: 1.375rem;
+.cartao .profileName {
+  font-size: clamp(3rem, 16cqw, 5.5rem);
 }
 
 .profileRole {
-  font-size: 0.9375rem;
+  font-family: "Familjen Grotesk", system-ui, sans-serif;
   font-weight: 700;
+  font-size: 1.375rem;
   color: var(--ct-lilac);
-  max-width: 38ch;
+  letter-spacing: -0.02em;
 }
 
 .profileBio {
-  font-size: 0.8125rem;
-  color: var(--ct-muted);
-  max-width: 40ch;
+  max-width: 30rem;
+  color: var(--ct-ink);
 }
 
-.linksSection {
-  width: 100%;
+.profileContact {
+  font-weight: 700;
+  color: var(--ct-muted);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .portrait img {
+    animation: ct-focus 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .profileText > * {
+    animation: ct-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .profileText > :nth-child(2) {
+    animation-delay: 0.07s;
+  }
+
+  .profileText > :nth-child(3) {
+    animation-delay: 0.14s;
+  }
+}
+
+@keyframes ct-focus {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes ct-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Conteúdo ---------- */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+  padding: 1.5rem 1.25rem 3rem;
 }
 
 .linksList {
@@ -99,168 +147,191 @@
 .actionButton {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  min-height: 52px;
-  padding: 0.65rem 0.9rem;
-  border-radius: 14px;
+  gap: 1rem;
+  min-height: 4.25rem;
+  padding: 0.875rem 1.25rem;
   text-decoration: none;
-  transition: background-color 150ms ease, border-color 150ms ease;
+  border-radius: 0;
+  transition:
+    background-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.actionButton:active {
+  transform: translateY(1px);
 }
 
 .actionPrimary {
   background-color: var(--ct-lilac);
   color: var(--ct-white);
-  border: 1px solid var(--ct-lilac);
 }
 
 .actionPrimary:hover {
   background-color: var(--ct-lilac-dark);
-  border-color: var(--ct-lilac-dark);
-  color: var(--ct-white);
 }
 
 .actionSecondary {
-  background-color: var(--ct-rose-soft);
+  background-color: var(--ct-rose);
   color: var(--ct-ink);
-  border: 1px solid var(--ct-border);
 }
 
 .actionSecondary:hover {
-  background-color: var(--ct-rose);
-  border-color: var(--ct-lilac);
-  color: var(--ct-ink);
+  background-color: #ebc7cc;
 }
 
 .actionIcon {
+  display: grid;
+  place-content: center;
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(255 255 255 / 0.16);
-}
-
-.actionSecondary .actionIcon {
-  background-color: var(--ct-white);
-  color: var(--ct-lilac);
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .actionText {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
-  text-align: left;
 }
 
 .actionLabel {
-  font-weight: 700;
-  font-size: 0.96875rem;
-}
-
-.actionSub {
-  font-size: 0.78125rem;
-  opacity: 0.9;
-}
-
-.actionSecondary .actionSub {
-  color: var(--ct-muted);
-}
-
-.portfolioSection {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.sectionTitleRow {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.sectionTitle {
+  font-weight: 800;
   font-size: 1.0625rem;
 }
 
-.sectionHint {
-  font-size: 0.78125rem;
-  color: var(--ct-muted);
+.actionSub {
+  font-size: 0.9375rem;
+}
+
+.sectionTitle {
+  font-size: clamp(2.25rem, 10cqw, 3.5rem);
+  margin-bottom: 1.5rem;
 }
 
 .portfolioGrid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.625rem;
+}
+
+.portfolioItem {
+  display: flex;
+  flex-direction: column;
   gap: 0.5rem;
 }
 
-.portfolioSquare {
+.portfolioItem img {
+  display: block;
   width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
-.testimonialsSection {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
+.portfolioCaption {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
+/* ---------- Depoimentos ---------- */
 .testimonialList {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0.65rem;
+  gap: 0.75rem;
 }
 
 .testimonialCard {
-  background-color: var(--ct-rose-soft);
-  border: 1px solid var(--ct-border);
-  border-radius: 12px;
-  padding: 0.875rem;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
-  align-items: flex-start;
-}
-
-.exampleBadge {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.15rem 0.55rem;
-  border-radius: 999px;
-  background-color: var(--ct-lilac);
-  color: var(--ct-white);
+  gap: 0.75rem;
+  padding: 1.75rem;
+  background-color: var(--ct-rose);
 }
 
 .quote {
-  font-size: 0.875rem;
-  color: var(--ct-ink);
+  margin: 0;
+  font-family: "Familjen Grotesk", system-ui, sans-serif;
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 .author {
-  font-size: 0.8125rem;
+  color: var(--ct-ink);
+}
+
+.exampleNote {
+  font-size: 0.875rem;
   color: var(--ct-muted);
 }
 
+/* ---------- Rodapé ---------- */
 .footer {
-  border-top: 1px solid var(--ct-border);
-  padding-top: 0.875rem;
-  text-align: center;
+  padding: 2rem 1.25rem;
+  background-color: var(--ct-ink);
 }
 
 .footerText {
-  font-size: 0.78125rem;
-  color: var(--ct-muted);
+  max-width: 1200px;
   margin: 0 auto;
+  font-size: 0.875rem;
+  color: #e4dcee;
 }
 
+/* ---------- Telas maiores ---------- */
 @container demo (min-width: 640px) {
-  .cartao {
-    padding: 2rem 1.5rem;
+  .portfolioGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .cardShell {
-    padding: 1.75rem 1.5rem;
+  .testimonialList {
+    grid-template-columns: repeat(2, 1fr);
   }
+
+  .profileText {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@container demo (min-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 3rem;
+    align-items: start;
+    padding: 2rem 2rem 4rem;
+  }
+
+  .profile {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .portrait {
+    max-height: 38rem;
+  }
+
+  .profileText {
+    padding: 2rem 0 0;
+  }
+
+  .content {
+    padding: 2rem 0 0;
+  }
+
+  .testimonialList {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cartao ::selection {
+  background: var(--ct-lilac);
+  color: var(--ct-white);
 }

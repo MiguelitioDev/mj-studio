@@ -1,376 +1,435 @@
 .alicerce {
-  --al-graphite: #2b2f33;
-  --al-graphite-dark: #1d2023;
+  --al-graphite: #23272b;
+  --al-graphite-dark: #181b1e;
+  --al-graphite-2: #31373c;
   --al-yellow: #f5c400;
-  --al-yellow-soft: #fff8db;
-  --al-concrete: #d9d9d6;
-  --al-concrete-light: #f2f2ef;
+  --al-yellow-hover: #ffd633;
+  --al-concrete: #dcdbd6;
+  --al-concrete-light: #f1f0ec;
   --al-white: #ffffff;
-  --al-muted: #4b5259;
+  --al-muted: #454c53;
 
   background-color: var(--al-concrete-light);
   color: var(--al-graphite);
   font-family: "Atkinson Hyperlegible Next", system-ui, -apple-system, sans-serif;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.55;
   min-height: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .alicerce h1,
 .alicerce h2,
 .alicerce h3 {
-  font-family: "Familjen Grotesk", system-ui, -apple-system, sans-serif;
-  font-weight: 700;
+  font-family: "Archivo Variable", "Familjen Grotesk", system-ui, sans-serif;
+  font-stretch: 108%;
+  font-weight: 800;
   color: var(--al-graphite);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
 }
 
 .alicerce a:focus-visible,
 .alicerce button:focus-visible,
 .alicerce input:focus-visible {
   outline: 3px solid var(--al-yellow);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 5px var(--al-graphite-dark);
+  outline-offset: 3px;
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.25rem;
 }
 
+/* ---------- Cabeçalho ---------- */
 .header {
   background-color: var(--al-graphite-dark);
-  color: var(--al-white);
-  border-bottom: 4px solid var(--al-yellow);
 }
 
 .headerInner {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  min-height: 68px;
-  padding: 0.75rem 0;
-  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  min-height: 4.5rem;
+  padding: 0.5rem 0;
 }
 
 .brandBlock {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  flex-wrap: wrap;
-}
-
-.brandBadge {
-  background-color: var(--al-yellow);
-  color: var(--al-graphite-dark);
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.2rem 0.55rem;
-  border-radius: 4px;
 }
 
 .brandName {
-  font-family: "Familjen Grotesk", system-ui, -apple-system, sans-serif;
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--al-white);
+  font-family: "Archivo Variable", system-ui, sans-serif;
+  font-stretch: 118%;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  color: var(--al-yellow);
 }
 
 .nav {
   display: flex;
-  align-items: center;
-  gap: 0.4rem;
   flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.5rem;
 }
 
 .navLink {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
   color: var(--al-white);
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.9375rem;
-  padding: 0.5rem 0.75rem;
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  border-radius: 6px;
+  padding: 0.5rem 0;
 }
 
 .navLink:hover {
-  background-color: rgb(255 255 255 / 0.12);
   color: var(--al-yellow);
 }
 
-.hero {
-  background-color: var(--al-graphite);
-  color: var(--al-white);
-  padding: 2.5rem 0 3rem;
-  border-bottom: 1px solid var(--al-graphite-dark);
-}
-
-.heroGrid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 2rem;
-  align-items: center;
-}
-
-.heroContent {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.heroTag {
-  display: inline-block;
-  align-self: flex-start;
-  background-color: var(--al-yellow);
-  color: var(--al-graphite-dark);
-  font-weight: 700;
-  font-size: 0.875rem;
-  padding: 0.3rem 0.75rem;
-  border-radius: 4px;
-  margin: 0;
-}
-
-.hero .heroTitle {
-  color: var(--al-white);
-  font-size: clamp(2rem, 4.8vw, 3.1rem);
-  margin: 0;
-}
-
-.heroLead {
-  color: var(--al-concrete);
-  font-size: 1.0625rem;
-  max-width: 60ch;
-  margin: 0;
-}
-
-.heroActions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  padding-top: 0.25rem;
-}
-
-.primaryCta {
+/* ---------- Botões ---------- */
+.primaryCta,
+.quoteSubmitBtn,
+.warrantyCta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  min-height: 48px;
-  padding: 0.75rem 1.35rem;
-  border-radius: 6px;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 0.75rem 1.5rem;
   background-color: var(--al-yellow);
   color: var(--al-graphite-dark);
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 1rem;
   text-decoration: none;
-  border: 2px solid var(--al-yellow);
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    transform 0.18s ease;
 }
 
-.primaryCta:hover {
-  background-color: var(--al-white);
-  border-color: var(--al-white);
-  color: var(--al-graphite-dark);
+.primaryCta:hover,
+.quoteSubmitBtn:hover {
+  background-color: var(--al-yellow-hover);
+}
+
+.primaryCta:active,
+.quoteSubmitBtn:active,
+.warrantyCta:active {
+  transform: translateY(1px);
 }
 
 .secondaryCta {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-height: 48px;
-  padding: 0.75rem 1.25rem;
-  border-radius: 6px;
-  background-color: transparent;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 0.75rem 0.25rem;
   color: var(--al-white);
   font-weight: 700;
-  text-decoration: none;
-  border: 2px solid var(--al-concrete);
+  text-decoration: underline;
+  text-decoration-color: var(--al-yellow);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.4em;
 }
 
-.secondaryCta:hover {
-  border-color: var(--al-yellow);
-  color: var(--al-yellow);
+/* ---------- Hero ---------- */
+.hero {
+  background-color: var(--al-graphite);
+  color: var(--al-white);
+  padding: 2.5rem 0 3.5rem;
 }
 
-.trustHighlights {
-  margin: 0.5rem 0 0;
-  padding-left: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  font-size: 0.9375rem;
-  color: var(--al-concrete-light);
-}
-
-.quoteSection {
-  padding: 3rem 0;
-  background-color: var(--al-concrete-light);
-}
-
-.quoteCard {
-  background-color: var(--al-white);
-  border: 2px solid var(--al-graphite);
-  border-radius: 12px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-}
-
-.quoteHeader {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-
-.stepPill {
-  align-self: flex-start;
-  background-color: var(--al-yellow);
-  color: var(--al-graphite-dark);
-  font-weight: 700;
-  font-size: 0.8125rem;
-  padding: 0.2rem 0.65rem;
-  border-radius: 4px;
-}
-
-.sectionHeader {
-  margin-bottom: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.sectionTitle {
-  font-size: clamp(1.5rem, 3.2vw, 2.15rem);
-  margin: 0;
-}
-
-.sectionSubtitle {
-  color: var(--al-muted);
-  margin: 0;
-  max-width: 65ch;
-}
-
-.questionsGrid {
+.heroGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 1.5rem;
+  gap: 2.5rem;
 }
 
-.fieldset {
-  border: 1px solid var(--al-concrete);
-  border-radius: 8px;
-  padding: 1rem;
-  margin: 0;
-  background-color: var(--al-concrete-light);
-}
-
-.legend {
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--al-graphite);
-  padding: 0 0.35rem;
-}
-
-.radioList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  margin-top: 0.65rem;
-}
-
-.radioLabel {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  min-height: 44px;
-  padding: 0.6rem 0.85rem;
-  border-radius: 6px;
-  border: 1px solid var(--al-concrete);
-  background-color: var(--al-white);
-  color: var(--al-graphite);
-  font-weight: 700;
-  font-size: 0.9375rem;
-  cursor: pointer;
-}
-
-.radioLabel:hover {
-  border-color: var(--al-graphite);
-}
-
-.radioLabelActive {
-  background-color: var(--al-yellow-soft);
-  border-color: var(--al-graphite);
-  box-shadow: inset 0 0 0 1px var(--al-graphite);
-}
-
-.radioInput {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--al-graphite-dark);
-  margin: 0;
-  flex-shrink: 0;
-}
-
-.middleColumn {
+.heroContent {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
 
+.alicerce .heroTitle {
+  color: var(--al-white);
+  font-size: clamp(3rem, 14cqw, 6.5rem);
+  line-height: 0.95;
+}
+
+.heroTagline {
+  font-family: "Archivo Variable", system-ui, sans-serif;
+  font-stretch: 118%;
+  font-weight: 700;
+  font-size: 1.375rem;
+  color: var(--al-yellow);
+}
+
+.heroLead {
+  max-width: 34rem;
+  color: var(--al-white);
+  font-size: 1.0625rem;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.trustHighlights {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 34rem;
+}
+
+.trustHighlights li {
+  padding-left: 1.5rem;
+  position: relative;
+  color: #e7e9ec;
+}
+
+.trustHighlights li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--al-yellow);
+}
+
+.heroImage {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--al-graphite-2);
+}
+
+.heroImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .heroImage img {
+    animation: al-rise-photo 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .heroContent > * {
+    animation: al-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .heroContent > :nth-child(2) {
+    animation-delay: 0.07s;
+  }
+
+  .heroContent > :nth-child(3) {
+    animation-delay: 0.14s;
+  }
+
+  .heroContent > :nth-child(4) {
+    animation-delay: 0.21s;
+  }
+}
+
+@keyframes al-rise-photo {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes al-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Seções ---------- */
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  max-width: 60rem;
+}
+
+.sectionTitle {
+  font-size: clamp(1.75rem, 5.5cqw, 3.25rem);
+}
+
+.sectionSubtitle {
+  color: var(--al-muted);
+  font-size: 1.0625rem;
+}
+
+/* ---------- Orçamento rápido ---------- */
+.quoteSection {
+  padding: 4rem 0 5rem;
+}
+
+.quoteCard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.quoteHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 64rem;
+}
+
+.questionsGrid {
+  display: grid;
+  gap: 2rem;
+}
+
+.fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.legend {
+  display: block;
+  margin-bottom: 0.75rem;
+  padding: 0;
+  font-family: "Archivo Variable", system-ui, sans-serif;
+  font-stretch: 112%;
+  font-weight: 800;
+  font-size: 1.125rem;
+  color: var(--al-graphite);
+}
+
 .fieldGroup {
-  border: 1px solid var(--al-concrete);
-  border-radius: 8px;
-  padding: 1rem;
-  background-color: var(--al-concrete-light);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
 .fieldHint {
-  font-size: 0.875rem;
   color: var(--al-muted);
+  font-size: 0.9688rem;
+}
+
+.middleColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.radioList {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3.25rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--al-white);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.radioLabel:hover {
+  background-color: var(--al-concrete);
+}
+
+.radioLabelActive,
+.radioLabelActive:hover {
+  background-color: var(--al-graphite);
+  color: var(--al-white);
+}
+
+.radioInput {
+  appearance: none;
+  flex-shrink: 0;
+  width: 1.375rem;
+  height: 1.375rem;
   margin: 0;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+.radioInput::after {
+  content: "";
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background-color: var(--al-yellow);
+  transform: scale(0);
+  transition: transform 0.15s ease;
+}
+
+.radioInput:checked::after {
+  transform: scale(1);
 }
 
 .textInput {
   width: 100%;
-  min-height: 46px;
-  padding: 0.6rem 0.85rem;
-  border-radius: 6px;
-  border: 2px solid var(--al-graphite);
+  min-height: 3.25rem;
+  padding: 0.75rem 1rem;
+  border: 0;
   background-color: var(--al-white);
   color: var(--al-graphite);
-  font-size: 1rem;
   font-family: inherit;
+  font-size: 1rem;
 }
 
 .quickNeighborhoods {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  padding-top: 0.25rem;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .quickLabel {
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   color: var(--al-muted);
 }
 
 .quickChip {
-  min-height: 36px;
-  padding: 0.25rem 0.65rem;
-  border-radius: 4px;
-  border: 1px solid var(--al-graphite);
-  background-color: var(--al-white);
+  min-height: 2.75rem;
+  padding: 0.375rem 0.875rem;
+  border: 0;
+  background-color: var(--al-concrete);
   color: var(--al-graphite);
-  font-size: 0.8125rem;
+  font-family: inherit;
   font-weight: 700;
   cursor: pointer;
 }
@@ -380,13 +439,12 @@
 }
 
 .quoteSummaryBar {
-  background-color: var(--al-graphite-dark);
-  color: var(--al-white);
-  border-radius: 8px;
-  padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background-color: var(--al-graphite);
+  color: var(--al-white);
 }
 
 .summaryPreview {
@@ -396,336 +454,317 @@
 }
 
 .summaryTitle {
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   color: var(--al-yellow);
   font-weight: 700;
 }
 
 .summaryText {
-  font-size: 0.9375rem;
   color: var(--al-white);
-  margin: 0;
 }
 
-.quoteSubmitBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-height: 48px;
-  padding: 0.75rem 1.35rem;
-  border-radius: 6px;
-  background-color: var(--al-yellow);
-  color: var(--al-graphite-dark);
-  font-weight: 700;
-  font-size: 1rem;
-  text-decoration: none;
-  text-align: center;
-}
-
-.quoteSubmitBtn:hover {
-  background-color: var(--al-white);
-  color: var(--al-graphite-dark);
-}
-
+/* ---------- Serviços ---------- */
 .servicesSection {
-  padding: 3rem 0;
+  padding: 4rem 0 5rem;
   background-color: var(--al-white);
-  border-top: 1px solid var(--al-concrete);
-  border-bottom: 1px solid var(--al-concrete);
 }
 
 .servicesGrid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .serviceCard {
-  background-color: var(--al-concrete-light);
-  border: 1px solid var(--al-concrete);
-  border-top: 4px solid var(--al-graphite);
-  border-radius: 8px;
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
+  padding: 1.75rem;
+  background-color: var(--al-concrete-light);
 }
 
 .serviceTop {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.5rem;
 }
 
-.serviceTitle {
-  font-size: 1.25rem;
-  margin: 0;
+.alicerce .serviceTitle {
+  font-size: 1.375rem;
 }
 
 .serviceSummary {
-  font-size: 0.9375rem;
   color: var(--al-muted);
-  margin: 0;
 }
 
 .serviceItems {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  padding-left: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
-  font-size: 0.9375rem;
-  flex: 1;
+  gap: 0.5rem;
+}
+
+.serviceItems li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.serviceItems li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.625rem;
+  height: 0.625rem;
+  background-color: var(--al-yellow);
 }
 
 .serviceFooter {
+  margin-top: auto;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 0.75rem;
-  flex-wrap: wrap;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--al-concrete);
+  padding-top: 0.5rem;
 }
 
 .warrantyTag {
-  font-size: 0.8125rem;
   font-weight: 700;
-  background-color: var(--al-yellow-soft);
-  border: 1px solid var(--al-yellow);
+  font-size: 0.9375rem;
+  padding: 0.25rem 0.625rem;
+  background-color: var(--al-yellow);
   color: var(--al-graphite-dark);
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
 }
 
 .serviceLink {
-  font-weight: 700;
-  font-size: 0.9375rem;
-  color: var(--al-graphite-dark);
-  text-decoration: underline;
-  min-height: 44px;
   display: inline-flex;
   align-items: center;
+  min-height: 2.75rem;
+  color: var(--al-graphite);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: var(--al-yellow);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.35em;
 }
 
+/* ---------- Bairros (campo amarelo) ---------- */
 .neighborhoodsSection {
-  padding: 3rem 0;
-  background-color: var(--al-concrete-light);
+  padding: 4rem 0 5rem;
+  background-color: var(--al-yellow);
 }
 
 .neighborhoodsBox {
-  background-color: var(--al-white);
-  border: 1px solid var(--al-concrete);
-  border-radius: 12px;
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 2rem;
 }
 
 .neighborhoodsHeader {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.75rem;
+  max-width: 44rem;
+}
+
+.neighborhoodsHeader .sectionSubtitle {
+  color: var(--al-graphite-dark);
 }
 
 .neighborhoodsGrid {
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.65rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
 }
 
 .neighborhoodItem {
-  background-color: var(--al-concrete-light);
-  border: 1px solid var(--al-concrete);
-  border-left: 4px solid var(--al-yellow);
-  border-radius: 6px;
-  padding: 0.6rem 0.85rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--al-graphite-dark);
+  color: var(--al-white);
   font-weight: 700;
-  font-size: 0.9375rem;
 }
 
 .neighborhoodNote {
-  font-size: 0.875rem;
-  color: var(--al-muted);
-  margin: 0;
+  max-width: 44rem;
+  color: var(--al-graphite-dark);
+  font-weight: 700;
 }
 
+/* ---------- Obras realizadas ---------- */
 .worksSection {
-  padding: 3rem 0;
-  background-color: var(--al-white);
-  border-top: 1px solid var(--al-concrete);
+  padding: 4rem 0 5rem;
 }
 
 .worksGrid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
   gap: 1.5rem;
 }
 
 .workCard {
-  background-color: var(--al-concrete-light);
-  border: 1px solid var(--al-concrete);
-  border-radius: 10px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  background-color: var(--al-white);
+}
+
+.workPhoto {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
 }
 
 .workBody {
-  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  flex: 1;
+  padding: 1.5rem;
 }
 
 .workMeta {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
   flex-wrap: wrap;
-  font-size: 0.8125rem;
-  font-weight: 700;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  font-size: 0.9375rem;
   color: var(--al-muted);
+  font-weight: 700;
 }
 
 .workDuration {
+  color: var(--al-graphite);
   background-color: var(--al-yellow);
-  color: var(--al-graphite-dark);
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
+  padding: 0 0.5rem;
 }
 
-.workTitle {
-  font-size: 1.15rem;
-  margin: 0;
+.alicerce .workTitle {
+  font-size: 1.25rem;
 }
 
 .workCaption {
-  font-size: 0.9375rem;
   color: var(--al-muted);
-  margin: 0;
 }
 
+.planBand {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21 / 8;
+  min-height: 12rem;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
+/* ---------- Garantia ---------- */
 .warrantySection {
-  padding: 3rem 0;
+  padding: 4rem 0 5rem;
   background-color: var(--al-graphite);
   color: var(--al-white);
 }
 
 .warrantyBanner {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 2rem;
-  align-items: start;
+  gap: 2.5rem;
 }
 
 .warrantyContent {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
-.warrantyBadge {
-  align-self: flex-start;
-  background-color: var(--al-yellow);
-  color: var(--al-graphite-dark);
-  font-weight: 700;
-  font-size: 0.8125rem;
-  padding: 0.25rem 0.65rem;
-  border-radius: 4px;
-}
-
-.warrantySection .warrantyTitle {
+.alicerce .warrantyTitle {
   color: var(--al-white);
-  font-size: clamp(1.5rem, 3.2vw, 2.2rem);
-  margin: 0;
+  font-size: clamp(1.75rem, 5.5cqw, 3.25rem);
 }
 
 .warrantyDesc {
-  color: var(--al-concrete);
-  font-size: 1rem;
-  margin: 0;
+  max-width: 36rem;
+  color: #e7e9ec;
 }
 
 .warrantyList {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  padding-left: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  font-size: 0.9375rem;
-  color: var(--al-concrete-light);
+  gap: 0.75rem;
+}
+
+.warrantyList li {
+  padding: 1rem 1.25rem;
+  background-color: var(--al-graphite-2);
+  color: #e7e9ec;
+}
+
+.warrantyList strong {
+  color: var(--al-yellow);
 }
 
 .warrantyContactBox {
-  background-color: var(--al-graphite-dark);
-  border: 2px solid var(--al-yellow);
-  border-radius: 10px;
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  align-self: start;
+  padding: 2rem;
+  background-color: var(--al-yellow);
+  color: var(--al-graphite-dark);
 }
 
-.warrantySection .contactBoxTitle {
-  color: var(--al-white);
-  font-size: 1.25rem;
-  margin: 0;
+.alicerce .contactBoxTitle {
+  color: var(--al-graphite-dark);
+  font-size: 1.75rem;
 }
 
 .contactBoxText {
-  color: var(--al-concrete);
-  font-size: 0.9375rem;
-  margin: 0;
+  color: var(--al-graphite-dark);
 }
 
-.warrantyCta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-height: 48px;
-  padding: 0.75rem 1.25rem;
-  border-radius: 6px;
-  background-color: var(--al-yellow);
-  color: var(--al-graphite-dark);
-  font-weight: 700;
-  text-decoration: none;
+.warrantyContactBox .warrantyCta {
+  background-color: var(--al-graphite-dark);
+  color: var(--al-white);
 }
 
-.warrantyCta:hover {
-  background-color: var(--al-white);
-  color: var(--al-graphite-dark);
+.warrantyContactBox .warrantyCta:hover {
+  background-color: var(--al-graphite-2);
 }
 
 .contactAddress {
   font-style: normal;
-  font-size: 0.8125rem;
-  color: var(--al-concrete);
-  border-top: 1px solid var(--al-graphite);
-  padding-top: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
 }
 
+/* ---------- Rodapé ---------- */
 .footer {
+  padding: 3rem 0 2rem;
   background-color: var(--al-graphite-dark);
-  color: var(--al-white);
-  padding: 1.75rem 0;
-  border-top: 1px solid var(--al-graphite);
+  overflow: hidden;
+}
+
+.footerName {
+  font-family: "Archivo Variable", system-ui, sans-serif;
+  font-stretch: 118%;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 11cqw, 7.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: #6b747c;
+  text-wrap: balance;
 }
 
 .footerText {
+  margin-top: 1.5rem;
   font-size: 0.875rem;
-  color: var(--al-concrete);
-  margin: 0;
+  color: #d4d7db;
 }
 
+/* ---------- Telas maiores ---------- */
 @container demo (min-width: 640px) {
   .container {
     padding: 0 2rem;
@@ -735,23 +774,12 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .neighborhoodsGrid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
   .worksGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@container demo (min-width: 960px) {
-  .heroGrid {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 3rem;
-  }
-
-  .questionsGrid {
-    grid-template-columns: 1fr 1fr;
+  .neighborhoodsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .quoteSummaryBar {
@@ -759,8 +787,56 @@
     align-items: center;
     justify-content: space-between;
   }
+}
+
+@container demo (min-width: 900px) {
+  .hero {
+    padding: 4rem 0 5rem;
+  }
+
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .alicerce .heroTitle {
+    font-size: clamp(4.5rem, 8.5cqw, 6.5rem);
+  }
+
+  .heroImage {
+    aspect-ratio: 4 / 5;
+  }
+
+  .quoteSection,
+  .servicesSection,
+  .neighborhoodsSection,
+  .worksSection,
+  .warrantySection {
+    padding: 6rem 0 7rem;
+  }
+
+  .questionsGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .neighborhoodsGrid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 
   .warrantyBanner {
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: 4rem;
   }
+}
+
+.alicerce ::selection {
+  background: var(--al-yellow);
+  color: var(--al-graphite-dark);
 }

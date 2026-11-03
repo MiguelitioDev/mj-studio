@@ -6,7 +6,7 @@ export function Process() {
   return (
     <section id="como-funciona" className={styles.section}>
       <Container>
-        <div className={styles.header}>
+        <div className={styles.header} data-reveal>
           <h2 className={styles.title}>Como funciona</h2>
           <p className={styles.subtitle}>
             Quatro etapas diretas, do primeiro contato até o site publicado no
@@ -16,7 +16,12 @@ export function Process() {
 
         <ol className={styles.list}>
           {processSteps.map((step) => (
-            <li key={step.number} className={styles.item}>
+            <li
+              key={step.number}
+              className={`${styles.item} glass glass-sheen`}
+              data-reveal=""
+              data-rv-i={step.number - 1}
+            >
               <span className={styles.number} aria-hidden="true">
                 {step.number}
               </span>

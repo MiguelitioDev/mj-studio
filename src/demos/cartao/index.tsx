@@ -1,5 +1,4 @@
 import { Calendar, Camera, MapPin } from "lucide-react";
-import { DemoImage } from "../../components/ui/DemoImage";
 import { WhatsAppIcon } from "../../components/ui/WhatsAppIcon";
 import { buildMessage, buildWhatsAppUrl } from "../../lib/whatsapp";
 import type { DemoProps } from "../types";
@@ -21,13 +20,43 @@ interface TestimonialExample {
   context: string;
 }
 
-const PORTFOLIO_LABELS: readonly string[] = [
-  "Ensaio ao pôr do sol — Beira-Mar",
-  "Retrato corporativo em estúdio",
-  "Aniversário infantil em casa",
-  "Fotografia gastronômica autoral",
-  "Ensaio gestante no Parque do Cocó",
-  "Cobertura de batizado em família",
+interface PortfolioItem {
+  src: string;
+  title: string;
+  alt: string;
+}
+
+const PORTFOLIO: readonly PortfolioItem[] = [
+  {
+    src: "/img/cartao/por-do-sol.jpg",
+    title: "Ensaio ao pôr do sol, Beira-Mar",
+    alt: "Mulher de blusa laranja posando de frente para o mar, com a mão atrás da cabeça",
+  },
+  {
+    src: "/img/cartao/corporativo.jpg",
+    title: "Retrato corporativo",
+    alt: "Mulher de blazer azul-marinho e colar de pérolas, de braços cruzados e sorrindo",
+  },
+  {
+    src: "/img/cartao/aniversario.jpg",
+    title: "Aniversário infantil em casa",
+    alt: "Três crianças assoprando as velas de um bolo de aniversário",
+  },
+  {
+    src: "/img/cartao/gastronomia.jpg",
+    title: "Fotografia gastronômica autoral",
+    alt: "Panqueca em frigideira de ferro com laranja e mirtilos, sobre fundo azul-escuro",
+  },
+  {
+    src: "/img/cartao/gestante.jpg",
+    title: "Ensaio gestante à beira-mar",
+    alt: "Mulher grávida de perfil na praia, com a mão sobre a barriga, ao amanhecer",
+  },
+  {
+    src: "/img/cartao/batizado.jpg",
+    title: "Cobertura de batizado em família",
+    alt: "Bebê de roupa branca sendo batizado, com água escorrendo de uma concha",
+  },
 ];
 
 const ACTIONS: readonly QuickAction[] = [
@@ -55,7 +84,7 @@ const ACTIONS: readonly QuickAction[] = [
   },
   {
     id: "localizacao",
-    label: "Estúdio no Cocó — Como chegar",
+    label: "Estúdio no Cocó: como chegar",
     sublabel: "Rua Exemplo, 123 · Atendimento com hora marcada",
     note: "gostei do botão de localização do estúdio",
     icon: "location",
@@ -84,124 +113,126 @@ function ActionIcon({ type }: { type: QuickAction["icon"] }) {
     case "whatsapp":
       return <WhatsAppIcon />;
     case "calendar":
-      return <Calendar size={20} aria-hidden="true" />;
+      return <Calendar size={22} aria-hidden="true" />;
     case "instagram":
-      return <Camera size={20} aria-hidden="true" />;
+      return <Camera size={22} aria-hidden="true" />;
     case "location":
-      return <MapPin size={20} aria-hidden="true" />;
+      return <MapPin size={22} aria-hidden="true" />;
   }
 }
 
 export default function CartaoDemo({ businessName, compact = false }: DemoProps) {
   const name = businessName?.trim() || "Camila Rocha — Fotografia & Retratos";
+  const [displayName, ...roleParts] = name.split(" — ");
+  const role = roleParts.join(" — ") || "Fotografia";
 
   return (
     <div className={styles.cartao}>
-      <div className={styles.cardShell}>
-        <header className={styles.profileHeader}>
-          <div className={styles.avatarWrap}>
-            <DemoImage
-              label="Foto de perfil profissional"
-              round
-              tone="accent"
+      <div className={styles.layout}>
+        <header className={styles.profile}>
+          <figure className={styles.portrait}>
+            <img
+              src="/img/cartao/perfil.jpg"
+              alt="Mulher de suéter amarelo segurando uma câmera diante do rosto, em um parque com árvores"
+              width={900}
+              height={1125}
             />
+          </figure>
+          <div className={styles.profileText}>
+            <h1 className={styles.profileName}>{displayName}</h1>
+            <p className={styles.profileRole}>{role}</p>
+            <p className={styles.profileBio}>
+              Retratos femininos, famílias e marcas pessoais em Fortaleza/CE.
+              Luz natural ou estúdio no Cocó, prévia entregue em até 48h.
+            </p>
+            <p className={styles.profileContact}>Tel.: (85) 90000-0000</p>
           </div>
-          <h1 className={styles.profileName}>{name}</h1>
-          <p className={styles.profileRole}>
-            Fotógrafa de retratos femininos, famílias e marcas pessoais em
-            Fortaleza/CE
-          </p>
-          <p className={styles.profileBio}>
-            Luz natural ou estúdio no Cocó · Entrega da prévia em até 48h ·
-            Tel.: (85) 90000-0000
-          </p>
         </header>
 
-        <nav aria-label="Links principais de contato" className={styles.linksSection}>
-          <h2 className="sr-only">Botões de contato e agendamento</h2>
-          <ul className={styles.linksList}>
-            {ACTIONS.map((action) => {
-              const url = buildWhatsAppUrl(
-                buildMessage({
-                  source: "demo",
-                  modelName: "Cartão",
-                  businessName: name,
-                  notes: action.note,
-                }),
-              );
-              return (
-                <li key={action.id}>
-                  <a
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${action.label} — ${action.sublabel} (abre o WhatsApp)`}
-                    className={[
-                      styles.actionButton,
-                      action.primary ? styles.actionPrimary : styles.actionSecondary,
-                    ].join(" ")}
-                  >
-                    <span className={styles.actionIcon}>
-                      <ActionIcon type={action.icon} />
-                    </span>
-                    <span className={styles.actionText}>
-                      <span className={styles.actionLabel}>{action.label}</span>
-                      <span className={styles.actionSub}>{action.sublabel}</span>
-                    </span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+        <div className={styles.content}>
+          <nav aria-label="Links principais de contato" className={styles.linksSection}>
+            <h2 className="sr-only">Botões de contato e agendamento</h2>
+            <ul className={styles.linksList}>
+              {ACTIONS.map((action) => {
+                const url = buildWhatsAppUrl(
+                  buildMessage({
+                    source: "demo",
+                    modelName: "Cartão",
+                    businessName: name,
+                    notes: action.note,
+                  }),
+                );
+                return (
+                  <li key={action.id}>
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${action.label}: ${action.sublabel} (abre o WhatsApp)`}
+                      className={[
+                        styles.actionButton,
+                        action.primary ? styles.actionPrimary : styles.actionSecondary,
+                      ].join(" ")}
+                    >
+                      <span className={styles.actionIcon}>
+                        <ActionIcon type={action.icon} />
+                      </span>
+                      <span className={styles.actionText}>
+                        <span className={styles.actionLabel}>{action.label}</span>
+                        <span className={styles.actionSub}>{action.sublabel}</span>
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
 
-        <section className={styles.portfolioSection}>
-          <div className={styles.sectionTitleRow}>
+          <section className={styles.portfolioSection}>
             <h2 className={styles.sectionTitle}>Mini portfólio</h2>
-            <span className={styles.sectionHint}>6 trabalhos em destaque</span>
-          </div>
-          <div className={styles.portfolioGrid}>
-            {PORTFOLIO_LABELS.map((label, idx) => (
-              <div key={label} className={styles.portfolioSquare}>
-                <DemoImage
-                  label={label}
-                  ratio="1/1"
-                  tone={idx % 2 === 0 ? "light" : "accent"}
-                />
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {!compact && (
-          <section className={styles.testimonialsSection}>
-            <div className={styles.sectionTitleRow}>
-              <h2 className={styles.sectionTitle}>O que dizem os clientes</h2>
-            </div>
-            <div className={styles.testimonialList}>
-              {TESTIMONIALS.map((item) => (
-                <article key={item.id} className={styles.testimonialCard}>
-                  <span className={styles.exampleBadge}>
-                    Depoimento de exemplo
-                  </span>
-                  <blockquote className={styles.quote}>
-                    &ldquo;{item.quote}&rdquo;
-                  </blockquote>
-                  <p className={styles.author}>
-                    <strong>{item.author}</strong> — {item.context}
-                  </p>
-                </article>
+            <ul className={styles.portfolioGrid}>
+              {PORTFOLIO.map((item) => (
+                <li key={item.title} className={styles.portfolioItem}>
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    loading="lazy"
+                    width={900}
+                    height={900}
+                  />
+                  <span className={styles.portfolioCaption}>{item.title}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
-        )}
 
-        <footer className={styles.footer}>
-          <p className={styles.footerText}>
-            © 2026 {name} · Modelo de demonstração criado pela MJ Studios
-          </p>
-        </footer>
+          {!compact && (
+            <section className={styles.testimonialsSection}>
+              <h2 className={styles.sectionTitle}>O que dizem os clientes</h2>
+              <div className={styles.testimonialList}>
+                {TESTIMONIALS.map((item) => (
+                  <article key={item.id} className={styles.testimonialCard}>
+                    <blockquote className={styles.quote}>
+                      &ldquo;{item.quote}&rdquo;
+                    </blockquote>
+                    <p className={styles.author}>
+                      <strong>{item.author}</strong>, {item.context}
+                    </p>
+                    <p className={styles.exampleNote}>Depoimento de exemplo</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
       </div>
+
+      <footer className={styles.footer}>
+        <p className={styles.footerText}>
+          © 2026 {displayName}. Modelo de demonstração criado pela MJ Studios.
+          Fotos: Unsplash.
+        </p>
+      </footer>
     </div>
   );
 }

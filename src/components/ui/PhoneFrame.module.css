@@ -9,11 +9,13 @@
 
 .phone {
   width: 100%;
-  background-color: #1E1C1D;
+  background-color: #14101f;
   border-radius: var(--r-phone);
   padding: 12px 10px 14px;
-  box-shadow: 0 30px 60px -30px rgb(105 33 242 / 0.45);
-  border: 2px solid #1E1C1D;
+  border: 1px solid rgb(255 255 255 / 0.28);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.35),
+    0 40px 80px -30px rgb(105 33 242 / 0.75);
 }
 
 .speaker {
@@ -46,6 +48,6 @@
 .label {
   width: 100%;
   font-size: var(--fs-0);
-  color: rgb(255 255 255 / 0.78);
+  color: var(--texto-suave);
   line-height: var(--lh-body);
 }

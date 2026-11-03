@@ -6,6 +6,7 @@ import { site } from "../config/site";
 import { models } from "../data/models";
 import { niches } from "../data/niches";
 import { getDemo } from "../demos/registry";
+import { ScrollReveal } from "../components/ScrollReveal";
 import { DemoNotice } from "../demos/shared/DemoNotice";
 
 export default function ModelDemoPage() {
@@ -63,6 +64,7 @@ export default function ModelDemoPage() {
           }
         >
           <DemoComponent businessName={businessName} />
+          <ScrollReveal />
         </Suspense>
       </main>
     </>

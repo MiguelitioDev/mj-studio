@@ -42,11 +42,13 @@ export function DemoNotice({
           </label>
           <input
             id={inputId}
+            name="nome-do-negocio"
+            autoComplete="organization"
             type="text"
             maxLength={40}
             value={businessName}
             onChange={(e) => onBusinessNameChange(e.target.value)}
-            placeholder="Ex.: Meu Negócio"
+            placeholder="Ex.: Meu Negócio…"
             className={styles.input}
           />
         </div>
@@ -85,11 +87,13 @@ export function DemoNotice({
           </label>
           <input
             id={mobileInputId}
+            name="nome-do-negocio"
+            autoComplete="organization"
             type="text"
             maxLength={40}
             value={businessName}
             onChange={(e) => onBusinessNameChange(e.target.value)}
-            placeholder="Digite o nome do seu negócio"
+            placeholder="Digite o nome do seu negócio…"
             className={styles.input}
           />
         </div>

@@ -12,15 +12,15 @@ export const extras: Extra[] = [
   {
     name: "Hospedagem",
     price:
-      "planos gratuitos atendem a maioria dos sites deste porte; se precisar de um pago, informamos antes",
+      "inclusa na mensalidade; no projeto avulso, publicamos em hospedagem gratuita e avisamos antes se algum caso exigir plano pago",
   },
   {
-    name: "Manutenção mensal (alterações de texto, fotos e preços)",
-    price: "a partir de R$ 90/mês (opcional)",
+    name: "Alterações depois do projeto avulso",
+    price: "plano de manutenção a partir de R$ 49/mês (opcional) ou R$ 60 por alteração avulsa",
   },
   {
     name: "Página extra",
-    price: "R$ 250 por página",
+    price: "R$ 150 por página",
   },
   {
     name: "Logotipo simples",

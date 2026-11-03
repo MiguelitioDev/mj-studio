@@ -1,13 +1,35 @@
 :root {
-  /* Cores */
-  --fundo: #F6F5F7;
+  /* ---- Cores: tema noturno com vidro ---- */
+  --noite: #0d0916; /* fundo da página */
+  --noite-2: #150f26; /* faixas e superfícies sólidas */
+  --tinta: #1b1430; /* sólido escuro para botões e barras */
+  --texto: #f4f1ff; /* texto principal */
+  --texto-suave: rgb(244 241 255 / 0.78); /* texto secundário (contraste ≥ 7:1 sobre o fundo) */
+
+  --violeta: #6921f2; /* cor da logo: ação e marca */
+  --violeta-escuro: #5418c9;
+  --violeta-claro: #b79cff;
+  --violeta-texto: #b79cff; /* violeta legível sobre fundo escuro */
+  --indigo: #3b2bd9;
+  --magenta: #c13bd9;
+  --ciano: #35c9ff;
+  --zap: #25d366; /* verde do WhatsApp (só no botão flutuante) */
+
+  /* Vidro */
+  --vidro: rgb(255 255 255 / 0.07);
+  --vidro-forte: rgb(255 255 255 / 0.12);
+  --vidro-violeta: rgb(105 33 242 / 0.22);
+  --vidro-borda: rgb(255 255 255 / 0.16);
+  --vidro-brilho: rgb(255 255 255 / 0.28);
+  --vidro-blur: 18px;
+  --vidro-sombra: 0 24px 60px -28px rgb(0 0 0 / 0.65);
+
+  /* Apelidos legados (páginas ainda não migradas) */
+  --fundo: var(--noite);
   --grafite: #373435;
-  --violeta: #6921F2;
-  --violeta-escuro: #5418C9;
-  --lavanda: #ECE6FD;
-  --violeta-claro: #B79CFF;
-  --linha: #E4E1E8;
-  --branco: #FFFFFF;
+  --branco: #ffffff;
+  --lavanda: rgb(139 92 255 / 0.2);
+  --linha: var(--vidro-borda);
 
   /* Tipografia */
   --font-display: "Familjen Grotesk", system-ui, -apple-system, sans-serif;
@@ -27,12 +49,17 @@
   --measure: 68ch;
 
   /* Raios */
-  --r-sm: 6px;
-  --r-md: 14px;
+  --r-sm: 10px;
+  --r-md: 20px;
+  --r-lg: 28px;
   --r-phone: 36px;
 
-  /* Sombras */
-  --shadow-elevated: 0 24px 48px -24px rgb(55 52 53 / 0.35);
+  /* Sombras (só em elementos flutuantes) */
+  --shadow-elevated: var(--vidro-sombra);
+
+  /* Movimento */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
 
   /* Espaçamento (4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96px) */
   --s-1: 0.25rem;
@@ -47,4 +74,6 @@
 
   /* Layout */
   --container-max: 1160px;
+
+  color-scheme: dark;
 }

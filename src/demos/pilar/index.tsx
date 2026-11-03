@@ -1,4 +1,5 @@
-import { DemoImage } from "../../components/ui/DemoImage";
+import "@fontsource/cormorant-garamond/500.css";
+import "@fontsource/cormorant-garamond/700.css";
 import { WhatsAppIcon } from "../../components/ui/WhatsAppIcon";
 import { buildMessage, buildWhatsAppUrl } from "../../lib/whatsapp";
 import type { DemoProps } from "../types";
@@ -18,7 +19,6 @@ interface LawyerProfile {
   role: string;
   education: string;
   bio: string;
-  photoLabel: string;
 }
 
 interface LegalArticle {
@@ -109,7 +109,6 @@ const TEAM_MEMBERS: readonly LawyerProfile[] = [
     education:
       "Graduada em Direito pela Universidade Federal do Ceará (UFC) e Especialista em Direito Processual Civil e Negócios Imobiliários.",
     bio: "Atua há 14 anos na consultoria preventiva de contratos imobiliários, regularização patrimonial e condução de inventários extrajudiciais e judiciais no Ceará.",
-    photoLabel: "Retrato profissional da advogada Dra. Helena em escritório",
   },
   {
     id: "marcos-albuquerque",
@@ -119,7 +118,6 @@ const TEAM_MEMBERS: readonly LawyerProfile[] = [
     education:
       "Graduado em Direito pela Universidade de Fortaleza (UNIFOR), Pós-graduado em Direito Empresarial e LL.M. em Direito Corporativo.",
     bio: "Dedica-se à assessoria jurídica continuada de pequenas e médias empresas, estruturação de acordos societários e prevenção de passivos trabalhistas.",
-    photoLabel: "Retrato profissional do advogado Dr. Marcos em biblioteca jurídica",
   },
   {
     id: "beatriz-fontenele",
@@ -129,7 +127,6 @@ const TEAM_MEMBERS: readonly LawyerProfile[] = [
     education:
       "Graduada em Direito pela UNIFOR e Especialista em Direito Digital, Proteção de Dados e Relações de Consumo.",
     bio: "Responsável pelo acompanhamento processual perante o TJCE, elaboração de pareceres técnicos e adequação contratual à legislação de proteção de dados.",
-    photoLabel: "Retrato profissional da advogada Dra. Beatriz em sala de reunião",
   },
 ];
 
@@ -140,7 +137,7 @@ const LEGAL_ARTICLES: readonly LegalArticle[] = [
     date: "14 de outubro de 2026",
     readingTime: "Leitura de 4 min",
     title:
-      "Quais certidões verificar antes de assinar um contrato de compra e venda de imóvel",
+      "Certidões a conferir antes de comprar um imóvel",
     excerpt:
       "A análise prévia da matrícula atualizada e das certidões pessoais dos vendedores evita que dívidas anteriores recaiam sobre o imóvel adquirido.",
     keyPoints: [
@@ -155,7 +152,7 @@ const LEGAL_ARTICLES: readonly LegalArticle[] = [
     date: "28 de setembro de 2026",
     readingTime: "Leitura de 5 min",
     title:
-      "Inventário em cartório: requisitos legais, documentos necessários e etapas do procedimento",
+      "Inventário em cartório: requisitos e etapas",
     excerpt:
       "Quando há consenso entre os herdeiros, a via extrajudicial por escritura pública permite concluir a partilha de bens de forma célere, sempre com assistência de advogado.",
     keyPoints: [
@@ -170,7 +167,7 @@ const LEGAL_ARTICLES: readonly LegalArticle[] = [
     date: "09 de setembro de 2026",
     readingTime: "Leitura de 4 min",
     title:
-      "Cláusulas essenciais em contratos de prestação de serviços entre empresas",
+      "Cláusulas essenciais em contratos entre empresas",
     excerpt:
       "Um instrumento contratual claro delimita responsabilidades, prazos de entrega, critérios de reajuste e procedimentos formais em caso de rescisão.",
     keyPoints: [
@@ -183,6 +180,9 @@ const LEGAL_ARTICLES: readonly LegalArticle[] = [
 
 export default function PilarDemo({ businessName, compact = false }: DemoProps) {
   const name = businessName?.trim() || "Vasconcelos & Albuquerque Advocacia";
+  const hasAdvocacia = / Advocacia$/i.test(name);
+  const displayName = hasAdvocacia ? name.replace(/ Advocacia$/i, "") : name;
+  const tagline = hasAdvocacia ? "Advocacia" : "Consultoria e contencioso";
 
   const generalConsultationUrl = buildWhatsAppUrl(
     buildMessage({
@@ -246,15 +246,13 @@ export default function PilarDemo({ businessName, compact = false }: DemoProps) 
         <div className={styles.container}>
           <div className={styles.heroGrid}>
             <div className={styles.heroContent}>
-              <p className={styles.heroKicker}>
-                Fortaleza/CE · Atuação ética, técnica e preventiva
-              </p>
-              <h1 className={styles.heroTitle}>{name}</h1>
+              <h1 className={styles.heroTitle}>{displayName}</h1>
+              <p className={styles.heroTagline}>{tagline} em Fortaleza/CE</p>
               <p className={styles.heroLead}>
                 Escritório dedicado à assessoria jurídica de famílias,
-                profissionais e empresas. Trabalhamos com análise minuciosa de
-                documentos, redação contratual clara e acompanhamento próximo em
-                todas as etapas administrativas ou judiciais.
+                profissionais e empresas. Análise minuciosa de documentos,
+                redação contratual clara e acompanhamento próximo em todas as
+                etapas administrativas ou judiciais.
               </p>
 
               <div className={styles.heroActions}>
@@ -285,13 +283,14 @@ export default function PilarDemo({ businessName, compact = false }: DemoProps) 
               </div>
             </div>
 
-            <div className={styles.heroVisual}>
-              <DemoImage
-                label="Sala de reuniões do escritório com mesa de madeira e estante jurídica"
-                ratio="4/3"
-                tone="dark"
+            <figure className={styles.heroVisual}>
+              <img
+                src="/img/pilar/colunas.jpg"
+                alt="Colunatas de pedra de um prédio clássico com claraboia no teto, vistas de baixo para cima"
+                width={1100}
+                height={733}
               />
-            </div>
+            </figure>
           </div>
         </div>
       </section>
@@ -344,6 +343,15 @@ export default function PilarDemo({ businessName, compact = false }: DemoProps) 
         </div>
       </section>
 
+      <img
+        src="/img/pilar/biblioteca.jpg"
+        alt="Corredor de biblioteca antiga com bustos de mármore e estantes cheias de livros encadernados"
+        className={styles.libraryBand}
+        loading="lazy"
+        width={1100}
+        height={733}
+      />
+
       <section id="pilar-equipe" className={styles.teamSection}>
         <div className={styles.container}>
           <div className={styles.sectionHeader}>
@@ -357,11 +365,6 @@ export default function PilarDemo({ businessName, compact = false }: DemoProps) 
           <div className={styles.teamGrid}>
             {TEAM_MEMBERS.map((member) => (
               <article key={member.id} className={styles.memberCard}>
-                <DemoImage
-                  label={member.photoLabel}
-                  ratio="4/3"
-                  tone="light"
-                />
                 <div className={styles.memberBody}>
                   <div className={styles.memberHeader}>
                     <h3 className={styles.memberName}>{member.name}</h3>
@@ -382,6 +385,14 @@ export default function PilarDemo({ businessName, compact = false }: DemoProps) 
       {!compact && (
         <section id="pilar-artigos" className={styles.articlesSection}>
           <div className={styles.container}>
+            <img
+              src="/img/pilar/assinatura.jpg"
+              alt="Mãos de um homem de camisa azul assinando um documento sobre a mesa"
+              className={styles.articlesPhoto}
+              loading="lazy"
+              width={1100}
+              height={733}
+            />
             <div className={styles.sectionHeader}>
               <h2 className={styles.sectionTitle}>
                 Artigos e orientações informativas
@@ -406,6 +417,8 @@ export default function PilarDemo({ businessName, compact = false }: DemoProps) 
 
                 return (
                   <article key={article.id} className={styles.articleCard}>
+                    <h3 className={styles.articleTitle}>{article.title}</h3>
+
                     <div className={styles.articleMeta}>
                       <span className={styles.articleCategory}>
                         {article.category}
@@ -414,8 +427,6 @@ export default function PilarDemo({ businessName, compact = false }: DemoProps) 
                         {article.date} · {article.readingTime}
                       </span>
                     </div>
-
-                    <h3 className={styles.articleTitle}>{article.title}</h3>
                     <p className={styles.articleExcerpt}>{article.excerpt}</p>
 
                     <div className={styles.articlePointsBox}>
@@ -450,6 +461,14 @@ export default function PilarDemo({ businessName, compact = false }: DemoProps) 
         <div className={styles.container}>
           <div className={styles.contactGrid}>
             <div className={styles.contactInfo}>
+              <img
+                src="/img/pilar/corredor.jpg"
+                alt="Corredor amplo de escritório com paredes de vidro e luminárias pretas, em tons neutros"
+                className={styles.contactPhotoWide}
+                loading="lazy"
+                width={1100}
+                height={733}
+              />
               <h2 className={styles.contactTitle}>
                 Atendimento e localização em Fortaleza
               </h2>
@@ -483,6 +502,14 @@ export default function PilarDemo({ businessName, compact = false }: DemoProps) 
             </div>
 
             <div className={styles.contactCard}>
+              <img
+                src="/img/pilar/reuniao.jpg"
+                alt="Três profissionais de terno conversando em torno de uma mesa durante uma reunião"
+                className={styles.contactPhoto}
+                loading="lazy"
+                width={1100}
+                height={733}
+              />
               <h3 className={styles.cardHeading}>Agendar consulta inicial</h3>
               <p className={styles.cardText}>
                 Entre em contato com a nossa secretaria pelo WhatsApp informando
@@ -515,8 +542,12 @@ export default function PilarDemo({ businessName, compact = false }: DemoProps) 
 
       <footer className={styles.footer}>
         <div className={styles.container}>
+          <p className={styles.footerName} aria-hidden="true">
+            {displayName}
+          </p>
           <p className={styles.footerText}>
-            © 2026 {name} · Modelo de demonstração criado pela MJ Studios
+            © 2026 {name}. Modelo de demonstração criado pela MJ Studios.
+            Fotos: Unsplash.
           </p>
         </div>
       </footer>

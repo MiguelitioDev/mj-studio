@@ -20,14 +20,19 @@ export const faq: FaqItem[] = [
       "Domínio é o endereço do seu site na internet, como seunegocio.com.br. Ele custa cerca de R$ 40 por ano, pagos diretamente ao Registro.br. Nós fazemos o cadastro junto com você para que o domínio fique registrado no seu CPF ou CNPJ.",
   },
   {
-    question: "Preciso pagar mensalidade de hospedagem?",
+    question: "Como funciona a mensalidade e o que ela inclui?",
     answer:
-      "Na maioria dos casos, não. Sites institucionais e catálogos deste porte funcionam muito bem em serviços de hospedagem com plano gratuito. Se o seu projeto precisar de um plano pago por algum motivo específico, avisamos o valor antes de fechar negócio.",
+      "Você não paga taxa de entrada. A mensalidade cobre a criação do site, a hospedagem, o certificado de segurança (SSL), as alterações do mês e o suporte pelo WhatsApp. O contrato tem prazo mínimo de 12 meses; depois disso, você pode cancelar quando quiser. O domínio (cerca de R$ 40 por ano) fica no seu nome e é pago à parte.",
+  },
+  {
+    question: "Prefiro pagar uma vez só, sem mensalidade. É possível?",
+    answer:
+      "Sim. Em cada pacote existe a opção de projeto avulso, com pagamento único: R$ 590 no Essencial, R$ 1.190 no Profissional e R$ 1.990 no Completo. Nesse formato o site é publicado em hospedagem gratuita e as alterações depois da entrega ficam à parte, por R$ 60 cada ou no plano de manutenção a partir de R$ 49 por mês.",
   },
   {
     question: "Consigo mudar textos, fotos e preços depois que o site estiver no ar?",
     answer:
-      "Sim. Ao final do projeto você recebe acesso aos arquivos do site e pode pedir alterações avulsas quando precisar. Se o seu negócio muda preços ou cardápio toda semana, você também pode contratar nosso plano opcional de manutenção mensal a partir de R$ 90 por mês.",
+      "Sim. Ao final do projeto você recebe acesso aos arquivos do site e pode pedir alterações avulsas quando precisar. Na mensalidade, as alterações do mês já estão incluídas (1 no Essencial, 3 no Profissional e 6 no Completo). No projeto avulso, você pode contratar o plano opcional de manutenção a partir de R$ 49 por mês.",
   },
   {
     question: "Vocês fazem loja virtual com pagamento online e cálculo de frete?",
@@ -37,7 +42,7 @@ export const faq: FaqItem[] = [
   {
     question: "Como funciona o pagamento?",
     answer:
-      "Trabalhamos com 50% de entrada para iniciar o projeto e os outros 50% na entrega, quando o site estiver aprovado para ir ao ar. Você pode pagar via Pix ou cartão. Antes de qualquer pagamento, enviamos uma proposta por escrito com tudo o que está incluso.",
+      "Na mensalidade não há entrada: você começa a pagar quando o projeto é aprovado, via Pix ou cartão. No projeto avulso, são 50% para iniciar e 50% na entrega, quando o site estiver aprovado para ir ao ar. Antes de qualquer pagamento, enviamos uma proposta por escrito com tudo o que está incluso.",
   },
   {
     question: "Meu site vai aparecer no Google?",

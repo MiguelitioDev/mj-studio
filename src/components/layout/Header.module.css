@@ -2,9 +2,17 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: var(--grafite);
-  color: var(--branco);
-  border-bottom: 1px solid rgb(255 255 255 / 0.08);
+  background-color: rgb(13 9 22 / 0.88);
+  border-bottom: 1px solid var(--vidro-borda);
+  color: var(--texto);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .header {
+    background-color: rgb(13 9 22 / 0.55);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    backdrop-filter: blur(20px) saturate(160%);
+  }
 }
 
 .inner {
@@ -36,10 +44,10 @@
   min-width: 44px;
   min-height: 44px;
   padding: 0.5rem 0.75rem;
-  border-radius: var(--r-sm);
-  border: 1px solid rgb(255 255 255 / 0.25);
-  background-color: var(--grafite);
-  color: var(--branco);
+  border-radius: 999px;
+  border: 1px solid var(--vidro-borda);
+  background-color: var(--vidro);
+  color: var(--texto);
   font-weight: 700;
   cursor: pointer;
 }
@@ -58,9 +66,7 @@
   flex-direction: column;
   gap: var(--s-2);
   padding-block: var(--s-4);
-  background-color: var(--grafite);
-  color: var(--branco);
-  border-top: 1px solid rgb(255 255 255 / 0.08);
+  color: var(--texto);
 }
 
 .navList {
@@ -76,22 +82,25 @@
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  padding-inline: var(--s-3);
-  border-radius: var(--r-sm);
-  color: var(--branco);
+  padding-inline: var(--s-4);
+  border-radius: 999px;
+  color: var(--texto);
   font-weight: 700;
   text-decoration: none;
+  transition:
+    background-color 200ms var(--ease-out),
+    color 200ms var(--ease-out);
 }
 
 .navLink:hover {
-  color: var(--violeta-claro);
+  background-color: var(--vidro-forte);
+  color: var(--texto);
 }
 
-.navLinkActive {
-  color: var(--violeta-claro);
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.25em;
+.navLinkActive,
+.navLinkActive:hover {
+  background-color: var(--vidro-violeta);
+  color: var(--texto);
 }
 
 .header :focus-visible {
@@ -125,5 +134,14 @@
 
   .ctaWrap {
     padding-top: 0;
+  }
+}
+
+@media (max-width: 859px) {
+  .navOpen {
+    margin-inline: calc(var(--s-4) * -1);
+    padding-inline: var(--s-4);
+    background-color: rgb(21 15 38 / 0.96);
+    border-top: 1px solid var(--vidro-borda);
   }
 }

@@ -7,7 +7,7 @@ export function Commitments() {
     <section className={styles.section}>
       <Container>
         <div className={styles.layout}>
-          <div className={styles.header}>
+          <div className={styles.header} data-reveal>
             <h2 className={styles.title}>Nossos compromissos com você</h2>
             <p className={styles.subtitle}>
               Combinados claros desde o início para você contratar com
@@ -16,8 +16,13 @@ export function Commitments() {
           </div>
 
           <ul className={styles.list}>
-            {commitments.map((item) => (
-              <li key={item} className={styles.item}>
+            {commitments.map((item, index) => (
+              <li
+                key={item}
+                className={`${styles.item} glass`}
+                data-reveal=""
+                data-rv-i={index}
+              >
                 {item}
               </li>
             ))}

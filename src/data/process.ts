@@ -13,7 +13,7 @@ export const processSteps: ProcessStep[] = [
   {
     number: 2,
     title: "Proposta por escrito",
-    description: "Escopo, prazo e preço fechados antes de começar.",
+    description: "Escopo, prazo e valor da mensalidade (ou do projeto) fechados antes de começar.",
   },
   {
     number: 3,
@@ -28,7 +28,7 @@ export const processSteps: ProcessStep[] = [
 ];
 
 export const commitments: string[] = [
-  "Preço fechado antes de começar — sem surpresa no fim.",
+  "Valor fechado por escrito antes de começar: sem taxa de entrada na mensalidade e sem surpresa no fim.",
   "O domínio fica no seu nome.",
   "Site adaptado a celular e com recursos de acessibilidade.",
   "Política de privacidade e avisos da LGPD inclusos nos pacotes Profissional e Completo.",

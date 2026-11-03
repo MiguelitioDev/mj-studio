@@ -17,7 +17,10 @@ export const site = {
     privacyContactEmail: "",                   // TODO: e-mail do encarregado de dados (pode ser o mesmo)
   },
   businessHours: "Segunda a sexta, 9h às 18h",
-  payment: "50% para começar e 50% na entrega, via Pix ou cartão",   // revisar
+  payment: {
+    mensal: "Sem taxa de entrada. Mensalidade via Pix ou cartão, mínimo de 12 meses.",
+    projeto: "50% para começar e 50% na entrega, via Pix ou cartão.",
+  },   // revisar
   lastLegalUpdate: "2026-10-24",
   vlibras: true,                               // widget oficial de Libras do governo federal
 } as const;

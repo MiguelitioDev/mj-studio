@@ -1,6 +1,5 @@
 .section {
   padding: var(--s-8) 0;
-  border-bottom: 1px solid var(--linha);
 }
 
 .layout {
@@ -17,30 +16,44 @@
 }
 
 .title {
-  font-size: var(--fs-4);
-  color: var(--grafite);
+  font-size: clamp(2.25rem, 4.8vw, 3.9rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--texto);
+  text-wrap: balance;
 }
 
 .subtitle {
-  font-size: var(--fs-1);
-  color: var(--grafite);
+  font-size: var(--fs-2);
+  color: var(--texto-suave);
+  max-width: 36ch;
 }
 
 .list {
   list-style: none;
   padding: 0;
-  border-top: 1px solid var(--linha);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
 }
 
 .item {
-  padding: var(--s-4) 0;
-  border-bottom: 1px solid var(--linha);
+  max-width: none;
+  padding: var(--s-5);
+  border-radius: var(--r-md);
+  font-family: var(--font-display);
   font-size: var(--fs-2);
-  font-weight: 700;
-  color: var(--grafite);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--texto);
 }
 
 @media (min-width: 960px) {
+  .section {
+    padding: var(--s-9) 0;
+  }
+
   .layout {
     grid-template-columns: 1fr 1.4fr;
     gap: var(--s-8);

@@ -15,7 +15,8 @@ export interface MessageInput {
   nicheLabel?: string;     // "Barbearia e salão"
   modelName?: string;      // "Navalha"
   planName?: string;       // "Profissional"
-  planPrice?: number;      // 1600
+  planPrice?: number;      // 147 (mensal) ou 1190 (projeto)
+  planBilling?: "mensal" | "projeto";
   businessName?: string;   // digitado pelo visitante
   hasDomain?: "sim" | "nao" | "nao-sei";
   deadline?: string;       // "Sem pressa" | "Até 15 dias" | "Urgente"
@@ -28,6 +29,11 @@ const DOMAIN_LABELS: Record<NonNullable<MessageInput["hasDomain"]>, string> = {
   nao: "Não",
   "nao-sei": "Não sei",
 };
+
+const BILLING_SUFFIX = {
+  mensal: "/mês",
+  projeto: ", pagamento único",
+} as const;
 
 function sanitizeText(value: string | undefined, maxLength: number): string {
   if (!value) return "";
@@ -91,7 +97,9 @@ export function buildMessage(input: MessageInput): string {
   const plan = input.planName?.trim();
   if (plan) {
     const priceSuffix =
-      typeof input.planPrice === "number" ? ` (${formatBRL(input.planPrice)})` : "";
+      typeof input.planPrice === "number"
+        ? ` (${formatBRL(input.planPrice)}${input.planBilling ? BILLING_SUFFIX[input.planBilling] : ""})`
+        : "";
     details.push(`Pacote: ${plan}${priceSuffix}`);
   }
 

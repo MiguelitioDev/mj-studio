@@ -1,6 +1,5 @@
 .section {
   padding: var(--s-8) 0;
-  border-bottom: 1px solid var(--linha);
 }
 
 .header {
@@ -11,19 +10,31 @@
 }
 
 .title {
-  font-size: var(--fs-4);
-  color: var(--grafite);
+  font-size: clamp(2.25rem, 4.8vw, 3.9rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--texto);
+  text-wrap: balance;
 }
 
 .subtitle {
-  font-size: var(--fs-1);
-  color: var(--grafite);
+  font-size: var(--fs-2);
+  color: var(--texto-suave);
+  max-width: 52ch;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--s-5);
+}
+
+.cell {
+  display: flex;
+}
+
+.cell > * {
+  flex: 1;
 }
 
 .footer {
@@ -36,7 +47,11 @@
   min-height: 44px;
   font-weight: 700;
   font-size: var(--fs-1);
-  color: var(--violeta);
+  color: var(--violeta-texto);
+}
+
+.catalogLink:hover {
+  color: var(--texto);
 }
 
 @media (min-width: 720px) {
@@ -46,6 +61,10 @@
 }
 
 @media (min-width: 1040px) {
+  .section {
+    padding: var(--s-9) 0;
+  }
+
   .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }

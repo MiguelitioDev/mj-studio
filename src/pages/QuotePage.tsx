@@ -6,7 +6,7 @@ import { WhatsAppLink } from "../components/ui/WhatsAppLink";
 import { site } from "../config/site";
 import { models } from "../data/models";
 import { niches, type NicheSlug } from "../data/niches";
-import { plans, type PlanSlug } from "../data/plans";
+import { plans, type Billing, type PlanSlug } from "../data/plans";
 import { formatBRL } from "../lib/format";
 import { buildMessage, type MessageInput } from "../lib/whatsapp";
 import styles from "./QuotePage.module.css";
@@ -66,6 +66,10 @@ export default function QuotePage() {
 
   const [selectedPlan, setSelectedPlan] = useState<PlanSlug>(() =>
     parseInitialPlan(searchParams.get("pacote")),
+  );
+
+  const [billing, setBilling] = useState<Billing>(
+    searchParams.get("forma") === "projeto" ? "projeto" : "mensal",
   );
 
   const [businessName, setBusinessName] = useState<string>("");
@@ -157,7 +161,12 @@ export default function QuotePage() {
         ? "Ainda não sei"
         : currentModelObj?.name,
     planName: currentPlanObj?.name,
-    planPrice: currentPlanObj?.price,
+    planPrice: currentPlanObj
+      ? billing === "mensal"
+        ? currentPlanObj.monthly
+        : currentPlanObj.project
+      : undefined,
+    planBilling: billing,
     businessName: businessName || undefined,
     hasDomain,
     deadline: deadline || undefined,
@@ -363,6 +372,35 @@ export default function QuotePage() {
                     O valor final é sempre confirmado por escrito antes de começar
                   </legend>
 
+                  <div className={`${styles.inlineRadios} ${styles.billingToggle}`}>
+                    {(
+                      [
+                        ["mensal", "Mensalidade (sem entrada)"],
+                        ["projeto", "Projeto avulso (pagamento único)"],
+                      ] as const
+                    ).map(([value, label]) => {
+                      const checked = billing === value;
+                      return (
+                        <label
+                          key={value}
+                          className={`${styles.chipRadio} ${
+                            checked ? styles.chipRadioSelected : ""
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name="forma"
+                            value={value}
+                            checked={checked}
+                            onChange={() => setBilling(value)}
+                            className={styles.radioInput}
+                          />
+                          <span>{label}</span>
+                        </label>
+                      );
+                    })}
+                  </div>
+
                   <div className={styles.radioStack}>
                     {plans.map((plan) => {
                       const checked = selectedPlan === plan.slug;
@@ -387,7 +425,10 @@ export default function QuotePage() {
                           <div className={styles.radioContent}>
                             <div className={styles.planHeader}>
                               <span className={styles.radioLabelPrimary}>
-                                {plan.name} — {formatBRL(plan.price)}
+                                {plan.name} —{" "}
+                                {billing === "mensal"
+                                  ? `${formatBRL(plan.monthly)}/mês`
+                                  : `${formatBRL(plan.project)} (pagamento único)`}
                               </span>
                               {plan.badge && (
                                 <span className={styles.badge}>{plan.badge}</span>
@@ -442,7 +483,9 @@ export default function QuotePage() {
                       maxLength={40}
                       value={businessName}
                       onChange={(e) => setBusinessName(e.target.value)}
-                      placeholder="Ex.: Barbearia do Zé"
+                      name="nome-do-negocio"
+                      autoComplete="organization"
+                      placeholder="Ex.: Barbearia do Zé…"
                       className={styles.textInput}
                     />
                   </div>

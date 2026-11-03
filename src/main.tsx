@@ -16,6 +16,11 @@ import { warnMissingSiteInfo } from "./config/site";
 
 warnMissingSiteInfo();
 
+// Entrada ao rolar só com movimento liberado (ver RevealObserver e global.css)
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  document.documentElement.classList.add("rv-ativo");
+}
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>

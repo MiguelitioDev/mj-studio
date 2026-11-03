@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 .agy/
 .vercel
+
+# relatórios locais do inspetor de design
+.taste-skill
+.impeccable

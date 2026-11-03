@@ -1,17 +1,26 @@
 .section {
-  padding: var(--s-8) 0;
+  padding: var(--s-8) 0 var(--s-9);
 }
 
 .box {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: var(--s-4);
+  align-items: flex-start;
+  gap: var(--s-5);
   padding: var(--s-7) var(--s-5);
-  border-radius: var(--r-md);
-  background-color: var(--grafite);
-  color: var(--branco);
+  border-radius: var(--r-lg);
+  background-color: rgb(59 30 130 / 0.88);
+  border-color: rgb(183 156 255 / 0.5);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.4),
+    0 50px 120px -40px rgb(105 33 242 / 0.9);
+  color: var(--texto);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .box {
+    background-color: var(--vidro-violeta);
+  }
 }
 
 .box :focus-visible {
@@ -24,13 +33,17 @@
 }
 
 .title {
-  font-size: var(--fs-4);
-  color: var(--branco);
+  font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  color: var(--texto);
+  max-width: 14ch;
+  text-wrap: balance;
 }
 
 .subtitle {
   font-size: var(--fs-2);
-  color: rgb(255 255 255 / 0.78);
+  color: var(--texto-suave);
   max-width: 46ch;
 }
 
@@ -38,27 +51,66 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
   gap: var(--s-4);
   margin-top: var(--s-2);
+}
+
+.whatsappButton {
+  background-color: var(--texto);
+  color: #1b1430;
+  border-color: transparent;
+}
+
+.box .whatsappButton:hover {
+  background-color: #ffffff;
+  color: #1b1430;
 }
 
 .quoteLink {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  padding: 0.5rem var(--s-3);
-  color: var(--violeta-claro);
+  padding: 0.5rem 0;
+  color: var(--texto);
   font-weight: 700;
   text-decoration: underline;
 }
 
 .quoteLink:hover {
-  color: var(--branco);
+  color: var(--violeta-claro);
 }
 
 @media (min-width: 768px) {
   .box {
-    padding: var(--s-8) var(--s-7);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--s-8);
+    align-items: center;
+    padding: var(--s-9) var(--s-8);
+  }
+
+  .box > * {
+    grid-column: 1;
+  }
+
+  .mark {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    height: 280px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mark {
+    animation: flutua-marca 8s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes flutua-marca {
+  from {
+    transform: translate3d(0, 0, 0) rotate(-2deg);
+  }
+  to {
+    transform: translate3d(0, -14px, 0) rotate(2deg);
   }
 }

@@ -7,7 +7,7 @@ export function FinalCta() {
   return (
     <section className={styles.section}>
       <Container>
-        <div className={`${styles.box} on-dark`}>
+        <div className={`${styles.box} glass on-dark`} data-reveal="zoom">
           <img
             src="/brand/marca-branca.png"
             alt=""

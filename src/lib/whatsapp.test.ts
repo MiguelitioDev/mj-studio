@@ -104,4 +104,22 @@ describe("whatsapp message builder", () => {
       ].join("\n"),
     );
   });
+
+  it("indica mensalidade ou pagamento único ao lado do preço do pacote", () => {
+    const mensal = buildMessage({
+      source: "plan",
+      planName: "Profissional",
+      planPrice: 147,
+      planBilling: "mensal",
+    });
+    const avulso = buildMessage({
+      source: "plan",
+      planName: "Profissional",
+      planPrice: 1190,
+      planBilling: "projeto",
+    });
+
+    expect(mensal).toContain("Pacote: Profissional (R$ 147/mês)");
+    expect(avulso).toContain("Pacote: Profissional (R$ 1.190, pagamento único)");
+  });
 });

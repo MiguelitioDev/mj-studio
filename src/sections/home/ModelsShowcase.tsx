@@ -27,7 +27,7 @@ export function ModelsShowcase() {
   return (
     <section id="modelos" className={styles.section}>
       <Container>
-        <div className={styles.header}>
+        <div className={styles.header} data-reveal>
           <h2 className={styles.title}>Modelos prontos para o seu ramo</h2>
           <p className={styles.subtitle}>
             Cada modelo é ajustado com as cores, fotos e textos do seu negócio
@@ -43,8 +43,15 @@ export function ModelsShowcase() {
           ariaLabel="Filtrar modelos por ramo de negócio"
         >
           <div className={styles.grid}>
-            {visibleModels.map((model) => (
-              <ModelCard key={model.slug} model={model} />
+            {visibleModels.map((model, index) => (
+              <div
+                key={model.slug}
+                className={styles.cell}
+                data-reveal=""
+                data-rv-i={index % 3}
+              >
+                <ModelCard model={model} />
+              </div>
             ))}
           </div>
         </Tabs>

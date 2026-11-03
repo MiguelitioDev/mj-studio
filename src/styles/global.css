@@ -16,8 +16,9 @@ html {
 
 body {
   min-height: 100vh;
-  background-color: var(--fundo);
-  color: var(--grafite);
+  position: relative;
+  background-color: var(--noite);
+  color: var(--texto);
   font-family: var(--font-body);
   font-size: var(--fs-1);
   line-height: var(--lh-body);
@@ -34,8 +35,8 @@ h6 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: var(--lh-heading);
-  letter-spacing: -0.02em;
-  color: var(--grafite);
+  letter-spacing: -0.03em;
+  color: var(--texto);
   text-wrap: balance;
 }
 
@@ -62,17 +63,17 @@ select {
 }
 
 a {
-  color: var(--violeta);
+  color: var(--violeta-texto);
   text-decoration-thickness: 1.5px;
   text-underline-offset: 0.18em;
 }
 
 a:hover {
-  color: var(--violeta-escuro);
+  color: var(--texto);
 }
 
 :focus-visible {
-  outline: 3px solid var(--violeta);
+  outline: 3px solid var(--violeta-claro);
   outline-offset: 2px;
 }
 
@@ -115,4 +116,246 @@ main:focus {
 /* Modelos de demonstração reagem à largura do próprio espaço (página, celular ou miniatura) */
 .demo-container {
   container: demo / inline-size;
+}
+
+/* Entrada por rolagem nas páginas de modelo (ScrollReveal). O estado escondido só existe
+   com movimento permitido e depois que o script marcou o elemento; sem isso, tudo aparece. */
+@media (prefers-reduced-motion: no-preference) {
+  .mj-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--mj-delay, 0ms),
+      transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--mj-delay, 0ms);
+  }
+
+  .mj-reveal.mj-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Toque sem atraso de duplo toque; números de preço alinhados em coluna */
+a,
+button,
+summary,
+label,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+.tnum,
+[class*="price"],
+[class*="Price"],
+[class*="amount"],
+[class*="Total"],
+[class*="Subtotal"] {
+  font-variant-numeric: tabular-nums;
+}
+
+.demo-container p,
+.demo-container li,
+.demo-container dd {
+  text-wrap: pretty;
+}
+
+.demo-container :where(a, button, input, summary, select, textarea):focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------------
+   Tema noturno: aurora ao fundo, vidro nos painéis, entrada ao rolar
+   ------------------------------------------------------------------ */
+
+::selection {
+  background: var(--violeta);
+  color: #ffffff;
+}
+
+html {
+  scrollbar-color: rgb(183 156 255 / 0.5) var(--noite);
+}
+
+/* Aurora: manchas de cor desfocadas, atrás de tudo */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: var(--noite);
+}
+
+.aurora span {
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.aurora span:nth-child(1) {
+  top: -22vmax;
+  left: -14vmax;
+  background: var(--violeta);
+}
+
+.aurora span:nth-child(2) {
+  top: 22vh;
+  right: -24vmax;
+  background: var(--indigo);
+  opacity: 0.45;
+}
+
+.aurora span:nth-child(3) {
+  bottom: -26vmax;
+  left: 8vw;
+  background: var(--magenta);
+  opacity: 0.28;
+}
+
+.aurora span:nth-child(4) {
+  top: 62vh;
+  right: 18vw;
+  width: 28vmax;
+  height: 28vmax;
+  background: var(--ciano);
+  opacity: 0.16;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .aurora span:nth-child(1) {
+    animation: aurora-a 38s ease-in-out infinite alternate;
+  }
+
+  .aurora span:nth-child(2) {
+    animation: aurora-b 46s ease-in-out infinite alternate;
+  }
+
+  .aurora span:nth-child(3) {
+    animation: aurora-a 52s ease-in-out infinite alternate-reverse;
+  }
+
+  .aurora span:nth-child(4) {
+    animation: aurora-b 34s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes aurora-a {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(9vmax, 7vmax, 0) scale(1.18);
+  }
+}
+
+@keyframes aurora-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.1);
+  }
+  to {
+    transform: translate3d(-8vmax, -6vmax, 0) scale(0.9);
+  }
+}
+
+/* Vidro: painel fosco com borda de luz. Sem backdrop-filter, cai para um tom sólido. */
+.glass {
+  position: relative;
+  background-color: rgb(28 21 50 / 0.82);
+  border: 1px solid var(--vidro-borda);
+  border-radius: var(--r-md);
+  box-shadow:
+    inset 0 1px 0 var(--vidro-brilho),
+    var(--vidro-sombra);
+}
+
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .glass {
+    background-color: var(--vidro);
+    -webkit-backdrop-filter: blur(var(--vidro-blur)) saturate(150%);
+    backdrop-filter: blur(var(--vidro-blur)) saturate(150%);
+  }
+}
+
+/* Brilho que atravessa o vidro ao passar o mouse */
+.glass-sheen {
+  overflow: hidden;
+}
+
+.glass-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.14) 50%, transparent 65%);
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .glass-sheen::after {
+    transition: transform 900ms var(--ease-out);
+  }
+
+  .glass-sheen:hover::after {
+    transform: translateX(120%);
+  }
+}
+
+/* Entrada ao rolar: o estado escondido só existe depois que o script marca a página
+   (html.rv-ativo) e só com movimento permitido. Sem script, tudo aparece normal. */
+@media (prefers-reduced-motion: no-preference) {
+  html.rv-ativo [data-reveal]:not(.is-in) {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+  }
+
+  html.rv-ativo [data-reveal] {
+    transition:
+      opacity 700ms var(--ease-out) var(--rv-delay, 0ms),
+      transform 700ms var(--ease-out) var(--rv-delay, 0ms);
+  }
+
+  html.rv-ativo [data-reveal="esq"]:not(.is-in) {
+    transform: translate3d(-32px, 0, 0);
+  }
+
+  html.rv-ativo [data-reveal="zoom"]:not(.is-in) {
+    transform: scale(0.94);
+  }
+}
+
+/* Sequência de abertura do hero (CSS puro: não depende de script) */
+@media (prefers-reduced-motion: no-preference) {
+  .abre {
+    animation: abre 900ms var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 90ms + 120ms);
+  }
+}
+
+@keyframes abre {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 34px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Telas pequenas: aurora mais leve (menos desfoque, uma mancha a menos) */
+@media (max-width: 720px) {
+  .aurora span {
+    filter: blur(60px);
+  }
+
+  .aurora span:nth-child(4) {
+    display: none;
+  }
 }
